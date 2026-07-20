@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="src/main.css">
     <link rel="stylesheet" href="src/footer.css">
     <link rel="stylesheet" href="src/media.css">
-    
+    <link rel="stylesheet" href="src/hero.css">
+
     <script src="https://unpkg.com/scrollreveal"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,11 +39,11 @@
                         <li><a href="#">PROMOÇÕES/a></li>
                         <li><a href="#">DEPOIMENTOS</a></li>
                     </ul>
-        
+
                         <button class="btn" onclick="window.location.href=''">
                             CONTATO
                         </button>
-        
+
                     <div class="box-icons">
                         <i class="fa-brands fa-instagram"></i>
                         <i class="fa-brands fa-facebook-f"></i>
@@ -74,88 +75,54 @@
     </header>
 
     <main>
-        <section id="sobre">
-            <div class="box-text">
-                <span>BEM VINDO Á</span>
-                <h1>TRIP<br>PLANNER</h1>
-            </div>
-            <div class="btn-contact">
-                <a href="formulario.html">CONTATO</a>
-            </div>
-        </section>
 
-        <section id="trabalho">
-            <div class="text">
-                <h1>NOSSO TRABALHO</h1>
-            </div>
+        <section id="hero">
 
-            <div class="cards-work">
-                <div class="cards">
-                    <img src="img/mesa2.jpg" alt="">
-                    <h1>MADEIRAS DE QUALIDADE</h1>
-                    <div>
-                        <a href="">VER TRABALHO</a>
-                    </div>
+            <div class="slider">
+
+                <div class="slide active">
+                    <img src="img/banner 1.jpg" alt="Praia Tropical">
                 </div>
 
-                <div class="cards">
-                    <img src="img/estante1.png" alt="">
-                    <h1>ESTANTES</h1>
-                    <div>
-                        <a href="">VER TRABALHO</a>
-                    </div>
+                <div class="slide">
+                    <img src="img/banner 2.jpg" alt="Montanhas">
                 </div>
 
-                <div class="cards">
-                    <img src="img/mesa3.webp" alt="">
-                    <h1>MESAS</h1>
-                    <div>
-                        <a href="">VER TRABALHO</a>
-                    </div>
+                <div class="slide">
+                    <img src="img/banner 3.jpg" alt="Cidade">
                 </div>
 
-                <div class="cards">
-                    <img src="img/cozinha.webp" alt="">
-                    <h1>COZINHAS</h1>
-                    <div>
-                        <a href="">VER TRABALHO</a>
-                    </div>
+            </div>
+
+            <div class="overlay"></div>
+
+            <div class="hero-content">
+
+                <span>TRIP PLANNER</span>
+
+                <h1>
+                    Descubra o mundo com conforto e segurança
+                </h1>
+
+                <p>
+                    Escolha seu próximo destino entre centenas de pacotes exclusivos.
+                </p>
+
+                <div class="search-box">
+
+                    <input
+                        type="text"
+                        placeholder="Para onde você quer viajar?"
+                    >
+
+                    <button>
+                        EXPLORAR
+                    </button>
+
                 </div>
-            </div>
-    <div class="cards-work">
-        <div class="cards">
-            <img src="img/cozinha.webp" alt="">
-            <h1>PROJETO PERSONALIZADO</h1>
-            <div>
-                <a href="">VER TRABALHO</a>
-            </div>
-        </div>
 
-        <div class="cards">
-            <img src="img/mesa2.jpg" alt="">
-            <h1>MÓVEIS RÚSTICOS</h1>
-            <div>
-                <a href="">VER TRABALHO</a>
             </div>
-        </div>
 
-        <div class="cards">
-            <img src="img/estante1.png" alt="">
-            <h1>MESAS DE JANTAR</h1>
-            <div>
-                <a href="">VER TRABALHO</a>
-            </div>
-        </div>
-
-        <div class="cards">
-            <img src="img/mesa3.webp" alt="">
-            <h1>DECORAÇÃO EM MADEIRA</h1>
-            <div>
-                <a href="">VER TRABALHO</a>
-            </div>
-        </div>
-    </div>
-</section>
         </section>
     </main>
 
@@ -208,6 +175,7 @@
 <a href="https://wa.me/85998014915" target="_blank" class="botao-whatsapp">
     <i class="fa-brands fa-whatsapp"></i>
 </a>
+<script src="../TRIP-PLANNER/hero.js"></script>
 
 </body>
 </html>
