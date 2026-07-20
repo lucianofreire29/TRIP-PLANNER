@@ -1,0 +1,37 @@
+@keyframes header-ani {
+    from{
+        top: 0px;
+    }
+
+    to{
+        top: -100px;
+    }
+}
+
+header{
+    position: sticky;
+
+    animation: header-ani 1ms ease-in-out;
+    animation-timeline: scroll();
+}
+
+
+
+
+
+@keyframes main-text {
+    from{
+        top: 0px;
+    }
+
+    to{
+        top: 100px;
+    }
+}
+
+main #sobre .box-text, main #sobre a{
+    position: relative;
+
+    animation: main-text 1ms ease-in-out;
+    animation-timeline: view();
+}

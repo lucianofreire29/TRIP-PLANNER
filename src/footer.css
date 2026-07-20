@@ -1,0 +1,68 @@
+footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    background-color: #111;
+    color: #fff;
+    padding: 10px;
+    font-size: 15px;
+    letter-spacing: 5px;
+    text-align: center;
+}
+
+footer .logo{
+    display: flex;
+    flex-direction: column;
+}
+
+footer .contact{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+footer .contact span:hover{
+    text-decoration: underline;
+}
+
+footer .box-icons{
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+}
+
+footer .box-icons i{
+    font-size: 20px;
+    color: #fff;
+    padding: 5px;
+    transition: 0.5s;
+}
+
+footer .box-icons i:hover{
+    color: #000;
+}
+
+footer{
+    border-top: 3px solid rgb(178, 14, 14);
+}
+
+
+footer .copyright{
+    margin-top: 20px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #aaa;
+}
+
+footer .footer-btn a{
+    border: 2px solid rgb(178, 14, 14);
+    padding: 5px 20px;
+    color: #fff;
+    text-decoration: none;
+    transition: .5s;
+}
+
+footer .footer-btn a:hover{
+    background-color: rgb(178, 14, 14);
+}

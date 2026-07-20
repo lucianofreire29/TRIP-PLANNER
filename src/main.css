@@ -1,0 +1,393 @@
+
+
+
+
+main #sobre{
+    background-image: url('../img/banner\ 1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+
+    display: flex;
+    justify-content: end;
+    padding-bottom: 200px;
+    padding-inline: 30px;
+    flex-direction: column;
+}
+
+main #sobre .box-text{
+    color: #fff;
+}
+
+main #sobre .box-text span{
+    font-size: 20px;
+}
+
+main #sobre .box-text h1{
+    font-size: 50px;
+}
+
+main #sobre a{
+    margin-top: 10px;
+    border: 2px solid rgb(178, 14, 14);
+    background-color: transparent;
+    padding: 15px 30px;
+    color: #fff;
+    transition: 0.5s;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;    
+}
+
+main #sobre a:hover{
+    background-color: rgb(178, 14, 14);
+}
+
+
+main #trabalho{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding-top: 80px;
+    background-color: #efefef;
+}
+
+main #trabalho .text h1{
+    color: rgb(178, 14 ,14);
+    font-size: 40px;
+    font-weight: 500;
+    letter-spacing: 5px;
+}
+
+main #trabalho .cards-work{
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+main #trabalho .cards-work .cards{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 300px;
+    height: 500px;
+    
+}
+
+main #trabalho .cards-work .cards h1{
+    letter-spacing: 5px;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+main #trabalho .cards-work .cards img{
+    height: 300px;
+    width: 300px;
+}
+
+main #trabalho .cards-work .cards div a{
+    margin-top: 10px;
+    border: 2px solid rgb(178, 14, 14);
+    background-color: transparent;
+    padding: 15px 30px;
+    color: rgb(178, 14 ,14);
+    transition: 0.5s;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;    
+}
+
+main #trabalho .cards-work .cards div a:hover{
+    background-color: rgb(178, 14, 14);
+    color: #fff;
+}
+
+.botao-whatsapp {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25d366; 
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    text-decoration: none;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.botao-whatsapp:hover {
+    background-color: #128c7e; 
+    transform: scale(1.1);
+}
+
+.botao-whatsapp i{
+    font-size: 34px;
+    color: white;
+}
+
+
+
+.banner-moveis-antigos{
+    background-image: url("../img/banner\ 1.jpg") !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+
+/*==========================================
+TRABALHO COLABORATIVO
+==========================================*/
+
+.banner-colaborativo{
+    background-image: url("../img/banner-colaborativo.jpg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    height: 100vh;
+
+    display: flex;
+    justify-content: end;
+    flex-direction: column;
+
+    padding-bottom: 200px;
+    padding-inline: 30px;
+}
+
+.banner-colaborativo .box-text{
+    color: #fff;
+}
+
+.banner-colaborativo .box-text span{
+    font-size: 20px;
+}
+
+.banner-colaborativo .box-text h1{
+    font-size: 50px;
+    letter-spacing: 5px;
+    font-weight: 500;
+}
+
+.banner-colaborativo a{
+    margin-top: 10px;
+    border: 2px solid rgb(178,14,14);
+    padding: 15px 30px;
+    color: #fff;
+    text-decoration: none;
+    display: inline-block;
+    transition: .5s;
+}
+
+.banner-colaborativo a:hover{
+    background: rgb(178,14,14);
+}
+
+/*====================*/
+
+.parceria{
+
+    background: #efefef;
+
+    display: flex;
+    justify-content: center;
+
+    padding: 120px 30px;
+
+}
+
+.parceria .text{
+
+    width: 900px;
+    text-align: center;
+
+}
+
+.parceria .text h1{
+
+    color: rgb(178,14,14);
+
+    font-size: 40px;
+
+    font-weight: 500;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 40px;
+
+}
+
+.parceria .text p{
+
+    color: #444;
+
+    line-height: 35px;
+
+    font-size: 18px;
+
+}
+
+/*====================*/
+
+main .text{
+
+    display: flex;
+    justify-content: center;
+
+    margin-top: 30px;
+    margin-bottom: 60px;
+
+}
+
+main .text h1{
+
+    color: rgb(178,14,14);
+
+    font-size: 40px;
+
+    font-weight: 500;
+
+    letter-spacing: 5px;
+
+}
+
+/*====================*/
+
+main .cards-work{
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 30px;
+
+    flex-wrap: wrap;
+
+    margin-bottom: 120px;
+
+}
+
+/* reutiliza exatamente seus cards */
+
+main .cards{
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 30px;
+
+    width: 300px;
+
+}
+
+main .cards img{
+
+    width: 300px;
+
+    height: 320px;
+
+    object-fit: cover;
+
+}
+
+main .cards h1{
+
+    font-size: 14px;
+
+    font-weight: 400;
+
+    letter-spacing: 5px;
+
+}
+
+main .cards a{
+
+    border:2px solid rgb(178,14,14);
+
+    padding:15px 30px;
+
+    color:rgb(178,14,14);
+
+    text-decoration:none;
+
+    transition:.5s;
+
+}
+
+main .cards a:hover{
+
+    background:rgb(178,14,14);
+
+    color:#fff;
+
+}
+
+/*====================*/
+
+.cta-colaborativo{
+
+    background:#111;
+
+    color:#fff;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:120px 30px;
+
+}
+
+.cta-colaborativo span{
+
+    font-size:18px;
+
+    letter-spacing:4px;
+
+}
+
+.cta-colaborativo h1{
+
+    font-size:48px;
+
+    font-weight:500;
+
+    letter-spacing:5px;
+
+    margin:25px 0 40px;
+
+    text-align:center;
+
+}
+
+.cta-colaborativo a{
+
+    border:2px solid rgb(178,14,14);
+
+    padding:18px 35px;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    transition:.5s;
+
+}
+
+.cta-colaborativo a:hover{
+
+    background:rgb(178,14,14);
+
+}
+
+
