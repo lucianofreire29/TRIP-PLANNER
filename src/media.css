@@ -78,3 +78,44 @@
         margin-left: 0;
     }
 }
+
+@media(max-width:900px){
+
+    .container{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .texto{
+        width:100%;
+    }
+
+    .texto h1{
+        font-size:40px;
+    }
+
+    form{
+        max-width:100%;
+    }
+
+}
+
+@media(max-width:600px){
+
+    main.contact-page{
+        padding: 120px 40px 180px;
+    }
+
+    .texto h1{
+        font-size:32px;
+    }
+
+    .texto p{
+        font-size:16px;
+    }
+
+    form{
+        padding:30px;
+    }
+
+}
