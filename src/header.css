@@ -26,7 +26,23 @@ header .logo{
     display: flex;
     flex-direction: column;
     text-align: center;
-    gap: 2px;
+    justify-content: center;
+    cursor: pointer;
+}
+
+header .logo h1{
+    color:#142143;
+    font-size: 32px;
+    letter-spacing: 6px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+header .logo span{
+    color: #444;
+    font-size: 14px;
+    letter-spacing: 8px;
+    margin-top: 5px;
 }
 
 header .nav-header{
