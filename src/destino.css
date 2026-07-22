@@ -1,0 +1,212 @@
+.destino-detalhe{
+    background:#efefef;
+    min-height:100vh;
+}
+
+
+
+.destino-hero{
+    height:80vh;
+    position:relative;
+}
+
+.destino-imagem{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.destino-overlay{
+    position:absolute;
+    inset:0;
+    background:
+    linear-gradient(
+        rgba(0,0,0,.35),
+        rgba(0,0,0,.65)
+    );
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+}
+
+
+
+.destino-titulo{
+    font-size:65px;
+    margin-bottom:20px;
+}
+
+
+.destino-pais{
+    font-size:22px;
+    margin-bottom:15px;
+}
+
+
+.destino-estrelas{
+    color:#ffc107;
+    font-size:25px;
+}
+
+
+.destino-conteudo{
+    padding:80px 8%;
+}
+
+
+
+.destino-descricao-box{
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.08);
+    margin-bottom:40px;
+}
+
+.destino-descricao-box h2{
+    color:#142143;
+    margin-bottom:20px;
+}
+
+
+.destino-descricao{
+    color:#666;
+    line-height:1.8;
+    font-size:18px;
+}
+
+.destino-info-box{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+    margin-bottom:40px;
+}
+
+
+
+.info-card{
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.08);
+}
+
+.info-card i{
+    font-size:30px;
+    color:#1a5d94;
+    margin-bottom:15px;
+}
+
+
+.info-card span{
+    display:block;
+    color:#777;
+    margin-bottom:10px;
+}
+
+.info-card strong{
+    color:#142143;
+}
+
+
+.destino-orcamento{
+    background:#142143;
+    color:white;
+    padding:40px;
+    border-radius:20px;
+    text-align:center;
+}
+
+.destino-preco{
+    display:block;
+    font-size:35px;
+    margin:20px;
+}
+
+.destino-orcamento button{
+    background:#1a5d94;
+    color:white;
+    border:none;
+    padding:16px 40px;
+    border-radius:30px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+@media(max-width:768px){
+    .destino-titulo{
+        font-size:40px;
+    }
+    .destino-info-box{
+
+        grid-template-columns:1fr;
+    }
+    .destino-conteudo{
+        padding:50px 5%;
+    }
+}
+
+
+.galeria-destino{
+
+    padding:60px 8%;
+
+}
+
+
+
+.galeria-principal img{
+
+    width:100%;
+
+    height:500px;
+
+    object-fit:cover;
+
+    border-radius:20px;
+
+}
+
+
+
+.galeria-miniaturas{
+
+    display:flex;
+
+    gap:20px;
+
+    margin-top:20px;
+
+}
+
+
+
+.miniatura{
+
+    width:120px;
+
+    height:90px;
+
+    object-fit:cover;
+
+    border-radius:15px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+
+
+.miniatura:hover{
+
+    transform:scale(1.08);
+
+}

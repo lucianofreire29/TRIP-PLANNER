@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>Destino | Trip Planner</title>
+
+
+<link rel="stylesheet" href="src/header.css">
+
+<link rel="stylesheet" href="src/footer.css">
+
+<link rel="stylesheet" href="src/destino.css">
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+
+</head>
+
+<body>
+    <header>
+    <div class="logo">
+        <h1>TRIP</h1>
+        <span>PLANNER</span>
+    </div>
+
+    <div class="menu-burguer">
+        <div class="icon-burguer" onclick="toggleMenu()">
+        <i class="fa-solid fa-bars"></i>
+        </div>
+
+            <div class="menu-drop">
+                <nav class="nav-header">
+                    <ul class="ul1">
+                        <li><a href="index.html">HOME</a></li>
+                        <li><a href="#destinos">DESTINOS</a></li>
+                        <li><a href="pacotes.html">PACOTES/<a></li>
+                        <li><a href="#">PROMOÇÕES</a></li>
+                        <li><a href="#">DEPOIMENTOS</a></li>
+                    </ul>
+
+            <button class="btn" onclick="window.location.href = 'form.html'">
+            Fale Conosco
+            </button>
+
+            <div class="box-icons">
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-facebook-f"></i>
+            <i class="fa-brands fa-linkedin-in"></i>
+            </div>
+        </nav>
+        </div>
+    </div>
+
+        <nav class="nav-header">
+            <ul class="ul1">
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="#destinos">DESTINOS</a></li>
+                    <li><a href="pacotes.html">PACOTES</a></li>
+                    <li><a href="#">PROMOÇÕES</a></li>
+            </ul>
+
+        <button class="btn" onclick="window.location.href = 'form.html'">
+        Fale Conosco
+        </button>
+
+        <div class="box-icons">
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-facebook-f"></i>
+        <i class="fa-brands fa-linkedin-in"></i>
+        </div>
+    </nav>
+    </header>
+
+        <main>
+        <section class="destino-detalhe">
+
+            <div class="destino-hero">
+
+                <img class="destino-imagem" src="" alt="">
+
+                <div class="destino-overlay">
+
+                    <h1 class="destino-titulo"></h1>
+
+                    <span class="destino-pais"></span>
+
+                    <div class="destino-estrelas"></div>
+
+                </div>
+            </div>
+            <div class="galeria-destino">
+
+            <div class="galeria-principal">
+
+                <img 
+                class="imagem-principal"
+                src=""
+                alt=""
+                >
+
+            </div>
+
+
+            <div class="galeria-miniaturas">
+
+            </div>
+
+            </div>
+            <div class="destino-conteudo">
+                <div class="destino-descricao-box">
+
+                    <h2>
+                        Sobre o destino
+                    </h2>
+                    <p class="destino-descricao"></p>
+
+                </div>
+
+                <div class="destino-info-box">
+
+                    <div class="info-card">
+
+                        <i class="fa-solid fa-location-dot"></i>
+
+                        <span>Localização</span>
+
+                        <strong class="info-pais"></strong>
+
+                    </div>
+                    <div class="info-card">
+
+                        <i class="fa-solid fa-star"></i>
+
+                        <span>Avaliação</span>
+
+                        <strong class="info-avaliacao"></strong>
+
+                    </div>
+
+                    <div class="info-card">
+
+                        <i class="fa-solid fa-tag"></i>
+
+                        <span>Categoria</span>
+
+                        <strong class="info-categoria"></strong>
+
+                    </div>
+                </div>
+                <div class="destino-orcamento">
+                    <h2>
+                        Planeje sua viagem
+                    </h2>
+                    <strong class="destino-preco"></strong>
+
+                    <button>
+                        Solicitar orçamento
+                    </button>
+
+                </div>
+            </div>
+        </section>
+        </main>
+
+
+
+    <footer>
+    <div class="footer-container">
+        <div class="footer-logo">
+        <h2>TRIP</h2>
+        <span>PLANNER</span>
+        </div>
+
+        <div class="footer-column">
+        <h3>Institucional</h3>
+
+                    <a href="index.html">Home</a>
+                    <a href="#destinos">Destinos</a>
+                    <a href="pacotes.html">Pacotes</a>
+                    <a href="#">Promoções</a>
+                    <a href="form.html">Contato</a>
+                </div>
+
+        <div class="footer-column">
+        <h3>Serviços</h3>
+
+                    <a href="#">Passagens</a>
+                    <a href="#">Hotéis</a>
+                    <a href="#">Seguro Viagem</a>
+                    <a href="#">Parcelamento</a>
+                    <a href="form.html">Atendimento 24h</a>
+                </div>
+
+        <div class="footer-column">
+            <h3>Contato</h3>
+
+        <span>Fortaleza - CE</span>
+        <span>(85) 99999-9999</span>
+        <span>contato@tripplanner.com</span>
+
+        <div class="footer-icons">
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-facebook-f"></i>
+            <i class="fa-brands fa-linkedin-in"></i>
+        </div>
+        </div>
+    </div>
+
+    <hr />
+
+    <div class="footer-bottom">
+        <span>© 2026 TRIP PLANNER. Todos os direitos reservados.</span>
+
+        <span>Desenvolvido por Karla gonzaga e Luciano Freire.</span>
+    </div>
+    </footer>
+
+
+
+<script type="module" src="JS/destino-detalhe.js"></script>
+
+<a href="https://wa.me/85998014915" target="_blank" class="botao-whatsapp">
+    <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+</body>
+
+</html>
