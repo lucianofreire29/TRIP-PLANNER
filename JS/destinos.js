@@ -1,94 +1,96 @@
 const destinos = [
-  {
-    id: 1,
-    nome: "Fernando de Noronha",
-    pais: "Brasil",
-    regiao: "Nordeste",
-    preco: 2990,
-    imagem: "img/card1.jpg",
-    estrelas: 5,
-    categoria: "Praia",
-  },
 
-  {
-    id: 2,
-    nome: "Paris",
-    pais: "França",
-    regiao: "Europa",
-    preco: 5490,
-    imagem: "img/card2.jpg",
-    estrelas: 5,
-    categoria: "Cidade",
-  },
+    {
+        id: 1,
+        nome: "Fernando de Noronha",
+        pais: "Brasil",
+        regiao: "Nordeste",
+        preco: 2990,
+        imagem: "img/card1.jpg",
+        estrelas: 5,
+        categoria: "Praia",
+    },
 
-  {
-    id: 3,
-    nome: "Suíça",
-    pais: "Suíça",
-    regiao: "Europa",
-    preco: 7990,
-    imagem: "img/card3.jpg",
-    estrelas: 5,
-    categoria: "Montanha",
-  },
+    {
+        id: 2,
+        nome: "Paris",
+        pais: "França",
+        regiao: "Europa",
+        preco: 5490,
+        imagem: "img/card2.jpg",
+        estrelas: 5,
+        categoria: "Cidade",
+    },
 
-  {
-    id: 4,
-    nome: "Maldivas",
-    pais: "Maldivas",
-    regiao: "Ásia",
-    preco: 9990,
-    imagem: "img/card4.jpg",
-    estrelas: 5,
-    categoria: "Praia",
-  },
+    {
+        id: 3,
+        nome: "Suíça",
+        pais: "Suíça",
+        regiao: "Europa",
+        preco: 7990,
+        imagem: "img/card3.jpg",
+        estrelas: 5,
+        categoria: "Montanha",
+    },
 
-  {
-    id: 5,
-    nome: "Cancún",
-    pais: "México",
-    regiao: "América",
-    preco: 4890,
-    imagem: "img/card5.jpg",
-    estrelas: 5,
-    categoria: "Praia",
-  },
+    {
+        id: 4,
+        nome: "Maldivas",
+        pais: "Maldivas",
+        regiao: "Ásia",
+        preco: 9990,
+        imagem: "img/card4.jpg",
+        estrelas: 5,
+        categoria: "Praia",
+    },
 
-  {
-    id: 6,
-    nome: "Tóquio",
-    pais: "Japão",
-    regiao: "Ásia",
-    preco: 8900,
-    imagem: "img/card6.jpg",
-    estrelas: 5,
-    categoria: "Cidade",
-  },
+    {
+        id: 5,
+        nome: "Cancún",
+        pais: "México",
+        regiao: "América",
+        preco: 4890,
+        imagem: "img/card5.jpg",
+        estrelas: 5,
+        categoria: "Praia",
+    },
 
-  {
-    id: 7,
-    nome: "Dubai",
-    pais: "Emirados Árabes Unidos",
-    regiao: "Oriente Médio",
-    preco: 9800,
-    imagem: "img/card7.jpg",
-    estrelas: 5,
-    categoria: "Cidade",
-  },
+    {
+        id: 6,
+        nome: "Tóquio",
+        pais: "Japão",
+        regiao: "Ásia",
+        preco: 8900,
+        imagem: "img/card6.jpg",
+        estrelas: 5,
+        categoria: "Cidade",
+    },
 
-  {
-    id: 8,
-    nome: "Santorini",
-    pais: "Grécia",
-    regiao: "Europa",
-    preco: 8200,
-    imagem: "img/card8.jpg",
-    estrelas: 5,
-    categoria: "Praia",
-  },
+    {
+        id: 7,
+        nome: "Dubai",
+        pais: "Emirados Árabes Unidos",
+        regiao: "Oriente Médio",
+        preco: 9800,
+        imagem: "img/card7.jpg",
+        estrelas: 5,
+        categoria: "Cidade",
+    },
+
+    {
+        id: 8,
+        nome: "Santorini",
+        pais: "Grécia",
+        regiao: "Europa",
+        preco: 8200,
+        imagem: "img/card8.jpg",
+        estrelas: 5,
+        categoria: "Praia",
+    },
+
 ];
 
-// ELEMENTOS
+
 
 const cardsContainer = document.querySelector(".cards-destinos");
 const searchInput = document.querySelector("#searchDestino");
@@ -97,77 +99,108 @@ const filtroPreco = document.querySelector("#filtroPreco");
 
 let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
 
-// CARREGAR PAÍSES
 
-function carregarPaises() {
-  filtroPais.innerHTML = `
+
+
+let destinosAtual = destinos;
+
+
+function carregarPaises(){
+
+    filtroPais.innerHTML = `
         <option value="">
             🌎 Todos os países
         </option>
     `;
 
-  const paises = destinos.map((destino) => destino.pais);
 
-  const paisesUnicos = [...new Set(paises)];
+    const paises = destinos.map(destino => destino.pais);
 
-  paisesUnicos.sort();
 
-  paisesUnicos.forEach((pais) => {
-    const option = document.createElement("option");
+    const paisesUnicos = [...new Set(paises)];
 
-    option.value = pais;
-    option.textContent = pais;
 
-    filtroPais.appendChild(option);
-  });
+    paisesUnicos.sort();
+
+
+    paisesUnicos.forEach(pais=>{
+
+        const option = document.createElement("option");
+
+        option.value = pais;
+
+        option.textContent = pais;
+
+        filtroPais.appendChild(option);
+
+    });
+
 }
 
-// FILTROS
 
-function aplicarFiltros() {
-  const texto = searchInput.value.toLowerCase();
+function aplicarFiltros(){
 
-  const paisSelecionado = filtroPais.value;
+    const texto = searchInput.value.toLowerCase();
+    const paisSelecionado = filtroPais.value;
+    const precoSelecionado = filtroPreco.value;
+    const resultado = destinos.filter(destino=>{
 
-  const precoSelecionado = filtroPreco.value;
+        const correspondePesquisa =
 
-  const resultado = destinos.filter((destino) => {
-    // Pesquisa
+            destino.nome.toLowerCase().includes(texto) ||
 
-    const correspondePesquisa =
-      destino.nome.toLowerCase().includes(texto) ||
-      destino.pais.toLowerCase().includes(texto) ||
-      destino.regiao.toLowerCase().includes(texto) ||
-      destino.categoria.toLowerCase().includes(texto);
+            destino.pais.toLowerCase().includes(texto) ||
 
-    // País
+            destino.regiao.toLowerCase().includes(texto) ||
 
-    const correspondePais =
-      paisSelecionado === "" || destino.pais === paisSelecionado;
+            destino.categoria.toLowerCase().includes(texto);
 
-    // Preço
+        const correspondePais =
 
-    let correspondePreco = true;
+            paisSelecionado === "" ||
 
-    if (precoSelecionado === "3000") {
-      correspondePreco = destino.preco <= 3000;
-    } else if (precoSelecionado === "6000") {
-      correspondePreco = destino.preco <= 6000;
-    } else if (precoSelecionado === "10000") {
-      correspondePreco = destino.preco > 6000;
-    }
+            destino.pais === paisSelecionado;
 
-    return correspondePesquisa && correspondePais && correspondePreco;
-  });
+        let correspondePreco = true;
 
-  carregarDestinos(resultado);
+        if(precoSelecionado === "3000"){
+
+            correspondePreco = destino.preco <= 3000;
+
+        }
+
+        else if(precoSelecionado === "6000"){
+
+            correspondePreco = destino.preco <= 6000;
+
+        }
+
+        else if(precoSelecionado === "10000"){
+
+            correspondePreco = destino.preco > 6000;
+
+        }
+
+        return correspondePesquisa && correspondePais && correspondePreco;
+
+    });
+
+    carregarDestinos(resultado);
+
 }
 
-function carregarDestinos(listaDestinos) {
-  let html = "";
 
-  listaDestinos.forEach((destino) => {
-    html += `
+function carregarDestinos(listaDestinos){
+
+    destinosAtual = listaDestinos;
+
+    let html = "";
+
+    listaDestinos.forEach(destino=>{
+
+        const estaFavoritado = favoritos.includes(destino.id);
+
+        html += `
 
         <div class="card-destino">
 
@@ -175,34 +208,45 @@ function carregarDestinos(listaDestinos) {
 
                 <img src="${destino.imagem}" alt="${destino.nome}">
 
-                    <button class="favorite-btn ${favoritos.includes(destino.id) ? "favoritado" : ""}" data-id="${destino.id}">
+                <button 
+                class="favorite-btn ${estaFavoritado ? "favoritado" : ""}"
+                data-id="${destino.id}">
 
-                        <i class="${favoritos.includes(destino.id) ? "fa-solid" : "fa-regular"} fa-heart"></i>
+                    <i class="${estaFavoritado ? "fa-solid" : "fa-regular"} fa-heart"></i>
 
-                    </button>
+                </button>
+
             </div>
 
             <div class="card-info">
-
                 <div class="card-stars">
                     ⭐⭐⭐⭐⭐
                 </div>
-
                 <h3>${destino.nome}</h3>
-
                 <span class="card-country">
+
                     <i class="fa-solid fa-location-dot"></i>
+
                     ${destino.pais}
+
                 </span>
 
                 <div class="card-price">
+
                     <small>A partir de</small>
-                    <strong>R$ ${destino.preco}</strong>
+
+                    <strong>
+                        R$ ${destino.preco}
+                    </strong>
+
                 </div>
 
                 <button class="details-btn">
+
                     Ver detalhes
+
                     <i class="fa-solid fa-arrow-right"></i>
+
                 </button>
 
             </div>
@@ -210,79 +254,69 @@ function carregarDestinos(listaDestinos) {
         </div>
 
         `;
-  });
 
-  cardsContainer.innerHTML = html;
 
-  adicionarEventosFavoritos();
-}
-
-function adicionarEventosFavoritos() {
-  const botoesFavoritos = document.querySelectorAll(".favorite-btn");
-
-  botoesFavoritos.forEach((botao) => {
-    botao.addEventListener("click", () => {
-      const id = Number(botao.dataset.id);
-
-      if (favoritos.includes(id)) {
-        favoritos = favoritos.filter((item) => item !== id);
-      } else {
-        favoritos.push(id);
-      }
-
-      localStorage.setItem("favoritos", JSON.stringify(favoritos));
-
-      carregarDestinos(destinos);
     });
-  });
+
+    cardsContainer.innerHTML = html;
+
+    adicionarEventosFavoritos();
+
 }
 
-function adicionarEventosFavoritos() {
-  const botoes = document.querySelectorAll(".favorite-btn");
+function adicionarEventosFavoritos(){
 
-  botoes.forEach((botao) => {
-    botao.addEventListener("click", () => {
-      botao.classList.toggle("favoritado");
+    const botoes = document.querySelectorAll(".favorite-btn");
 
-      const icone = botao.querySelector("i");
+    botoes.forEach(botao=>{
 
-      if (botao.classList.contains("favoritado")) {
-        icone.classList.remove("fa-regular");
-        icone.classList.add("fa-solid");
-      } else {
-        icone.classList.remove("fa-solid");
-        icone.classList.add("fa-regular");
-      }
+        botao.addEventListener("click",()=>{
+
+            const id = Number(botao.dataset.id);
+
+            if(favoritos.includes(id)){
+
+                favoritos = favoritos.filter(item=> item !== id);
+
+            }else{
+
+                favoritos.push(id);
+
+            }
+
+            localStorage.setItem(
+
+                "favoritos",
+
+                JSON.stringify(favoritos)
+
+            );
+
+            carregarDestinos(destinosAtual);
+
+        });
+
+
     });
-  });
+
+
 }
-
-function iniciarFavoritos() {
-  const botoes = document.querySelectorAll(".favorite-btn");
-
-  botoes.forEach((botao) => {
-    botao.addEventListener("click", () => {
-      const icone = botao.querySelector("i");
-
-      if (icone.classList.contains("fa-regular")) {
-        icone.classList.remove("fa-regular");
-        icone.classList.add("fa-solid");
-      } else {
-        icone.classList.remove("fa-solid");
-        icone.classList.add("fa-regular");
-      }
-    });
-  });
-}
-
-carregarDestinos(destinos);
 
 carregarPaises();
 
-iniciarFavoritos();
+carregarDestinos(destinos);
 
-searchInput.addEventListener("input", aplicarFiltros);
+searchInput.addEventListener(
+    "input",
+    aplicarFiltros
+);
 
-filtroPais.addEventListener("change", aplicarFiltros);
+filtroPais.addEventListener(
+    "change",
+    aplicarFiltros
+);
 
-filtroPreco.addEventListener("change", aplicarFiltros);
+filtroPreco.addEventListener(
+    "change",
+    aplicarFiltros
+);
