@@ -95,6 +95,8 @@ const searchInput = document.querySelector("#searchDestino");
 const filtroPais = document.querySelector("#filtroPais");
 const filtroPreco = document.querySelector("#filtroPreco");
 
+let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
+
 // CARREGAR PAÍSES
 
 function carregarPaises() {
@@ -173,10 +175,11 @@ function carregarDestinos(listaDestinos) {
 
                 <img src="${destino.imagem}" alt="${destino.nome}">
 
-                <button class="favorite-btn" data-id="${destino.id}">
-                    <i class="fa-regular fa-heart"></i>
-                </button>
+                    <button class="favorite-btn ${favoritos.includes(destino.id) ? "favoritado" : ""}" data-id="${destino.id}">
 
+                        <i class="${favoritos.includes(destino.id) ? "fa-solid" : "fa-regular"} fa-heart"></i>
+
+                    </button>
             </div>
 
             <div class="card-info">
@@ -210,6 +213,48 @@ function carregarDestinos(listaDestinos) {
   });
 
   cardsContainer.innerHTML = html;
+
+  adicionarEventosFavoritos();
+}
+
+function adicionarEventosFavoritos() {
+  const botoesFavoritos = document.querySelectorAll(".favorite-btn");
+
+  botoesFavoritos.forEach((botao) => {
+    botao.addEventListener("click", () => {
+      const id = Number(botao.dataset.id);
+
+      if (favoritos.includes(id)) {
+        favoritos = favoritos.filter((item) => item !== id);
+      } else {
+        favoritos.push(id);
+      }
+
+      localStorage.setItem("favoritos", JSON.stringify(favoritos));
+
+      carregarDestinos(destinos);
+    });
+  });
+}
+
+function adicionarEventosFavoritos() {
+  const botoes = document.querySelectorAll(".favorite-btn");
+
+  botoes.forEach((botao) => {
+    botao.addEventListener("click", () => {
+      botao.classList.toggle("favoritado");
+
+      const icone = botao.querySelector("i");
+
+      if (botao.classList.contains("favoritado")) {
+        icone.classList.remove("fa-regular");
+        icone.classList.add("fa-solid");
+      } else {
+        icone.classList.remove("fa-solid");
+        icone.classList.add("fa-regular");
+      }
+    });
+  });
 }
 
 function iniciarFavoritos() {
