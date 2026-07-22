@@ -1,14 +1,17 @@
 const destinos = [
 
     {
-        id: 1,
-        nome: "Fernando de Noronha",
-        pais: "Brasil",
-        regiao: "Nordeste",
-        preco: 2990,
-        imagem: "img/card1.jpg",
-        estrelas: 5,
-        categoria: "Praia",
+        id:1,
+        nome:"Fernando de Noronha",
+        pais:"Brasil",
+        regiao:"Nordeste",
+        preco:2990,
+        imagem:"img/card1.jpg",
+        estrelas:5,
+        categoria:"Praia",
+
+        descricao:
+        "Um dos destinos mais paradisíacos do Brasil, famoso pelas águas cristalinas, praias preservadas e uma natureza incrível."
     },
 
     {
@@ -20,6 +23,9 @@ const destinos = [
         imagem: "img/card2.jpg",
         estrelas: 5,
         categoria: "Cidade",
+
+        descricao:
+        "A cidade luz encanta com sua arquitetura histórica, gastronomia refinada, museus famosos e o charme inesquecível da Torre Eiffel."
     },
 
     {
@@ -31,6 +37,9 @@ const destinos = [
         imagem: "img/card3.jpg",
         estrelas: 5,
         categoria: "Montanha",
+
+        descricao:
+        "Um destino cercado por paisagens deslumbrantes, montanhas nevadas, lagos cristalinos e vilarejos encantadores."
     },
 
     {
@@ -42,6 +51,9 @@ const destinos = [
         imagem: "img/card4.jpg",
         estrelas: 5,
         categoria: "Praia",
+
+        descricao:
+        "Um verdadeiro paraíso tropical com praias de areia branca, águas azul-turquesa e resorts exclusivos sobre o oceano."
     },
 
     {
@@ -53,6 +65,9 @@ const destinos = [
         imagem: "img/card5.jpg",
         estrelas: 5,
         categoria: "Praia",
+
+        descricao:
+        "Conhecido pelas praias de águas transparentes, resorts luxuosos, vida noturna animada e rica cultura mexicana."
     },
 
     {
@@ -64,6 +79,9 @@ const destinos = [
         imagem: "img/card6.jpg",
         estrelas: 5,
         categoria: "Cidade",
+
+        descricao:
+        "Uma metrópole fascinante que combina tecnologia avançada, tradições milenares, gastronomia única e uma cultura vibrante."
     },
 
     {
@@ -75,6 +93,9 @@ const destinos = [
         imagem: "img/card7.jpg",
         estrelas: 5,
         categoria: "Cidade",
+
+        descricao:
+        "Um destino luxuoso com arranha-céus impressionantes, experiências exclusivas, praias incríveis e muita inovação."
     },
 
     {
@@ -86,6 +107,9 @@ const destinos = [
         imagem: "img/card8.jpg",
         estrelas: 5,
         categoria: "Praia",
+
+        descricao:
+        "Uma ilha encantadora conhecida pelas casas brancas, vistas incríveis do mar Egeu, pôr do sol inesquecível e clima romântico."
     },
 
 ];
@@ -96,6 +120,17 @@ const cardsContainer = document.querySelector(".cards-destinos");
 const searchInput = document.querySelector("#searchDestino");
 const filtroPais = document.querySelector("#filtroPais");
 const filtroPreco = document.querySelector("#filtroPreco");
+
+// ELEMENTOS DO MODAL
+const modal = document.querySelector(".modal-overlay");
+const modalImagem = document.querySelector(".modal-imagem");
+const modalTitulo = document.querySelector(".modal-titulo");
+const modalPais = document.querySelector(".modal-pais");
+const modalEstrelas = document.querySelector(".modal-estrelas");
+const modalDescricao = document.querySelector(".modal-descricao");
+const modalPreco = document.querySelector(".modal-preco");
+const fecharModal = document.querySelector(".fechar-modal");
+
 
 let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
 
@@ -241,7 +276,7 @@ function carregarDestinos(listaDestinos){
 
                 </div>
 
-                <button class="details-btn">
+                <button class="details-btn" data-id="${destino.id}">
 
                     Ver detalhes
 
@@ -261,7 +296,7 @@ function carregarDestinos(listaDestinos){
     cardsContainer.innerHTML = html;
 
     adicionarEventosFavoritos();
-
+    adicionarEventosDetalhes();
 }
 
 function adicionarEventosFavoritos(){
@@ -302,6 +337,51 @@ function adicionarEventosFavoritos(){
 
 }
 
+function abrirModal(id){
+    const destino = destinos.find(item => item.id === id);
+
+    modalImagem.src = destino.imagem;
+
+    modalImagem.alt = destino.nome;
+
+    modalTitulo.textContent = destino.nome;
+
+    modalPais.innerHTML = `
+        <i class="fa-solid fa-location-dot"></i>
+        ${destino.pais}
+    `;
+
+    modalEstrelas.textContent = "⭐".repeat(destino.estrelas);
+
+    modalDescricao.textContent =
+    `Conheça ${destino.nome}, um destino incrível localizado em ${destino.pais}. 
+    Viva experiências inesquecíveis e aproveite cada momento da viagem.`;
+
+    modalPreco.textContent =
+    `A partir de R$ ${destino.preco}`;
+
+    modal.classList.add("active");
+}
+
+function adicionarEventosDetalhes(){
+
+    const botoesDetalhes =
+    document.querySelectorAll(".details-btn");
+
+    botoesDetalhes.forEach(botao=>{
+
+        botao.addEventListener("click",()=>{
+
+            const id =
+            Number(botao.dataset.id);
+
+            abrirModal(id);
+        });
+    });
+}
+
+
+
 carregarPaises();
 
 carregarDestinos(destinos);
@@ -320,3 +400,19 @@ filtroPreco.addEventListener(
     "change",
     aplicarFiltros
 );
+
+
+
+fecharModal.addEventListener("click",()=>{
+
+    modal.classList.remove("active");
+
+});
+
+modal.addEventListener("click",(e)=>{
+
+    if(e.target === modal){
+
+        modal.classList.remove("active");
+    }
+});

@@ -1,0 +1,145 @@
+.modal-overlay{
+
+    position:fixed;
+    inset:0;
+
+    background:rgba(0,0,0,.65);
+
+    display:none;
+
+    align-items:center;
+    justify-content:center;
+
+    z-index:9999;
+
+}
+
+
+.modal-overlay.active{
+
+    display:flex;
+
+}
+
+
+
+.modal-destino{
+
+    background:white;
+
+    width:90%;
+    max-width:900px;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    position:relative;
+
+    display:flex;
+
+}
+
+
+
+.modal-imagem{
+
+    width:50%;
+
+    object-fit:cover;
+
+}
+
+
+
+.modal-conteudo{
+
+    padding:40px;
+
+}
+
+
+
+.modal-conteudo h2{
+
+    font-size:35px;
+
+    color:#142143;
+
+}
+
+
+
+.modal-pais{
+
+    display:block;
+
+    margin:15px 0;
+
+}
+
+
+
+.modal-estrelas{
+
+    margin-bottom:20px;
+
+}
+
+
+
+.modal-descricao{
+
+    line-height:1.7;
+
+}
+
+
+
+.modal-preco{
+
+    display:block;
+
+    margin:25px 0;
+
+    font-size:25px;
+
+    color:#142143;
+
+}
+
+
+
+.modal-orcamento{
+
+    background:#142143;
+
+    color:white;
+
+    border:none;
+
+    padding:15px 30px;
+
+    cursor:pointer;
+
+}
+
+
+
+.fechar-modal{
+
+    position:absolute;
+
+    right:20px;
+
+    top:20px;
+
+    border:none;
+
+    background:white;
+
+    font-size:25px;
+
+    cursor:pointer;
+
+}
