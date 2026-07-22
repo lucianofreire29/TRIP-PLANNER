@@ -1,259 +1,227 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="src/header.css">
-    <link rel="stylesheet" href="src/keyframes.css">
-    <link rel="stylesheet" href="src/main.css">
-    <link rel="stylesheet" href="src/footer.css">
-    <link rel="stylesheet" href="src/media.css">
-    <link rel="stylesheet" href="src/hero.css">
-    <link rel="stylesheet" href="src/destinos.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/header.css" />
+    <link rel="stylesheet" href="src/keyframes.css" />
+    <link rel="stylesheet" href="src/main.css" />
+    <link rel="stylesheet" href="src/footer.css" />
+    <link rel="stylesheet" href="src/media.css" />
+    <link rel="stylesheet" href="src/hero.css" />
+    <link rel="stylesheet" href="src/destinos.css" />
 
     <script src="https://unpkg.com/scrollreveal"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
     <title>TRIP PLANNER</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <header>
-        <div class="logo">
-            <h1>TRIP</h1>
-            <span>PLANNER</span>
+      <div class="logo">
+        <h1>TRIP</h1>
+        <span>PLANNER</span>
+      </div>
+
+      <div class="menu-burguer">
+        <div class="icon-burguer" onclick="toggleMenu()">
+          <i class="fa-solid fa-bars"></i>
         </div>
 
-        <div class="menu-burguer">
-            <div class="icon-burguer" onclick="toggleMenu()">
-                <i class="fa-solid fa-bars"></i>
-            </div>
-
-            <div class="menu-drop">
-                <nav class="nav-header">
-                    <ul class="ul1">
-                        <li><a href="#">HOME</a></li>
-                        <li><a href="#">DESTINOS</a></li>
-                        <li><a href="#">PACOTES/<a></li>
-                        <li><a href="#">PROMOÇÕES</a></li>
-                        <li><a href="#">DEPOIMENTOS</a></li>
-                    </ul>
-
-                        <button class="btn" onclick="window.location.href='form.html'">
-                            Fale Conosco
-                        </button>
-
-                    <div class="box-icons">
-                        <i class="fa-brands fa-instagram"></i>
-                        <i class="fa-brands fa-facebook-f"></i>
-                        <i class="fa-brands fa-linkedin-in"></i>
-                    </div>
-                </nav>
-            </div>
-
-        </div>
-
-        <nav class="nav-header">
+        <div class="menu-drop">
+          <nav class="nav-header">
             <ul class="ul1">
-                    <li><a href="index.html">HOME</a></li>
-                    <li><a href="#">DESTINOS</a></li>
-                    <li><a href="#">PACOTES</a></li>
-                    <li><a href="#">PROMOÇÕES</a></li>
+              <li><a href="index.html">HOME</a></li>
+              <li><a href="#destinos">DESTINOS</a></li>
+              <li><a href="#">PACOTES</a></li>
+              <li><a href="#">PROMOÇÕES</a></li>
+              <li><a href="#">DEPOIMENTOS</a></li>
             </ul>
 
-                        <button class="btn" onclick="window.location.href='form.html'">
-                            Fale Conosco
-                        </button>
+            <button class="btn" onclick="window.location.href = 'form.html'">
+              Fale Conosco
+            </button>
 
             <div class="box-icons">
-                <i class="fa-brands fa-instagram"></i>
-                <i class="fa-brands fa-facebook-f"></i>
-                <i class="fa-brands fa-linkedin-in"></i>
+              <i class="fa-brands fa-instagram"></i>
+              <i class="fa-brands fa-facebook-f"></i>
+              <i class="fa-brands fa-linkedin-in"></i>
             </div>
-        </nav>
+          </nav>
+        </div>
+      </div>
+
+      <nav class="nav-header">
+        <ul class="ul1">
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="#destinos">DESTINOS</a></li>
+          <li><a href="#">PACOTES</a></li>
+          <li><a href="#">PROMOÇÕES</a></li>
+        </ul>
+
+        <button class="btn" onclick="window.location.href = 'form.html'">
+          Fale Conosco
+        </button>
+
+        <div class="box-icons">
+          <i class="fa-brands fa-instagram"></i>
+          <i class="fa-brands fa-facebook-f"></i>
+          <i class="fa-brands fa-linkedin-in"></i>
+        </div>
+      </nav>
     </header>
 
     <main>
+      <section id="hero">
+        <div class="slider"></div>
 
-        <section id="hero">
+        <div class="overlay"></div>
 
-            <div class="slider"></div>
+        <div class="hero-navigation">
+          <button class="prev-slide">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
 
-            <div class="overlay"></div>
+          <button class="next-slide">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
 
-            <div class="hero-navigation">
+        <div class="hero-indicators"></div>
 
-                <button class="prev-slide">
-                    <i class="fa-solid fa-chevron-left"></i>
-                </button>
+        <div class="hero-content">
+          <span>TRIP PLANNER</span>
 
-                <button class="next-slide">
-                    <i class="fa-solid fa-chevron-right"></i>
-                </button>
+          <h1></h1>
 
-            </div>
+          <div class="hero-location"></div>
 
-            <div class="hero-indicators"></div>
+          <div class="hero-stars"></div>
 
-            <div class="hero-content">
+          <p></p>
 
-                <span>TRIP PLANNER</span>
+          <span class="hero-price"></span>
 
-                <h1></h1>
+          <a href="#" class="hero-button"></a>
+        </div>
+      </section>
+      <section id="destinos">
+        <div class="section-title">
+          <span>EXPLORE O MUNDO</span>
 
-                <div class="hero-location"></div>
+          <h2>Destinos em Destaque</h2>
 
-                <div class="hero-stars"></div>
+          <p>Escolha seu próximo destino e viva experiências inesquecíveis.</p>
+        </div>
 
-                <p></p>
+        <div class="destinos-filtros">
+          <input
+            type="text"
+            id="searchDestino"
+            placeholder="🔍 Pesquisar destino..."
+          />
 
-                <span class="hero-price"></span>
+          <div class="filters-row">
+            <select id="filtroPais">
+              <option value="">🌎 Todos os países</option>
+            </select>
 
-                <a href="#" class="hero-button"></a>
+            <select id="filtroPreco">
+              <option value="">💰 Todas as faixas</option>
 
-            </div>
+              <option value="3000">Até R$ 3.000</option>
 
-        </section>
-        <section id="destinos">
+              <option value="6000">Até R$ 6.000</option>
 
-            <div class="section-title">
+              <option value="10000">Acima de R$ 6.000</option>
+            </select>
+          </div>
+        </div>
 
-                <span>EXPLORE O MUNDO</span>
-
-                <h2>Destinos em Destaque</h2>
-
-                <p>
-                    Escolha seu próximo destino e viva experiências inesquecíveis.
-                </p>
-
-            </div>
-
-            <div class="destinos-filtros">
-
-            <input
-                type="text"
-                id="searchDestino"
-                placeholder="🔍 Pesquisar destino..."
-            >
-
-            <div class="filters-row">
-
-                <select id="filtroPais">
-
-                    <option value="">
-                        🌎 Todos os países
-                    </option>
-
-                </select>
-
-                <select id="filtroPreco">
-
-                    <option value="">
-                        💰 Todas as faixas
-                    </option>
-
-                    <option value="3000">
-                        Até R$ 3.000
-                    </option>
-
-                    <option value="6000">
-                        Até R$ 6.000
-                    </option>
-
-                    <option value="10000">
-                        Acima de R$ 6.000
-                    </option>
-
-                </select>
-
-            </div>
-
-            <div class="cards-destinos">
-
-            </div>
-
-        </section>
-
+        <div class="cards-destinos"></div>
+      </section>
     </main>
 
     <footer>
-        <div class="footer-container">
+      <div class="footer-container">
+        <div class="footer-logo">
+          <h2>TRIP</h2>
+          <span>PLANNER</span>
+        </div>
 
-                <div class="footer-logo">
-                    <h2>TRIP</h2>
-                    <span>PLANNER</span>
-                </div>
+        <div class="footer-column">
+          <h3>Institucional</h3>
 
-                <div class="footer-column">
-                    <h3>Institucional</h3>
+          <a href="index.html">Home</a>
+          <a href="index.html#sobre-nois">Destinos</a>
+          <a href="#">Pacotes</a>
+          <a href="#">Promoções</a>
+          <a href="">Contato</a>
+        </div>
 
-                    <a href="index.html">Home</a>
-                    <a href="index.html#sobre-nois">Destinos</a>
-                    <a href="#">Pacotes</a>
-                    <a href="#">Promoções</a>
-                    <a href="">Contato</a>
-                </div>
+        <div class="footer-column">
+          <h3>Serviços</h3>
 
-                <div class="footer-column">
-                    <h3>Serviços</h3>
+          <a href="#">Passagens</a>
+          <a href="#">Hotéis</a>
+          <a href="#">Seguro Viagem</a>
+          <a href="#">Parcelamento</a>
+          <a href="#">Atendimento 24h</a>
+        </div>
 
-                    <a href="#">Passagens</a>
-                    <a href="#">Hotéis</a>
-                    <a href="#">Seguro Viagem</a>
-                    <a href="#">Parcelamento</a>
-                    <a href="#">Atendimento 24h</a>
-                </div>
+        <div class="footer-column">
+          <h3>Contato</h3>
 
-                <div class="footer-column">
-                    <h3>Contato</h3>
+          <span>Fortaleza - CE</span>
+          <span>(85) 99999-9999</span>
+          <span>contato@tripplanner.com</span>
 
-                    <span>Fortaleza - CE</span>
-                    <span>(85) 99999-9999</span>
-                    <span>contato@tripplanner.com</span>
+          <div class="footer-icons">
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-facebook-f"></i>
+            <i class="fa-brands fa-linkedin-in"></i>
+          </div>
+        </div>
+      </div>
 
-                    <div class="footer-icons">
-                        <i class="fa-brands fa-instagram"></i>
-                        <i class="fa-brands fa-facebook-f"></i>
-                        <i class="fa-brands fa-linkedin-in"></i>
-                    </div>
-                </div>
+      <hr />
 
-            </div>
+      <div class="footer-bottom">
+        <span>© 2026 TRIP PLANNER. Todos os direitos reservados.</span>
 
-            <hr>
-
-            <div class="footer-bottom">
-
-                <span>© 2026 TRIP PLANNER. Todos os direitos reservados.</span>
-
-                <span>Desenvolvido por Karla gonzaga e Luciano Freire.</span>
-
-            </div>
-
+        <span>Desenvolvido por Karla gonzaga e Luciano Freire.</span>
+      </div>
     </footer>
 
-
     <script>
-        ScrollReveal().reveal('.cards-work', {
-        origin: 'bottom',
+      ScrollReveal().reveal(".cards-work", {
+        origin: "bottom",
         duration: 2000,
-        distance: '0%',
-    });
+        distance: "0%",
+      });
 
-
-    function toggleMenu() {
-        document.querySelector('.menu-drop').classList.toggle('open')
-    }
+      function toggleMenu() {
+        document.querySelector(".menu-drop").classList.toggle("open");
+      }
     </script>
 
-<a href="https://wa.me/85998014915" target="_blank" class="botao-whatsapp">
-    <i class="fa-brands fa-whatsapp"></i>
-</a>
+    <a href="https://wa.me/85998014915" target="_blank" class="botao-whatsapp">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
 
-<script src="../TRIP-PLANNER/JS/hero.js"></script>
-<script src="../TRIP-PLANNER/JS/destinos.js"></script>
-
-</body>
+    <script src="../TRIP-PLANNER/JS/hero.js"></script>
+    <script src="../TRIP-PLANNER/JS/destinos.js"></script>
+  </body>
 </html>
