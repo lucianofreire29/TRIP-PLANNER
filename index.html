@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -11,24 +11,33 @@
     <link rel="stylesheet" href="src/hero.css">
 
     <script src="https://unpkg.com/scrollreveal"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
     <title>TRIP PLANNER</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <header>
-        <div class="logo">
-            <h1>TRIP</h1>
-            <span>PLANNER</span>
-        </div>
+      <div class="logo">
+        <h1>TRIP</h1>
+        <span>PLANNER</span>
+      </div>
 
-        <div class="menu-burguer">
-            <div class="icon-burguer" onclick="toggleMenu()">
-                <i class="fa-solid fa-bars"></i>
-            </div>
+      <div class="menu-burguer">
+        <div class="icon-burguer" onclick="toggleMenu()">
+          <i class="fa-solid fa-bars"></i>
+        </div>
 
             <div class="menu-drop">
                 <nav class="nav-header">
@@ -40,19 +49,18 @@
                         <li><a href="#">DEPOIMENTOS</a></li>
                     </ul>
 
-                        <button class="btn" onclick="window.location.href='form.html'">
-                            Fale Conosco
-                        </button>
+            <button class="btn" onclick="window.location.href = 'form.html'">
+              Fale Conosco
+            </button>
 
-                    <div class="box-icons">
-                        <i class="fa-brands fa-instagram"></i>
-                        <i class="fa-brands fa-facebook-f"></i>
-                        <i class="fa-brands fa-linkedin-in"></i>
-                    </div>
-                </nav>
+            <div class="box-icons">
+              <i class="fa-brands fa-instagram"></i>
+              <i class="fa-brands fa-facebook-f"></i>
+              <i class="fa-brands fa-linkedin-in"></i>
             </div>
-
+          </nav>
         </div>
+      </div>
 
         <nav class="nav-header">
             <ul class="ul1">
@@ -62,53 +70,48 @@
                     <li><a href="#">PROMOÇÕES</a></li>
             </ul>
 
-                        <button class="btn" onclick="window.location.href='form.html'">
-                            Fale Conosco
-                        </button>
+        <button class="btn" onclick="window.location.href = 'form.html'">
+          Fale Conosco
+        </button>
 
-            <div class="box-icons">
-                <i class="fa-brands fa-instagram"></i>
-                <i class="fa-brands fa-facebook-f"></i>
-                <i class="fa-brands fa-linkedin-in"></i>
-            </div>
-        </nav>
+        <div class="box-icons">
+          <i class="fa-brands fa-instagram"></i>
+          <i class="fa-brands fa-facebook-f"></i>
+          <i class="fa-brands fa-linkedin-in"></i>
+        </div>
+      </nav>
     </header>
 
     <main>
+      <section id="hero">
+        <div class="slider"></div>
 
-        <section id="hero">
+        <div class="overlay"></div>
 
-            <div class="slider"></div>
+        <div class="hero-navigation">
+          <button class="prev-slide">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
 
-            <div class="overlay"></div>
+          <button class="next-slide">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
 
-            <div class="hero-navigation">
+        <div class="hero-indicators"></div>
 
-                <button class="prev-slide">
-                    <i class="fa-solid fa-chevron-left"></i>
-                </button>
+        <div class="hero-content">
+          <span>TRIP PLANNER</span>
 
-                <button class="next-slide">
-                    <i class="fa-solid fa-chevron-right"></i>
-                </button>
+          <h1></h1>
 
-            </div>
+          <div class="hero-location"></div>
 
-            <div class="hero-indicators"></div>
+          <div class="hero-stars"></div>
 
-            <div class="hero-content">
+          <p></p>
 
-                <span>TRIP PLANNER</span>
-
-                <h1></h1>
-
-                <div class="hero-location"></div>
-
-                <div class="hero-stars"></div>
-
-                <p></p>
-
-                <span class="hero-price"></span>
+          <span class="hero-price"></span>
 
                 <a href="#" class="hero-button"></a>
 
@@ -118,15 +121,14 @@
     </main>
 
     <footer>
-        <div class="footer-container">
+      <div class="footer-container">
+        <div class="footer-logo">
+          <h2>TRIP</h2>
+          <span>PLANNER</span>
+        </div>
 
-                <div class="footer-logo">
-                    <h2>TRIP</h2>
-                    <span>PLANNER</span>
-                </div>
-
-                <div class="footer-column">
-                    <h3>Institucional</h3>
+        <div class="footer-column">
+          <h3>Institucional</h3>
 
                     <a href="index.html">Home</a>
                     <a href="#destinos">Destinos</a>
@@ -135,8 +137,8 @@
                     <a href="form.html">Contato</a>
                 </div>
 
-                <div class="footer-column">
-                    <h3>Serviços</h3>
+        <div class="footer-column">
+          <h3>Serviços</h3>
 
                     <a href="#">Passagens</a>
                     <a href="#">Hotéis</a>
@@ -145,46 +147,40 @@
                     <a href="form.html">Atendimento 24h</a>
                 </div>
 
-                <div class="footer-column">
-                    <h3>Contato</h3>
+        <div class="footer-column">
+          <h3>Contato</h3>
 
-                    <span>Fortaleza - CE</span>
-                    <span>(85) 99999-9999</span>
-                    <span>contato@tripplanner.com</span>
+          <span>Fortaleza - CE</span>
+          <span>(85) 99999-9999</span>
+          <span>contato@tripplanner.com</span>
 
-                    <div class="footer-icons">
-                        <i class="fa-brands fa-instagram"></i>
-                        <i class="fa-brands fa-facebook-f"></i>
-                        <i class="fa-brands fa-linkedin-in"></i>
-                    </div>
-                </div>
+          <div class="footer-icons">
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-facebook-f"></i>
+            <i class="fa-brands fa-linkedin-in"></i>
+          </div>
+        </div>
+      </div>
 
-            </div>
+      <hr />
 
-            <hr>
+      <div class="footer-bottom">
+        <span>© 2026 TRIP PLANNER. Todos os direitos reservados.</span>
 
-            <div class="footer-bottom">
-
-                <span>© 2026 TRIP PLANNER. Todos os direitos reservados.</span>
-
-                <span>Desenvolvido por Karla gonzaga e Luciano Freire.</span>
-
-            </div>
-
+        <span>Desenvolvido por Karla gonzaga e Luciano Freire.</span>
+      </div>
     </footer>
 
-
     <script>
-        ScrollReveal().reveal('.cards-work', {
-        origin: 'bottom',
+      ScrollReveal().reveal(".cards-work", {
+        origin: "bottom",
         duration: 2000,
-        distance: '0%',
-    });
+        distance: "0%",
+      });
 
-
-    function toggleMenu() {
-        document.querySelector('.menu-drop').classList.toggle('open')
-    }
+      function toggleMenu() {
+        document.querySelector(".menu-drop").classList.toggle("open");
+      }
     </script>
 
 <a href="https://wa.me/85998014915" target="_blank" class="botao-whatsapp">
