@@ -154,17 +154,164 @@
 
                     </div>
                 </div>
-                <div class="destino-orcamento">
-                    <h2>
-                        Planeje sua viagem
-                    </h2>
-                    <strong class="destino-preco"></strong>
+                    <div class="destino-orcamento">
 
-                    <button>
-                        Solicitar orçamento
-                    </button>
+                        <div class="orcamento-header">
 
-                </div>
+                            <i class="fa-solid fa-plane"></i>
+
+                            <h2>
+                                Planeje sua viagem
+                            </h2>
+
+                            <p>
+                                Simule o valor da sua experiência e personalize seu pacote.
+                            </p>
+
+                        </div>
+
+
+                        <div class="orcamento-form">
+
+
+                            <div class="campo">
+
+                                <label>
+                                    <i class="fa-solid fa-user-group"></i>
+                                    Pessoas
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="qtdPessoas"
+                                    value="2"
+                                    min="1"
+                                >
+
+                            </div>
+
+
+
+                            <div class="campo">
+
+                                <label>
+                                    <i class="fa-solid fa-calendar-days"></i>
+                                    Dias de viagem
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="qtdDias"
+                                    value="7"
+                                    min="1"
+                                >
+
+                            </div>
+
+
+
+                            <div class="campo campo-full">
+
+                                <label>
+                                    <i class="fa-solid fa-hotel"></i>
+                                    Hospedagem
+                                </label>
+
+
+                                <select id="tipoHospedagem">
+
+                                    <option value="1">
+                                        Econômica
+                                    </option>
+
+
+                                    <option value="1.3">
+                                        Conforto
+                                    </option>
+
+
+                                    <option value="1.8">
+                                        Luxo
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                        </div>
+
+
+
+                        <div class="extras">
+
+                            <h3>
+                                Serviços adicionais
+                            </h3>
+
+
+                            <label class="checkbox">
+
+                                <input
+                                    type="checkbox"
+                                    id="passagem"
+                                    checked
+                                >
+
+                                <span>
+                                    <i class="fa-solid fa-plane-up"></i>
+                                    Incluir passagem aérea
+                                </span>
+
+                            </label>
+
+
+
+                            <label class="checkbox">
+
+                                <input
+                                    type="checkbox"
+                                    id="seguro"
+                                >
+
+                                <span>
+                                    <i class="fa-solid fa-shield-heart"></i>
+                                    Seguro viagem
+                                </span>
+
+                            </label>
+
+
+                        </div>
+
+
+
+                        <div class="resumo-valor">
+
+                            <span>
+                                Valor estimado
+                            </span>
+
+
+                            <strong id="valorFinal">
+                                R$ 0,00
+                            </strong>
+
+
+                        </div>
+
+
+
+                        <button class="btn-orcamento">
+
+                            Solicitar orçamento
+
+                            <i class="fa-solid fa-arrow-right"></i>
+
+                        </button>
+
+
+                    </div>
             </div>
         </section>
         </main>
