@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pacotes - Trip Planner</title>
+
+    <link rel="stylesheet" href="src/header.css">
+    <link rel="stylesheet" href="src/footer.css">
+    <link rel="stylesheet" href="src/main.css">
+    <link rel="stylesheet" href="src/pacotes.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <h1>TRIP</h1>
+            <span>PLANNER</span>
+        </div>
+
+        <div class="menu-burguer">
+            <div class="icon-burguer" onclick="toggleMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+
+            <div class="menu-drop">
+                <nav class="nav-header">
+                    <ul class="ul1">
+                        <li><a href="index.html">HOME</a></li>
+                        <li><a href="index.html#destinos">DESTINOS</a></li>
+                        <li><a href="pacotes.html">PACOTES/<a></li>
+                        <li><a href="#">PROMOÇÕES</a></li>
+                        <li><a href="#">DEPOIMENTOS</a></li>
+                    </ul>
+
+                        <button class="btn" onclick="window.location.href='form.html'">
+                            Fale Conosco
+                        </button>
+
+                    <div class="box-icons">
+                        <i class="fa-brands fa-instagram"></i>
+                        <i class="fa-brands fa-facebook-f"></i>
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </div>
+                </nav>
+            </div>
+
+        </div>
+
+        <nav class="nav-header">
+            <ul class="ul1">
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="index.html#destinos">DESTINOS</a></li>
+                    <li><a href="pacotes.html">PACOTES</a></li>
+                    <li><a href="#">PROMOÇÕES</a></li>
+            </ul>
+
+                        <button class="btn" onclick="window.location.href='form.html'">
+                            Fale Conosco
+                        </button>
+
+            <div class="box-icons">
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-facebook-f"></i>
+                <i class="fa-brands fa-linkedin-in"></i>
+            </div>
+        </nav>
+    </header>
+
+
+<main>
+    <section class="banner-pacotes">
+
+        <div class="overlay"></div>
+
+        <div class="banner-content">
+
+            <span>TRIP PLANNER</span>
+
+            <h1>Os melhores pacotes para a sua Viagem</h1>
+
+            <p>
+                *Taxas de embarques serão cobradas na primeira parcela
+            </p>
+
+        </div>
+
+    </section>
+    <section class="filtros">
+
+        <input
+            type="text"
+            id="searchPacote"
+            placeholder="🔍 Pesquisar destino..."
+        >
+
+        <select id="filtroPais">
+            <option value="">🌎 Todos os países</option>
+        </select>
+
+        <select id="filtroPreco">
+            <option value="">💰 Faixa de preço</option>
+            <option value="3000">Até R$ 3.000</option>
+            <option value="6000">Até R$ 6.000</option>
+            <option value="10000">Acima de R$ 6.000</option>
+        </select>
+
+    </section>
+
+    <section class="pacotes">
+
+        <div class="section-title">
+
+            <h2>Nossos Pacotes</h2>
+
+            <p>
+                Viaje com conforto, segurança e os melhores preços.
+            </p>
+
+        </div>
+
+        <div class="cards-pacotes">
+
+        </div>
+
+    </section>
+
+    <section class="beneficios">
+
+        <div class="beneficio">
+
+            <i class="fa-solid fa-plane"></i>
+
+            <h3>Passagens Inclusas</h3>
+
+            <p>Os melhores voos nacionais e internacionais.</p>
+
+        </div>
+
+        <div class="beneficio">
+
+            <i class="fa-solid fa-hotel"></i>
+
+            <h3>Hotéis Selecionados</h3>
+
+            <p>Hospedagens com qualidade garantida.</p>
+
+        </div>
+
+        <div class="beneficio">
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+            <h3>Seguro Viagem</h3>
+
+            <p>Mais tranquilidade durante toda a viagem.</p>
+
+        </div>
+
+        <div class="beneficio">
+
+            <i class="fa-solid fa-credit-card"></i>
+
+            <h3>Parcelamento</h3>
+
+            <p>Parcele em até 12x sem complicação.</p>
+
+        </div>
+
+    </section>
+
+    <section class="cta">
+
+        <h2>Pronto para viajar?</h2>
+
+        <p>
+            Entre em contato com nossa equipe e encontre o pacote perfeito.
+        </p>
+
+        <a href="form.html" class="cta-button">
+            Solicitar Orçamento
+        </a>
+
+    </section>
+
+</main>
+
+<div id="footer"></div>
+    <script> 
+    fetch("index.html")
+    .then(response => response.text())
+    .then(html => {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, "text/html");
+
+        document.getElementById("footer").outerHTML =
+            doc.querySelector("footer").outerHTML;
+    });
+    </script>
+
+    <a href="https://wa.me/85998014915" target="_blank" class="botao-whatsapp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+<script src="JS/pacotes.js"></script>
+
+</body>
+</html>

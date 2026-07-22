@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="src/footer.css">
     <link rel="stylesheet" href="src/media.css">
     <link rel="stylesheet" href="src/hero.css">
-    <link rel="stylesheet" href="src/destinos.css">
 
     <script src="https://unpkg.com/scrollreveal"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -34,9 +33,9 @@
             <div class="menu-drop">
                 <nav class="nav-header">
                     <ul class="ul1">
-                        <li><a href="#">HOME</a></li>
-                        <li><a href="#">DESTINOS</a></li>
-                        <li><a href="#">PACOTES/<a></li>
+                        <li><a href="index.html">HOME</a></li>
+                        <li><a href="#destinos">DESTINOS</a></li>
+                        <li><a href="pacotes.html">PACOTES/<a></li>
                         <li><a href="#">PROMOÇÕES</a></li>
                         <li><a href="#">DEPOIMENTOS</a></li>
                     </ul>
@@ -58,8 +57,8 @@
         <nav class="nav-header">
             <ul class="ul1">
                     <li><a href="index.html">HOME</a></li>
-                    <li><a href="#">DESTINOS</a></li>
-                    <li><a href="#">PACOTES</a></li>
+                    <li><a href="#destinos">DESTINOS</a></li>
+                    <li><a href="pacotes.html">PACOTES</a></li>
                     <li><a href="#">PROMOÇÕES</a></li>
             </ul>
 
@@ -116,66 +115,6 @@
             </div>
 
         </section>
-        <section id="destinos">
-
-            <div class="section-title">
-
-                <span>EXPLORE O MUNDO</span>
-
-                <h2>Destinos em Destaque</h2>
-
-                <p>
-                    Escolha seu próximo destino e viva experiências inesquecíveis.
-                </p>
-
-            </div>
-
-            <div class="destinos-filtros">
-
-            <input
-                type="text"
-                id="searchDestino"
-                placeholder="🔍 Pesquisar destino..."
-            >
-
-            <div class="filters-row">
-
-                <select id="filtroPais">
-
-                    <option value="">
-                        🌎 Todos os países
-                    </option>
-
-                </select>
-
-                <select id="filtroPreco">
-
-                    <option value="">
-                        💰 Todas as faixas
-                    </option>
-
-                    <option value="3000">
-                        Até R$ 3.000
-                    </option>
-
-                    <option value="6000">
-                        Até R$ 6.000
-                    </option>
-
-                    <option value="10000">
-                        Acima de R$ 6.000
-                    </option>
-
-                </select>
-
-            </div>
-
-            <div class="cards-destinos">
-
-            </div>
-
-        </section>
-
     </main>
 
     <footer>
@@ -190,10 +129,10 @@
                     <h3>Institucional</h3>
 
                     <a href="index.html">Home</a>
-                    <a href="index.html#sobre-nois">Destinos</a>
-                    <a href="#">Pacotes</a>
+                    <a href="#destinos">Destinos</a>
+                    <a href="pacotes.html">Pacotes</a>
                     <a href="#">Promoções</a>
-                    <a href="">Contato</a>
+                    <a href="form.html">Contato</a>
                 </div>
 
                 <div class="footer-column">
@@ -203,7 +142,7 @@
                     <a href="#">Hotéis</a>
                     <a href="#">Seguro Viagem</a>
                     <a href="#">Parcelamento</a>
-                    <a href="#">Atendimento 24h</a>
+                    <a href="form.html">Atendimento 24h</a>
                 </div>
 
                 <div class="footer-column">
@@ -251,9 +190,8 @@
 <a href="https://wa.me/85998014915" target="_blank" class="botao-whatsapp">
     <i class="fa-brands fa-whatsapp"></i>
 </a>
+<script src="../TRIP-PLANNER/hero.js"></script>
 
-<script src="../TRIP-PLANNER/JS/hero.js"></script>
-<script src="../TRIP-PLANNER/JS/destinos.js"></script>
 
 </body>
 </html>

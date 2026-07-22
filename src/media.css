@@ -119,3 +119,27 @@
     }
 
 }
+
+@media(max-width:768px){
+
+    .banner-content h1{
+        font-size:38px;
+    }
+
+    .section-title h2{
+        font-size:32px;
+    }
+
+    .card-content h3{
+        font-size:24px;
+    }
+
+    .preco h2{
+        font-size:28px;
+    }
+
+    .cta h2{
+        font-size:32px;
+    }
+
+}
