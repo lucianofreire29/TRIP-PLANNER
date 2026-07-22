@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="src/footer.css">
     <link rel="stylesheet" href="src/media.css">
     <link rel="stylesheet" href="src/hero.css">
+    <link rel="stylesheet" href="src/destinos.css">
 
     <script src="https://unpkg.com/scrollreveal"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -115,6 +116,66 @@
             </div>
 
         </section>
+        <section id="destinos">
+
+            <div class="section-title">
+
+                <span>EXPLORE O MUNDO</span>
+
+                <h2>Destinos em Destaque</h2>
+
+                <p>
+                    Escolha seu próximo destino e viva experiências inesquecíveis.
+                </p>
+
+            </div>
+
+            <div class="destinos-filtros">
+
+            <input
+                type="text"
+                id="searchDestino"
+                placeholder="🔍 Pesquisar destino..."
+            >
+
+            <div class="filters-row">
+
+                <select id="filtroPais">
+
+                    <option value="">
+                        🌎 Todos os países
+                    </option>
+
+                </select>
+
+                <select id="filtroPreco">
+
+                    <option value="">
+                        💰 Todas as faixas
+                    </option>
+
+                    <option value="3000">
+                        Até R$ 3.000
+                    </option>
+
+                    <option value="6000">
+                        Até R$ 6.000
+                    </option>
+
+                    <option value="10000">
+                        Acima de R$ 6.000
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="cards-destinos">
+
+            </div>
+
+        </section>
+
     </main>
 
     <footer>
@@ -190,7 +251,9 @@
 <a href="https://wa.me/85998014915" target="_blank" class="botao-whatsapp">
     <i class="fa-brands fa-whatsapp"></i>
 </a>
-<script src="../TRIP-PLANNER/hero.js"></script>
+
+<script src="../TRIP-PLANNER/JS/hero.js"></script>
+<script src="../TRIP-PLANNER/JS/destinos.js"></script>
 
 </body>
 </html>
