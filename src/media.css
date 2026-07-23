@@ -1,145 +1,159 @@
-@media (max-width:1000px){
-    main #trabalho .cards-work{
-        flex-wrap: wrap;
-        padding-left: 10px;
-        width: 75%;
-        justify-content: center;
-    }
+@media (max-width: 1000px) {
+  main #trabalho .cards-work {
+    flex-wrap: wrap;
+    width: 90%;
+    padding-left: 0;
+    justify-content: center;
+  }
 
+  .comentarios-slider {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
+  .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .texto {
+    width: 100%;
+  }
+  form {
+    max-width: 100%;
+  }
 }
 
+@media (max-width: 750px) {
+  header {
+    flex-direction: row-reverse;
+    padding: 10px 20px;
+  }
 
-@media (max-width:750px){
-    header .menu-burguer{
-        display: block;
-    }
+  header .menu-burguer {
+    display: block;
+    position: relative;
+  }
 
-    header .nav-header{
-        display: none;
-    }
+  header > .nav-header {
+    display: none;
+  }
 
-    header{
-        flex-direction: row-reverse;
-    }
+  header .menu-burguer .icon-burguer {
+    padding: 20px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
 
-    header .menu-burguer{
-        position: relative;
-    }
+  header .menu-burguer .menu-drop {
+    position: absolute;
+    background: #efefef;
+    top: 76px;
+    left: -180px;
+    width: 230px;
+    transition: 0.4s;
+    box-shadow: 0 10px 30px #0002;
+    z-index: 1000;
+  }
 
-    header .menu-burguer .icon-burguer{
-        padding: 20px;
-        cursor: pointer;
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-    }
+  header .menu-burguer .menu-drop.open {
+    left: -20px;
+  }
 
-    header .menu-burguer .menu-drop.open{
-        left: -20px;
-    }
-    
-    header .menu-burguer .menu-drop{
-        position: absolute;
-        background-color: #efefef;
-        top: 76px;
-        left: -150px;
-        transition: 0.5s;
-    }
+  header .menu-burguer .menu-drop .nav-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+  }
 
-    header .menu-burguer .menu-drop .nav-header{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
+  header .menu-burguer .menu-drop .ul1 {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
 
-    header .menu-burguer .menu-drop .nav-header .ul1{
-        display: flex;
-        flex-direction: column;
-    }
-
-    header .nav-header .menu-dropdown:hover .ul2{
-        top: -55px;
-        left: 127px;
-    }
-    
-    header .nav-header .menu-dropdown .ul2{
-        position: absolute;
-        background-color: #efefef;
-        width: 200px;
-        top: -450px;
-        left: 0;
-        transition: 0s 0.2s;
-        z-index: -1;
-    }
-
-    header .nav-header .box-icons{
-        margin-left: 0;
-    }
+  header .menu-burguer .box-icons {
+    margin-left: 0;
+  }
 }
 
-@media(max-width:900px){
-
-    .container{
-        flex-direction:column;
-        text-align:center;
-    }
-
-    .texto{
-        width:100%;
-    }
-
-    .texto h1{
-        font-size:40px;
-    }
-
-    form{
-        max-width:100%;
-    }
-
+@media (max-width: 768px) {
+  #depoimentos {
+    padding: 70px 5%;
+  }
+  #depoimentos .section-title h2 {
+    font-size: 32px;
+  }
+  .comentarios-slider {
+    grid-template-columns: 1fr;
+  }
+  .comentario-card p {
+    min-height: auto;
+  }
+  .banner-content h1 {
+    font-size: 38px;
+  }
+  .section-title h2 {
+    font-size: 32px;
+  }
+  .card-content h3 {
+    font-size: 22px;
+  }
+  .preco h2 {
+    font-size: 26px;
+  }
+  .cta h2 {
+    font-size: 30px;
+  }
 }
 
-@media(max-width:600px){
-
-    main.contact-page{
-        padding: 120px 40px 180px;
-    }
-
-    .texto h1{
-        font-size:32px;
-    }
-
-    .texto p{
-        font-size:16px;
-    }
-
-    form{
-        padding:30px;
-    }
-
+@media (max-width: 600px) {
+  main.contact-page {
+    padding: 100px 25px 150px;
+  }
+  .texto h1 {
+    font-size: 32px;
+  }
+  .texto p {
+    font-size: 16px;
+  }
+  form {
+    padding: 25px;
+  }
 }
 
-@media(max-width:768px){
+@media (max-width: 900px) {
+  .sobre-hero,
+  .historia {
+    flex-direction: column;
+    text-align: center;
+  }
 
-    .banner-content h1{
-        font-size:38px;
-    }
+  .sobre-hero img,
+  .historia img {
+    width: 100%;
+    max-width: 400px;
+    height: 350px;
+  }
 
-    .section-title h2{
-        font-size:32px;
-    }
+  .sobre-hero h1 {
+    font-size: 36px;
+  }
 
-    .card-content h3{
-        font-size:24px;
-    }
+  .cards-pilares {
+    grid-template-columns: 1fr;
+  }
 
-    .preco h2{
-        font-size:28px;
-    }
+  .fundadores-container {
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .cta h2{
-        font-size:32px;
-    }
-
+  .fundador {
+    width: 100%;
+    max-width: 350px;
+  }
 }
