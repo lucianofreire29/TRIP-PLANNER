@@ -1,0 +1,342 @@
+.banner-promocoes {
+  position: relative;
+  height: 55vh;
+  background: url("../img/promocoes.jpg") center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner-promocoes .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.banner-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+}
+
+.banner-content span {
+  letter-spacing: 4px;
+  font-weight: 600;
+}
+
+.banner-content h1 {
+  font-size: 60px;
+  margin: 20px 0;
+}
+
+.promocoes {
+  padding: 20px 8% 80px;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-title span {
+  display: block;
+  color: #1a5d94;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.section-title h2 {
+  color: #142143;
+  font-size: 46px;
+  margin-bottom: 18px;
+}
+
+.section-title p {
+  color: #666;
+  font-size: 18px;
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.filtros {
+  max-width: 1200px;
+  margin: 60px auto;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0 20px;
+}
+
+.filtros input,
+.filtros select {
+  padding: 16px 20px;
+  min-width: 250px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  font-size: 15px;
+  outline: none;
+}
+
+.filtros input:focus,
+.filtros select:focus {
+  border-color: #1a5d94;
+}
+
+.cards-promocoes {
+  max-width: 1300px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 35px;
+  padding: 0 20px 80px;
+}
+
+.card-promocao {
+  background: white;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  transition: 0.35s;
+}
+
+.card-promocao:hover {
+  transform: translateY(-10px);
+}
+
+.imagem-promocao {
+  position: relative;
+  overflow: hidden;
+}
+
+.imagem-promocao img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  transition: 0.4s;
+}
+
+.card-promocao:hover img {
+  transform: scale(1.08);
+}
+
+.badge {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  background: #e63946;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 30px;
+  font-weight: bold;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.conteudo-promocao {
+  padding: 28px;
+}
+
+.conteudo-promocao h3 {
+  font-size: 28px;
+  color: #142143;
+  margin-bottom: 12px;
+}
+
+.pais {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #666;
+  margin-bottom: 18px;
+}
+
+.pais i {
+  color: #1a5d94;
+}
+
+.estrelas {
+  color: #ffc107;
+  margin-bottom: 20px;
+}
+
+.precos {
+  margin: 25px 0;
+}
+
+.preco-antigo {
+  display: block;
+  color: #999;
+  text-decoration: line-through;
+  font-size: 18px;
+}
+
+.precos h2 {
+  color: #142143;
+  font-size: 36px;
+}
+
+.btn-promocao {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  background: #142143;
+  color: white;
+  padding: 16px;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn-promocao:hover {
+  background: #1a5d94;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.contador {
+  background: #142143;
+  color: white;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.contador h2 {
+  margin-bottom: 40px;
+  font-size: 40px;
+}
+
+.contador-box {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.contador-box div {
+  background: white;
+  color: #142143;
+  width: 120px;
+  height: 120px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contador-box strong {
+  font-size: 42px;
+}
+.contador-box span {
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .banner-content h1 {
+    font-size: 38px;
+  }
+  .cards-promocoes {
+    grid-template-columns: 1fr;
+  }
+  .contador-box {
+    gap: 20px;
+  }
+}
+
+.banner-content p {
+  font-size: 20px;
+}
+
+.economia {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  padding: 8px 14px;
+  background: #e8f7ee;
+  color: #1b7f4b;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.btn-promocao {
+  transition: 0.3s;
+}
+
+.badge-destaque {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: #ffc107;
+  color: #142143;
+  padding: 8px 14px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 700;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.cta {
+  background: linear-gradient(135deg, #142143, #1a5d94);
+  color: white;
+  text-align: center;
+  padding: 90px 20px;
+}
+
+.cta h2 {
+  font-size: 46px;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.cta p {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 650px;
+  margin: 0 auto 40px;
+  line-height: 1.7;
+}
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  background: white;
+  color: #142143;
+  padding: 18px 45px;
+  border-radius: 50px;
+  font-size: 17px;
+  font-weight: 700;
+  transition: 0.35s;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button:hover {
+  transform: translateY(-5px);
+  background: #f5f5f5;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.cta {
+  padding: 70px 20px;
+}
+
+.cta h2 {
+  font-size: 34px;
+}
+
+.cta p {
+  font-size: 16px;
+}
+
+.cta-button {
+  width: 100%;
+  max-width: 320px;
+}

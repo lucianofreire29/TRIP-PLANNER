@@ -8,10 +8,7 @@
     <link rel="stylesheet" href="src/main.css">
     <link rel="stylesheet" href="src/footer.css">
     <link rel="stylesheet" href="src/media.css">
-    <link rel="stylesheet" href="src/hero.css">
-    <link rel="stylesheet" href="src/destinos.css">
-    <link rel="stylesheet" href="src/modal.css">
-    <link rel="stylesheet" href="src/depoimentos.css">
+    <link rel="stylesheet" href="src/promocoes.css">
 
     <script src="https://unpkg.com/scrollreveal"></script>
     <link
@@ -48,7 +45,7 @@
                         <li><a href="index.html">HOME</a></li>
                         <li><a href="#destinos">DESTINOS</a></li>
                         <li><a href="pacotes.html">PACOTES/<a></li>
-                        <li><a href="promocoes.html">PROMOÇÕES</a></li>
+                        <li><a href="#">PROMOÇÕES</a></li>
                         <li><a href="#">DEPOIMENTOS</a></li>
                     </ul>
 
@@ -68,9 +65,9 @@
         <nav class="nav-header">
             <ul class="ul1">
                     <li><a href="index.html">HOME</a></li>
-                    <li><a href="#destinos">DESTINOS</a></li>
+                    <li><a href="destino.html">DESTINOS</a></li>
                     <li><a href="pacotes.html">PACOTES</a></li>
-                    <li><a href="promocoes.html">PROMOÇÕES</a></li>
+                    <li><a href="#">PROMOÇÕES</a></li>
             </ul>
 
         <button class="btn" onclick="window.location.href = 'form.html'">
@@ -84,168 +81,80 @@
         </div>
       </nav>
     </header>
-
-    <main>
-      <section id="hero">
-        <div class="slider"></div>
-
-        <div class="overlay"></div>
-
-        <div class="hero-navigation">
-          <button class="prev-slide">
-            <i class="fa-solid fa-chevron-left"></i>
-          </button>
-
-          <button class="next-slide">
-            <i class="fa-solid fa-chevron-right"></i>
-          </button>
-        </div>
-
-        <div class="hero-indicators"></div>
-
-        <div class="hero-content">
-          <span>TRIP PLANNER</span>
-
-          <h1></h1>
-
-          <div class="hero-location"></div>
-
-          <div class="hero-stars"></div>
-
-          <p></p>
-
-          <span class="hero-price"></span>
-
-                <a href="#" class="hero-button"></a>
-
-            </div>
-
-        </section>
-                <section id="destinos">
-
-            <div class="section-title">
-
-                <span>EXPLORE O MUNDO</span>
-
-                <h2>Destinos em Destaque</h2>
-
-                <p>
-                    Escolha seu próximo destino e viva experiências inesquecíveis.
-                </p>
-
-            </div>
-
-            <div class="destinos-filtros">
-
-            <input
-                type="text"
-                id="searchDestino"
-                placeholder="🔍 Pesquisar destino..."
-            >
-
-            <div class="filters-row">
-
+        <main>
+            <section class="banner-promocoes">
+                <div class="overlay"></div>
+                <div class="banner-content">
+                    <span>OFERTAS ESPECIAIS</span>
+                    <h1>Promoções Imperdíveis</h1>
+                    <p>
+                        Aproveite descontos exclusivos para viajar pagando muito menos.
+                    </p>
+                </div>
+            </section>
+            <section class="filtros">
+                <input
+                    type="text"
+                    id="searchPromocao"
+                    placeholder="🔍 Pesquisar destino..."
+                >
                 <select id="filtroPais">
-
                     <option value="">
                         🌎 Todos os países
                     </option>
-
                 </select>
-
-                <select id="filtroPreco">
-
+                <select id="filtroDesconto">
                     <option value="">
-                        💰 Todas as faixas
+                        🔥 Desconto
                     </option>
-
-                    <option value="3000">
-                        Até R$ 3.000
-                    </option>
-
-                    <option value="6000">
-                        Até R$ 6.000
-                    </option>
-
-                    <option value="10000">
-                        Acima de R$ 6.000
-                    </option>
-
+                    <option value="20">20% ou mais</option>
+                    <option value="30">30% ou mais</option>
+                    <option value="40">40% ou mais</option>
                 </select>
+            </section>
+            <section class="promocoes">
+                <div class="section-title">
+                    <span>PROMOÇÕES</span>
+                    <h2>Ofertas da Semana</h2>
+                    <p>
+                        Os melhores destinos com preços especiais por tempo limitado.
+                    </p>
+                </div>
+                <div class="cards-promocoes">
+                </div>
+            </section>
+            <section class="contador">
+                <h2>⏰ As ofertas terminam em</h2>
+                <div class="contador-box">
+                    <div>
+                        <strong id="dias">00</strong>
+                        <span>Dias</span>
+                    </div>
+                    <div>
+                        <strong id="horas">00</strong>
+                        <span>Horas</span>
+                    </div>
+                    <div>
+                        <strong id="minutos">00</strong>
+                        <span>Minutos</span>
+                    </div>
+                    <div>
+                        <strong id="segundos">00</strong>
+                        <span>Segundos</span>
+                    </div>
+                </div>
+            </section>
+            <section class="cta">
+                <h2>Não perca essa oportunidade</h2>
+                <p>
+                    Reserve agora mesmo sua próxima viagem.
+                </p>
+                <a href="form.html" class="cta-button">
 
-            </div>
-
-            <div class="cards-destinos">
-
-            </div>
-
-        </section>
-
-        <section id="destinos">
-
-          <div class="modal-overlay">
-
-              <div class="modal-destino">
-
-                  <button class="fechar-modal">
-                      <i class="fa-solid fa-xmark"></i>
-                  </button>
-                  <img class="modal-imagem" src="" alt="">
-
-                  <div class="modal-conteudo">
-
-                      <h2 class="modal-titulo"></h2>
-
-                      <span class="modal-pais"></span>
-
-                      <div class="modal-estrelas">
-
-                      </div>
-                      <p class="modal-descricao"></p>
-
-                      <strong class="modal-preco"></strong>
-                      <button class="modal-orcamento">
-                          Solicitar orçamento
-                      </button>
-                  </div>
-              </div>
-          </div>
-
-        </section>
-
-        <section id="depoimentos">
-          <div class="section-title">
-              <span>AVALIAÇÕES</span>
-              <h2>O que nossos viajantes dizem</h2>
-              <div class="nota-geral">
-              ⭐⭐⭐⭐⭐
-              <div>4.9 de 5</div>
-              <span>Mais de <strong>2.300 viajantes satisfeitos</strong></span>
-              </div>
-          </div>
-
-          <div class="comentarios-wrapper">
-
-            <div class="comentarios-slider"></div>
-
-          </div>
-
-          <div class="comentarios-navigation">
-
-              <button class="comentario-prev">
-                  <i class="fa-solid fa-chevron-left"></i>
-              </button>
-
-              <button class="comentario-next">
-                  <i class="fa-solid fa-chevron-right"></i>
-              </button>
-
-          </div>
-
-      </section>
-
-    </main>
-
+                    Solicitar orçamento
+                </a>
+            </section>
+        </main>
     <footer>
       <div class="footer-container">
         <div class="footer-logo">
@@ -258,7 +167,7 @@
 
                     <a href="index.html">Home</a>
                     <a href="sobre.html">Sobre nós</a>
-                    <a href="#destinos">Destinos</a>
+                    <a href="destino.html">Destinos</a>
                     <a href="pacotes.html">Pacotes</a>
                     <a href="#">Promoções</a>
                     <a href="form.html">Contato</a>
@@ -313,10 +222,7 @@
 <a href="https://wa.me/85998014915" target="_blank" class="botao-whatsapp">
     <i class="fa-brands fa-whatsapp"></i>
 </a>
-<script type="module" src="JS/hero.js"></script>
-<script type="module" src="JS/dados.js"></script>
-<script type="module" src="JS/destinos.js"></script>
-<script type="module" src="JS/depoimentos.js"></script>
+            <script src="JS/promocoes.js"></script>
 
 
 </body>
