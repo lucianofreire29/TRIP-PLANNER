@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="src/footer.css">
         <link rel="stylesheet" href="src/media.css">
         <link rel="stylesheet" href="src/form.css">
-        
+
         <script src="https://unpkg.com/scrollreveal"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -40,8 +40,8 @@
                         <li><a href="index.html">HOME</a></li>
                         <li><a href="#destinos">DESTINOS</a></li>
                         <li><a href="pacotes.html">PACOTES/a></li>
-                        <li><a href="#">PROMOÇÕES/a></li>
-                        <li><a href="#">DEPOIMENTOS</a></li>
+                        <li><a href="promocoes.html">PROMOÇÕES/a></li>
+                        <li><a href="index.html#depoimentos">DEPOIMENTOS</a></li>
                     </ul>
 
                         <button class="btn" onclick="window.location.href=''">
@@ -63,7 +63,7 @@
                     <li><a href="index.html">HOME</a></li>
                     <li><a href="#destinos">DESTINOS</a></li>
                     <li><a href="pacotes.html">PACOTES</a></li>
-                    <li><a href="#">PROMOÇÕES</a></li>
+                    <li><a href="promocoes.html">PROMOÇÕES</a></li>
             </ul>
 
                         <button class="btn" onclick="window.location.href='form.html'">
@@ -153,7 +153,7 @@
 
         </main>
     <div id="footer"></div>
-    <script> 
+    <script>
     fetch("index.html")
     .then(response => response.text())
     .then(html => {
@@ -164,7 +164,7 @@
             doc.querySelector("footer").outerHTML;
     });
     </script>
-    
+
     <script>
         ScrollReveal().reveal('.cards-work', {
         origin: 'bottom',
