@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" href="src/header.css" />
-    <link rel="stylesheet" href="src/main.css">
+    <link rel="stylesheet" href="src/main.css" />
+    <link rel="stylesheet" href="src/media.css" />
+    <link rel="stylesheet" href="src/keyframes.css" />
     <link rel="stylesheet" href="src/footer.css" />
     <link rel="stylesheet" href="src/sobre.css" />
 
@@ -38,9 +40,9 @@
                 <nav class="nav-header">
                     <ul class="ul1">
                         <li><a href="index.html">HOME</a></li>
-                        <li><a href="#destinos">DESTINOS</a></li>
-                        <li><a href="pacotes.html">PACOTES/a></li>
-                        <li><a href="promocoes.html">PROMOÇÕES/a></li>
+                        <li><a href="index.html#destinos">DESTINOS</a></li>
+                        <li><a href="pacotes.html">PACOTES</a></li>
+                        <li><a href="promocoes.html">PROMOÇÕES</a></li>
                         <li><a href="index.html#depoimentos">DEPOIMENTOS</a></li>
                     </ul>
 
@@ -61,7 +63,7 @@
         <nav class="nav-header">
             <ul class="ul1">
                     <li><a href="index.html">HOME</a></li>
-                    <li><a href="#destinos">DESTINOS</a></li>
+                    <li><a href="index.html#destinos">DESTINOS</a></li>
                     <li><a href="pacotes.html">PACOTES</a></li>
                     <li><a href="promocoes.html">PROMOÇÕES</a></li>
             </ul>
@@ -229,5 +231,51 @@
     });
     </script>
 
+    <script>
+      ScrollReveal().reveal(".cards-work", {
+        origin: "bottom",
+        duration: 2000,
+        distance: "0%",
+      });
+
+      function toggleMenu() {
+        document.querySelector(".menu-drop").classList.toggle("open");
+      }
+    </script>
+
+    <script>
+    window.addEventListener("load", () => {
+        document.body.classList.add("loaded");
+    });
+
+    document.querySelectorAll("a").forEach(link => {
+
+    const href = link.getAttribute("href");
+
+    if (
+        href &&
+        !href.startsWith("#") &&
+        !href.startsWith("http") &&
+        link.target !== "_blank"
+    ) {
+
+        link.addEventListener("click", function(e){
+
+            e.preventDefault();
+
+            document.body.classList.remove("loaded");
+            document.body.classList.add("fade-out");
+
+            setTimeout(() => {
+                window.location.href = href;
+            }, 400);
+
+        });
+
+    }
+
+  });
+  </script>
+    
   </body>
 </html>

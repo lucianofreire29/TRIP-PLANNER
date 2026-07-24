@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="src/header.css">
     <link rel="stylesheet" href="src/keyframes.css">
     <link rel="stylesheet" href="src/main.css">
@@ -29,57 +30,58 @@
 
   <body>
     <header>
-      <div class="logo">
-        <h1>TRIP</h1>
-        <span>PLANNER</span>
-      </div>
-
-      <div class="menu-burguer">
-        <div class="icon-burguer" onclick="toggleMenu()">
-          <i class="fa-solid fa-bars"></i>
+        <div class="logo">
+            <h1>TRIP</h1>
+            <span>PLANNER</span>
         </div>
+
+        <div class="menu-burguer">
+            <div class="icon-burguer" onclick="toggleMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </div>
 
             <div class="menu-drop">
                 <nav class="nav-header">
                     <ul class="ul1">
                         <li><a href="index.html">HOME</a></li>
                         <li><a href="#destinos">DESTINOS</a></li>
-                        <li><a href="pacotes.html">PACOTES/<a></li>
+                        <li><a href="pacotes.html">PACOTES</a></li>
                         <li><a href="promocoes.html">PROMOÇÕES</a></li>
                         <li><a href="index.html#depoimentos">DEPOIMENTOS</a></li>
                     </ul>
 
-            <button class="btn" onclick="window.location.href = 'form.html'">
-              Fale Conosco
-            </button>
+                        <button class="btn" onclick="window.location.href=''">
+                            Fale Conosco
+                        </button>
 
-            <div class="box-icons">
-              <i class="fa-brands fa-instagram"></i>
-              <i class="fa-brands fa-facebook-f"></i>
-              <i class="fa-brands fa-linkedin-in"></i>
+                    <div class="box-icons">
+                        <i class="fa-brands fa-instagram"></i>
+                        <i class="fa-brands fa-facebook-f"></i>
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </div>
+                </nav>
             </div>
-          </nav>
+
         </div>
-      </div>
 
         <nav class="nav-header">
             <ul class="ul1">
                     <li><a href="index.html">HOME</a></li>
-                    <li><a href="destino.html">DESTINOS</a></li>
+                    <li><a href="#destinos">DESTINOS</a></li>
                     <li><a href="pacotes.html">PACOTES</a></li>
                     <li><a href="promocoes.html">PROMOÇÕES</a></li>
             </ul>
 
-        <button class="btn" onclick="window.location.href = 'form.html'">
-          Fale Conosco
-        </button>
+                        <button class="btn" onclick="window.location.href='form.html'">
+                            Fale Conosco
+                        </button>
 
-        <div class="box-icons">
-          <i class="fa-brands fa-instagram"></i>
-          <i class="fa-brands fa-facebook-f"></i>
-          <i class="fa-brands fa-linkedin-in"></i>
-        </div>
-      </nav>
+            <div class="box-icons">
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-facebook-f"></i>
+                <i class="fa-brands fa-linkedin-in"></i>
+            </div>
+        </nav>
     </header>
         <main>
             <section class="banner-promocoes">
@@ -167,9 +169,9 @@
 
                     <a href="index.html">Home</a>
                     <a href="sobre.html">Sobre nós</a>
-                    <a href="destino.html">Destinos</a>
+                    <a href="index.html#destinos">Destinos</a>
                     <a href="pacotes.html">Pacotes</a>
-                    <a href="#">Promoções</a>
+                    <a href="promocoes.html">Promoções</a>
                     <a href="form.html">Contato</a>
                 </div>
 
@@ -219,10 +221,44 @@
       }
     </script>
 
-<a href="https://wa.me/85998014915" target="_blank" class="botao-whatsapp">
-    <i class="fa-brands fa-whatsapp"></i>
-</a>
-            <script src="JS/promocoes.js"></script>
+    <a href="https://wa.me/85998014915" target="_blank" class="botao-whatsapp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+    <script src="JS/promocoes.js"></script>
+
+    <script>
+    window.addEventListener("load", () => {
+        document.body.classList.add("loaded");
+    });
+
+    document.querySelectorAll("a").forEach(link => {
+
+    const href = link.getAttribute("href");
+
+    if (
+        href &&
+        !href.startsWith("#") &&
+        !href.startsWith("http") &&
+        link.target !== "_blank"
+    ) {
+
+        link.addEventListener("click", function(e){
+
+            e.preventDefault();
+
+            document.body.classList.remove("loaded");
+            document.body.classList.add("fade-out");
+
+            setTimeout(() => {
+                window.location.href = href;
+            }, 400);
+
+        });
+
+    }
+
+  });
+  </script>
 
 
 </body>

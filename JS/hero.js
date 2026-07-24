@@ -9,7 +9,7 @@ const heroData = [
     pais: "Brasil",
     preco: "A partir de R$ 2.990",
     botao: "Ver Pacotes",
-    link: "#pacotes",
+    link: "pacotes.html",
     estrelas: 5,
   },
 
@@ -20,8 +20,8 @@ const heroData = [
       "Conheça a cidade mais romântica do mundo e viva experiências inesquecíveis.",
     pais: "França",
     preco: "A partir de R$ 5.490",
-    botao: "Explorar",
-    link: "#pacotes",
+    botao: "Ver Pacotes",
+    link: "pacotes.html",
     estrelas: 5,
   },
 
@@ -32,8 +32,8 @@ const heroData = [
       "Explore montanhas nevadas, vilarejos encantadores e paisagens incríveis.",
     pais: "Suíça",
     preco: "A partir de R$ 7.990",
-    botao: "Conhecer",
-    link: "#pacotes",
+    botao: "Ver Pacotes",
+    link: "pacotes.html",
     estrelas: 5,
   },
 ];

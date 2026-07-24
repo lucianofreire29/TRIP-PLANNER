@@ -10,16 +10,14 @@ body{
 }
 
 header{
+    position: relative;
+    z-index: 1000;
+
     background-color: #efefef;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 20px;
-    z-index: 1;
-}
-
-header .menu-burguer{
-    display: none;
 }
 
 header .logo{
@@ -39,72 +37,149 @@ header .logo h1{
 }
 
 header .logo span{
-    color: #444;
-    font-size: 14px;
-    letter-spacing: 8px;
-    margin-top: 5px;
+    color:#444;
+    font-size:14px;
+    letter-spacing:8px;
+    margin-top:5px;
 }
 
-header .nav-header{
-    display: flex;
-    align-items: center;
+header > .nav-header{
+    display:flex;
+    align-items:center;
 }
 
-header .nav-header .ul1{
-    display: flex;
+header > .nav-header .ul1{
+    display:flex;
+    align-items:center;
 }
 
-header .nav-header .ul1 li{
-    list-style: none;
+header > .nav-header .ul1 li{
+    list-style:none;
 }
 
-header .nav-header .ul1 li a{
-    padding: 20px;
-    display: block;
-    text-decoration: none;
-    color: #000;
-    transition: 0.5s;
-    font-size: 12px;
+header > .nav-header .ul1 li a{
+    display:block;
+    padding:20px;
+    text-decoration:none;
+    color:#000;
+    font-size:12px;
+    transition:.3s;
 }
 
-header .nav-header .ul1 li a:hover{
-    color: #1a5d94;
+header > .nav-header .ul1 li a:hover{
+    color:#1a5d94;
 }
-
 
 .btn{
-    border: 2px solid #142143;
-    background-color: #142143;
-    padding: 10px 20px;
-    color: #fff;
-    transition: 0.5s;
-    cursor: pointer;
+    border:2px solid #142143;
+    background:#142143;
+    color:#fff;
+    padding:10px 20px;
+    cursor:pointer;
+    transition:.3s;
 }
 
 .btn:hover{
-    background-color: transparent;
-    color: #000;
+    background:transparent;
+    color:#000;
 }
 
-header .nav-header .box-icons{
-    margin-left: 10px;
-    display: flex;
-    align-items: center;
+header > .nav-header .box-icons{
+    display:flex;
+    align-items:center;
+    margin-left:10px;
 }
 
-header .nav-header .box-icons i{
-    font-size: 20px;
-    color: #142143;
-    padding: 5px;
-    transition: 0.5s;
+header > .nav-header .box-icons i{
+    font-size:20px;
+    color:#142143;
+    padding:5px;
+    transition:.3s;
 }
 
-header .nav-header .box-icons i:hover{
-    color: #1a5d94;
+header > .nav-header .box-icons i:hover{
+    color:#1a5d94;
 }
 
+.menu-burguer{
+    position:relative;
+}
 
-header{
-    position: relative;
-    z-index: 1000;
+.menu-drop{
+    display:none;
+    position:absolute;
+    top:70px;
+    left:-15px;
+    width:250px;
+    background:#fff;
+    border-radius:12px;
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+    padding:20px;
+}
+
+.menu-drop.open{
+    display:block;
+}
+
+.menu-drop .nav-header{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    justify-content:flex-start;
+    gap:18px;
+}
+
+.menu-drop .ul1{
+    display:flex;
+    flex-direction:column;
+    width:100%;
+    gap:5px;
+    padding:0;
+    margin:0;
+}
+
+.menu-drop .ul1 li{
+    list-style:none;
+    width:100%;
+}
+
+.menu-drop .ul1 li a{
+    display:block;
+    width:100%;
+    padding:10px 5px;
+    text-decoration:none;
+    color:#333;
+    font-size:15px;
+    font-weight:500;
+    border-radius:8px;
+    transition:.3s;
+}
+
+.menu-drop .ul1 li a:hover{
+    background:#f5f5f5;
+    color:#142143;
+}
+
+.menu-drop .btn{
+    width:100%;
+    margin-top:5px;
+}
+
+.menu-drop .box-icons{
+    display:flex;
+    gap:18px;
+    justify-content:center;
+    width:100%;
+    margin-top:10px;
+}
+
+.menu-drop .box-icons i{
+    font-size:22px;
+    color:#142143;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.menu-drop .box-icons i:hover{
+    color:#1a5d94;
 }

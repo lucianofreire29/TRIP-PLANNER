@@ -7,7 +7,9 @@
     <title>Pacotes - Trip Planner</title>
 
     <link rel="stylesheet" href="src/header.css">
+    <link rel="stylesheet" href="src/keyframes.css">
     <link rel="stylesheet" href="src/footer.css">
+    <link rel="stylesheet" href="src/media.css">
     <link rel="stylesheet" href="src/main.css">
     <link rel="stylesheet" href="src/pacotes.css">
 
@@ -31,12 +33,12 @@
                     <ul class="ul1">
                         <li><a href="index.html">HOME</a></li>
                         <li><a href="index.html#destinos">DESTINOS</a></li>
-                        <li><a href="pacotes.html">PACOTES/<a></li>
+                        <li><a href="pacotes.html">PACOTES</a></li>
                         <li><a href="promocoes.html">PROMOÇÕES</a></li>
                         <li><a href="index.html#depoimentos">DEPOIMENTOS</a></li>
                     </ul>
 
-                        <button class="btn" onclick="window.location.href='form.html'">
+                        <button class="btn" onclick="window.location.href=''">
                             Fale Conosco
                         </button>
 
@@ -53,7 +55,7 @@
         <nav class="nav-header">
             <ul class="ul1">
                     <li><a href="index.html">HOME</a></li>
-                    <li><a href="index.html#destinos">DESTINOS</a></li>
+                    <li><a href="#destinos">DESTINOS</a></li>
                     <li><a href="pacotes.html">PACOTES</a></li>
                     <li><a href="promocoes.html">PROMOÇÕES</a></li>
             </ul>
@@ -204,6 +206,12 @@
     <a href="https://wa.me/85998014915" target="_blank" class="botao-whatsapp">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
+
+    <script>
+    function toggleMenu() {
+        document.querySelector(".menu-drop").classList.toggle("open");
+    }
+    </script>
 
 <script src="JS/pacotes.js"></script>
 

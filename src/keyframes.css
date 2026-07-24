@@ -15,9 +15,17 @@ header{
     animation-timeline: scroll();
 }
 
+@keyframes fadePage {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
 
-
-
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
 @keyframes main-text {
     from{
@@ -34,4 +42,20 @@ main #sobre .box-text, main #sobre a{
 
     animation: main-text 1ms ease-in-out;
     animation-timeline: view();
+}
+
+.page-exit{
+    animation: pageExit .35s ease forwards;
+}
+
+@keyframes pageExit{
+    from{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+    to{
+        opacity:0;
+        transform:translateY(-15px);
+    }
 }

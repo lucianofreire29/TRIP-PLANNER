@@ -1,4 +1,7 @@
-
+body {
+    opacity: 0;
+    animation: fadePage .5s ease forwards;
+}
 
 main #sobre{
     background-image: url('../img/banner\ 1.jpg');

@@ -24,6 +24,7 @@
 }
 
 @media (max-width: 750px) {
+
   header {
     flex-direction: row-reverse;
     padding: 10px 20px;
@@ -39,45 +40,74 @@
   }
 
   header .menu-burguer .icon-burguer {
-    padding: 20px;
+    padding: 10px;
     cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
   }
 
   header .menu-burguer .menu-drop {
+    display: none;
     position: absolute;
-    background: #efefef;
-    top: 76px;
-    left: -180px;
-    width: 230px;
-    transition: 0.4s;
-    box-shadow: 0 10px 30px #0002;
+    top: 55px;
+    left: -15px;
+    width: 240px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0,0,0,.15);
+    padding: 20px;
     z-index: 1000;
   }
 
   header .menu-burguer .menu-drop.open {
-    left: -20px;
+    display: block;
   }
 
   header .menu-burguer .menu-drop .nav-header {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: 30px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0;
+    gap: 15px;
   }
 
   header .menu-burguer .menu-drop .ul1 {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    text-align: center;
+    width: 100%;
+    gap: 0;
+    padding: 0;
+    margin: 0;
+  }
+
+  header .menu-burguer .menu-drop .ul1 li {
+    list-style: none;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  header .menu-burguer .menu-drop .ul1 li a {
+    display: block;
+    width: 100%;
+    padding: 12px 5px;
+    font-size: 15px;
+    color: #333;
+    text-decoration: none;
+  }
+
+  header .menu-burguer .btn {
+    width: 100%;
+    margin-top: 10px;
   }
 
   header .menu-burguer .box-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
     margin-left: 0;
   }
+
 }
 
 @media (max-width: 768px) {
