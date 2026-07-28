@@ -136,13 +136,16 @@
                 </label>
             </div>
 
-            <button type="submit">
-                Enviar Solicitação
-            </button>
+            <button type="submit" id="btnEnviar">Enviar</button>
 
             <span id="status"></span>
-
         </form>
+        <section class="lista-dados">
+            <h2>📋 Dados salvos no Firebase</h2>
+            <div id="listaMensagens">
+                <p class="carregando">Carregando mensagens...</p>
+            </div>
+        </section>
 
         </div>
 
@@ -172,5 +175,6 @@
         document.querySelector('.menu-drop').classList.toggle('open')
     }
     </script>
+    <script type="module" src="script.js"></script>
 </body>
 </html>
