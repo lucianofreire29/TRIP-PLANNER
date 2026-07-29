@@ -13,6 +13,7 @@ function mostrarStatus(texto, tipo) {
 
 formulario.addEventListener("submit", async (e) => {
     e.preventDefault();
+    console.log("submit executado")
     const dados = {
         nome: document.getElementById("nome").value.trim(),
         email: document.getElementById("email").value.trim(),
@@ -39,12 +40,18 @@ formulario.addEventListener("submit", async (e) => {
     btnEnviar.disabled = true;
     btnEnviar.textContent = "Enviando...";
     try {
+       console.log("Antes de salvar", dados);
+
         await salvarMensagem(dados);
+
+        console.log("Depois de salvar");
+
         mostrarStatus(
             "Mensagem enviada com sucesso!",
             "sucesso"
         );
         formulario.reset();
+
     } catch (erro) {
         console.error(
             "Erro completo:",
