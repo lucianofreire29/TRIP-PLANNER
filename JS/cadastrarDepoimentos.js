@@ -7,7 +7,6 @@ import {
 
 
 const depoimentos = [
-
 {
     foto:"img/user-1.jpg",
     nome:"Ana Oliveira",
@@ -16,7 +15,6 @@ const depoimentos = [
     curtidas:348,
     texto:"Foi a melhor viagem da minha vida. Atendimento impecável e organização perfeita."
 },
-
 
 {
     foto:"img/user-5.jpg",
@@ -39,14 +37,10 @@ const depoimentos = [
 ];
 
 async function cadastrar(){
-
     const colecao = collection(db,"depoimentos");
     for(let depoimento of depoimentos){
         await addDoc(colecao,depoimento);
 
     }
     console.log("Depoimentos cadastrados!");
-
 }
-
-cadastrar();
