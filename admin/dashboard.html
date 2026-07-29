@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Painel Administrativo</title>
+
+    <link rel="stylesheet" href="css/admin.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <div class="admin">
+      <aside class="sidebar">
+        <h2>TRIP</h2>
+        <span>PLANNER</span>
+
+        <nav>
+          <a href="dashboard.html" class="ativo">
+            <i class="fa-solid fa-chart-line"></i>
+            Dashboard
+          </a>
+
+          <a href="destinos.html">
+            <i class="fa-solid fa-earth-americas"></i>
+            Destinos
+          </a>
+
+          <a href="promocoes.html">
+            <i class="fa-solid fa-percent"></i>
+            Promoções
+          </a>
+
+          <a href="pacotes.html">
+            <i class="fa-solid fa-plane"></i>
+            Pacotes
+          </a>
+
+          <a href="contatos.html">
+            <i class="fa-solid fa-envelope"></i>
+            Contatos
+          </a>
+        </nav>
+      </aside>
+      <main class="conteudo">
+        <header>
+          <h1>Painel Administrativo</h1>
+          <button id="btnSair">Sair</button>
+        </header>
+        <section class="cards">
+          <div class="card">
+            <i class="fa-solid fa-earth-americas"></i>
+            <h2 id="totalDestinos">0</h2>
+            <span>Destinos</span>
+          </div>
+
+          <div class="card">
+            <i class="fa-solid fa-percent"></i>
+            <h2 id="totalPromocoes">0</h2>
+            <span>Promoções</span>
+          </div>
+
+          <div class="card">
+            <i class="fa-solid fa-plane"></i>
+            <h2 id="totalPacotes">0</h2>
+            <span>Pacotes</span>
+          </div>
+          <div class="card">
+            <i class="fa-solid fa-envelope"></i>
+            <h2 id="totalContatos">0</h2>
+            <span>Mensagens</span>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script type="module" src="js/dashboard.js"></script>
+  </body>
+</html>
