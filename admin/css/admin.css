@@ -1,0 +1,137 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background: #f5f7fb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.login-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-card {
+  width: 420px;
+  background: white;
+  border-radius: 20px;
+  padding: 45px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
+}
+
+.logo {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.logo h1 {
+  color: #142143;
+  font-size: 40px;
+  letter-spacing: 3px;
+}
+
+.logo span {
+  color: #1a5d94;
+  letter-spacing: 5px;
+  font-size: 14px;
+}
+
+.login-card h2 {
+  color: #142143;
+  text-align: center;
+}
+
+.login-card p {
+  text-align: center;
+  color: #777;
+  margin: 15px 0 35px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 25px;
+}
+
+.campo label {
+  margin-bottom: 8px;
+  color: #555;
+  font-weight: 600;
+}
+
+.campo input {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  outline: none;
+  font-size: 15px;
+}
+
+.campo input:focus {
+  border-color: #1a5d94;
+}
+
+.senha-box {
+  position: relative;
+}
+.senha-box input {
+  padding-right: 50px;
+}
+
+.senha-box i {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #666;
+  cursor: pointer;
+}
+
+button {
+  width: 100%;
+  border: none;
+  background: #142143;
+  color: white;
+  padding: 16px;
+  border-radius: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #1a5d94;
+}
+
+.campo input {
+  transition: 0.3s;
+}
+
+.campo input:hover {
+  border-color: #1a5d94;
+}
+
+.login-card {
+  animation: aparecer 0.6s ease;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
