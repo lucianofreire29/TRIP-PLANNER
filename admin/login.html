@@ -19,10 +19,15 @@
         </div>
         <h2>Painel Administrativo</h2>
         <p>Faça login para continuar</p>
-        <form>
+        <form id="loginForm">
           <div class="campo">
             <label>Email</label>
-            <input type="email" placeholder="Digite seu email" />
+            <input
+              type="email"
+              id="email"
+              placeholder="Digite seu email"
+              required
+            />
           </div>
           <div class="campo">
             <label>Senha</label>
@@ -31,15 +36,18 @@
                 type="password"
                 id="senha"
                 placeholder="Digite sua senha"
+                required
               />
               <i id="iconeSenha" class="fa-solid fa-eye"></i>
             </div>
           </div>
-          <button>Entrar</button>
+
+          <p id="erroLogin" class="erro-login"></p>
+          <button type="submit" id="btnEntrar">Entrar</button>
         </form>
       </div>
     </div>
 
-    <script src="js/login.js"></script>
+    <script type="module" src="js/login.js"></script>
   </body>
 </html>
