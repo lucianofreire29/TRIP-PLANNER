@@ -101,8 +101,9 @@ header > .nav-header .box-icons i:hover{
     color:#1a5d94;
 }
 
-.menu-burguer{
-    position:relative;
+.menu-burguer {
+    display: none;
+    position: relative;
 }
 
 .menu-drop{
