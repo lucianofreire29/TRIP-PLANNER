@@ -1,6 +1,6 @@
 const modal = document.querySelector("#modalDestino");
 
-const btnNovo = document.querySelector("#btnNovoDestino");
+const btnNovo = document.querySelector("#btnNovo");
 
 const fechar = document.querySelector("#fecharModal");
 
