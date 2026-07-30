@@ -272,3 +272,203 @@ header h1 {
   color: #666;
   font-size: 18px;
 }
+
+.topo-pagina {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 35px 0;
+}
+
+.btn-primary {
+  background: #1a5d94;
+  color: white;
+  border: none;
+  padding: 14px 25px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: 0.3s;
+}
+
+.btn-primary:hover {
+  background: #0f4c81;
+}
+
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.tabela thead {
+  background: #142143;
+  color: white;
+}
+
+.tabela th {
+  padding: 18px;
+  text-align: left;
+}
+
+.tabela td {
+  padding: 18px;
+  border-bottom: 1px solid #ececec;
+}
+
+.tabela tr:last-child td {
+  border: none;
+}
+
+.thumb {
+  width: 90px;
+  height: 65px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.btn-editar,
+.btn-excluir {
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-right: 8px;
+  transition: 0.3s;
+  color: white;
+}
+
+.btn-editar {
+  background: #1a5d94;
+}
+
+.btn-excluir {
+  background: #dc3545;
+}
+
+.btn-editar:hover {
+  transform: translateY(-3px);
+}
+
+.btn-excluir:hover {
+  transform: translateY(-3px);
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal.ativo {
+  display: flex;
+}
+
+.modal-content {
+  background: #fff;
+  width: 900px;
+  max-width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 20px;
+  padding: 35px;
+  position: relative;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.modal-header h2 {
+  color: #142143;
+}
+
+#fecharModal {
+  width: 42px;
+  height: 42px;
+  border: none;
+  background: #f3f3f3;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+#fecharModal:hover {
+  background: #142143;
+  color: white;
+}
+
+#formDestino {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+
+.grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.grupo label {
+  font-weight: 600;
+  color: #444;
+}
+
+.grupo input,
+.grupo textarea {
+  padding: 14px;
+  border: 1px solid #d9d9d9;
+  border-radius: 10px;
+  outline: none;
+  font-size: 15px;
+}
+
+#formDestino .grupo:nth-child(7),
+#formDestino .grupo:nth-child(8),
+#formDestino button {
+  grid-column: 1 / 3;
+}
+
+.grupo textarea {
+  resize: none;
+  height: 130px;
+}
+.grupo:has(textarea) {
+  grid-column: 1 / 3;
+}
+
+.grupo:has(input[type="file"]) {
+  grid-column: 1 / 3;
+}
+
+#formDestino button {
+  grid-column: 1 / 3;
+  margin-top: 10px;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
