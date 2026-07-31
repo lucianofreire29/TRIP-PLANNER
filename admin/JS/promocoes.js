@@ -1,0 +1,13 @@
+const modal = document.querySelector("#modalPromocoes");
+
+const btnNovo = document.querySelector("#btnNovo");
+
+const fechar = document.querySelector("#fecharModal");
+
+btnNovo.addEventListener("click", () => {
+  modal.classList.add("ativo");
+});
+
+fechar.addEventListener("click", () => {
+  modal.classList.remove("ativo");
+});
