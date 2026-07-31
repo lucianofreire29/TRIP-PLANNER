@@ -49,102 +49,243 @@
       </aside>
       <main class="conteudo">
         <header>
-          <h1>Gerenciar Destinos</h1>
-          <button id="btnSair">Sair</button>
+          <h1>Gerenciar Contatos</h1>
+            <button id="btnSair">
+            Sair
+            </button>
         </header>
-        <section class="topo-pagina">
-          <h2>Destinos</h2>
 
-          <button id="btnNovoDestino" class="btn-primary">
-            <i class="fa-solid fa-plus"></i>
+        <section class="cards-contato">
+          <div class="card-status total">
+            <i class="fa-solid fa-envelope"></i>
+            <h3>Total</h3>
+            <span id="totalSolicitacoes">58</span>
+          </div>
 
-            Novo Destino
-          </button>
+          <div class="card-status nova">
+            <i class="fa-solid fa-envelope-open-text"></i>
+
+            <h3>Não lidas</h3>
+
+            <span id="naoLidas">10</span>
+          </div>
+
+          <div class="card-status andamento">
+            <i class="fa-solid fa-clock"></i>
+            <h3>Em andamento</h3>
+            <span id="emAndamento">22</span>
+          </div>
+
+          <div class="card-status concluida">
+            <i class="fa-solid fa-circle-check"></i>
+            <h3>Atendidas</h3>
+            <span id="atendidas">26</span>
+          </div>
+
         </section>
+
+        <section class="topo-pagina-contato">
+
+            <h2>Solicitações</h2>
+
+            <input
+                type="text"
+                id="pesquisaContato"
+                placeholder="Pesquisar por nome, e-mail ou assunto..."
+            >
+
+        </section>
+
+        <section class="filtros-contato">
+
+            <button class="filtro-btn ativo" data-status="todos">
+                Todas
+                <span>58</span>
+            </button>
+
+            <button class="filtro-btn" data-status="nao-lida">
+                Não lidas
+                <span>10</span>
+            </button>
+
+            <button class="filtro-btn" data-status="andamento">
+                Em andamento
+                <span>22</span>
+            </button>
+
+            <button class="filtro-btn" data-status="atendida">
+                Atendidas
+                <span>26</span>
+            </button>
+
+        </section>
+
+        <p class="contador-resultados">
+            Solicitações encontradas:
+            <strong id="contadorResultados">58</strong>
+        </p>
 
         <section class="lista-destinos">
-          <table class="tabela">
-            <thead>
-              <tr>
-                <th>Imagem</th>
-                <th>Nome</th>
-                <th>País</th>
-                <th>Preço</th>
-                <th>Categoria</th>
-                <th>Ações</th>
-              </tr>
-            </thead>
-            <tbody id="tbodyDestinos">
-              <tr>
-                <td>
-                  <img src="../img/card1.jpg" class="thumb" />
-                </td>
-                <td>Fernando de Noronha</td>
-                <td>Brasil</td>
-                <td>R$ 2.990</td>
-                <td>Praia</td>
-                <td>
-                  <button class="btn-editar">
-                    <i class="fa-solid fa-pen"></i>
-                  </button>
 
-                  <button class="btn-excluir">
-                    <i class="fa-solid fa-trash"></i>
-                  </button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+            <table class="tabela">
+
+                <thead>
+
+                    <tr>
+                        <th>#</th>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>Telefone</th>
+                        <th>Assunto</th>
+                        <th>Reserva</th>
+                        <th>Data</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="tbodyContatos">
+
+                    <tr data-status="nao-lida">
+
+                        <td>#001</td>
+
+                        <td>Maria de Souza Costa</td>
+
+                        <td>maria@email.com</td>
+
+                        <td>(85) 99999-9999</td>
+
+                        <td>Cancelamento</td>
+
+                        <td>TP4589</td>
+
+                        <td>
+                            31/07/2026
+                            <br>
+                            14:35
+                        </td>
+
+                        <td>
+                            <span class="status nao-lida">
+                                Não lida
+                            </span>
+                        </td>
+
+                        <td>
+
+                            <button class="btn-visualizar" title="Visualizar">
+                                <i class="fa-solid fa-eye"></i>
+                            </button>
+
+                            <button class="btn-excluir" title="Excluir">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+
+                        </td>
+
+                    </tr>
+                    <tr data-status="andamento">
+
+                        <td>#002</td>
+                        <td>João Silva</td>
+                        <td>joao@email.com</td>
+                        <td>(85)99999-9999</td>
+                        <td>Alteração de Reserva</td>
+                        <td>TP8888</td>
+
+                        <td>
+                            30/07/2026
+                            <br>
+                            09:10
+                        </td>
+
+                        <td>
+                            <span class="status andamento">
+                                Em andamento
+                            </span>
+                        </td>
+
+                        <td>
+
+                            <button class="btn-visualizar">
+                                <i class="fa-solid fa-eye"></i>
+                            </button>
+
+                            <button class="btn-excluir">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
         </section>
-      </main>
+    </main>
     </div>
-    <script type="module" src="js/destinos.js"></script>
+    <script type="module" src="js/contato.js"></script>
 
-    <div class="modal" id="modalDestino">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2>Novo Destino</h2>
+      <div class="modal" id="modalContatos">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2>Detalhes da Solicitação</h2>
 
-          <button id="fecharModal">
-            <i class="fa-solid fa-xmark"></i>
-          </button>
+            <button id="fecharModal">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+          <form id="form">
+            <div class="grupo">
+              <label>Nome</label>
+              <input type="text" id="nome" readonly>
+            </div>
+
+            <div class="grupo">
+              <label>E-mail</label>
+              <input type="email" id="email" readonly>
+            </div>
+
+            <div class="grupo">
+              <label>Telefone</label>
+              <input type="text" id="telefone" readonly>
+            </div>
+
+            <div class="grupo">
+              <label>Código da Reserva</label>
+              <input type="text" id="reserva" readonly>
+            </div>
+
+            <div class="grupo">
+              <label>Assunto</label>
+              <input type="text" id="assunto" readonly>
+            </div>
+
+            <div class="grupo">
+              <label>Data da Solicitação</label>
+              <input type="text" id="data" readonly>
+            </div>
+
+            <div class="grupo">
+              <label>Mensagem</label>
+              <textarea id="mensagem" rows="7" readonly></textarea>
+            </div>
+
+            <div class="grupo">
+              <label>Status</label>
+
+              <select id="status">
+                <option value="nao-lida">Não lida</option>
+                <option value="andamento">Em andamento</option>
+                <option value="atendida">Atendida</option>
+              </select>
+            </div>
+            <button class="btn-primary" type="submit">
+              Salvar Alterações
+            </button>
+          </form>
         </div>
-        <form id="formDestino">
-          <div class="grupo">
-            <label>Nome</label>
-            <input type="text" id="nome" required />
-          </div>
-          <div class="grupo">
-            <label>País</label>
-            <input type="text" id="pais" required />
-          </div>
-          <div class="grupo">
-            <label>Região</label>
-            <input type="text" id="regiao" />
-          </div>
-          <div class="grupo">
-            <label>Categoria</label>
-            <input type="text" id="categoria" />
-          </div>
-          <div class="grupo">
-            <label>Preço</label>
-            <input type="number" id="preco" />
-          </div>
-          <div class="grupo">
-            <label>Estrelas</label>
-            <input type="number" id="estrelas" min="1" max="5" value="5" />
-          </div>
-          <div class="grupo">
-            <label>Descrição</label>
-            <textarea id="descricao" rows="5"></textarea>
-          </div>
-          <div class="grupo">
-            <label>Imagem</label>
-            <input type="file" id="imagem" />
-          </div>
-          <button class="btn-primary" type="submit">Salvar Destino</button>
-        </form>
-      </div>
     </div>
   </body>
 </html>
