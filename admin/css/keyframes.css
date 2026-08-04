@@ -1,0 +1,26 @@
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.login-card {
+    animation: aparecer .6s ease;
+}
+
+.card {
+    animation: aparecer .6s ease;
+}
+
+.cards-contato {
+    animation: aparecer .6s ease;
+}
+
+.modal-content {
+    animation: aparecer .4s ease;
+}

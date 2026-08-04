@@ -1,0 +1,524 @@
+@media (max-width: 1400px) {
+    .cards,
+    .cards-contato{
+        grid-template-columns: repeat(3,1fr);
+    }
+    .conteudo{
+        padding:40px;
+    }
+    .modal-content{
+        width:95%;
+    }
+    .tabela{
+        display:block;
+        overflow-x:auto;
+        white-space:nowrap;
+    }
+}
+@media (max-width:1200px){
+    .sidebar{
+        width:240px;
+        padding:35px 20px;
+    }
+    .conteudo{
+        margin-left:240px;
+        width:calc(100% - 240px);
+        padding:35px;
+    }
+    header h1{
+        font-size:34px;
+    }
+    .cards,
+    .cards-contato{
+        grid-template-columns:repeat(2,1fr);
+        gap:25px;
+    }
+    .card,
+    .cards-contato{
+        padding:30px 25px;
+    }
+    .card h2,
+    .cards-contato h2{
+        font-size:42px;
+    }
+    .card i,
+    .cards-contato i{
+        font-size:42px;
+    }
+    .btn-primary{
+        width:auto;
+        min-width:180px;
+    }
+    #pesquisaContato{
+        width:320px;
+    }
+    .modal-content{
+        width:95%;
+    }
+    #form{
+        gap:18px;
+    }
+}
+@media (max-width:992px){
+    .admin{
+        flex-direction:column;
+    }
+    .sidebar{
+        position:relative;
+        width:100%;
+        height:auto;
+        padding:25px;
+    }
+    .sidebar nav{
+        margin-top:30px;
+    }
+    .conteudo{
+        margin-left:0;
+        width:100%;
+        padding:30px;
+    }
+    header{
+        flex-wrap:wrap;
+        gap:15px;
+    }
+    header h1{
+        font-size:30px;
+    }
+    .topo-pagina,
+    .topo-pagina-contato{
+        flex-wrap:wrap;
+        gap:15px;
+    }
+    .cards,
+    .cards-contato{
+        grid-template-columns:repeat(2,1fr);
+    }
+    #form{
+        grid-template-columns:1fr;
+    }
+    #form .grupo,
+    #form button,
+    .grupo:has(textarea),
+    .grupo:has(input[type="file"]){
+        grid-column:auto;
+    }
+    .modal-content{
+        max-height:95vh;
+    }
+    .tabela{
+        display:block;
+        overflow-x:auto;
+        white-space:nowrap;
+    }
+}
+@media (max-width:768px){
+
+    body{
+        overflow-x:hidden;
+    }
+
+    /* LOGIN */
+
+    .login-container{
+        padding:20px;
+    }
+
+    .login-card{
+        width:100%;
+        max-width:430px;
+        padding:35px 25px;
+    }
+
+    .logo h1{
+        font-size:32px;
+    }
+
+    .logo span{
+        font-size:12px;
+        letter-spacing:3px;
+    }
+
+    .campo input{
+        padding:14px;
+        font-size:14px;
+    }
+
+    button{
+        padding:15px;
+    }
+
+    /* HEADER */
+
+    header{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    header h1{
+        font-size:28px;
+    }
+
+    #btnSair{
+        width:100%;
+    }
+
+    /* TOPO */
+
+    .topo-pagina,
+    .topo-pagina-contato{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .btn-primary{
+        width:100%;
+    }
+
+    #pesquisaContato{
+        width:100%;
+    }
+
+    /* CARDS */
+
+    .cards,
+    .cards-contato{
+        grid-template-columns:1fr;
+        gap:20px;
+    }
+
+    .card,
+    .cards-contato{
+        padding:28px 20px;
+    }
+
+    .card h2,
+    .cards-contato h2{
+        font-size:36px;
+    }
+
+    .card i,
+    .cards-contato i{
+        font-size:40px;
+    }
+
+    .card span,
+    .cards-contato span{
+        font-size:16px;
+    }
+
+    /* MODAL */
+
+    .modal-content{
+        width:95%;
+        padding:25px;
+    }
+
+    .modal-header{
+        flex-wrap:wrap;
+        gap:15px;
+    }
+
+    .modal-header h2{
+        font-size:24px;
+    }
+
+    #fecharModal{
+        width:40px;
+        height:40px;
+    }
+
+    /* FORM */
+
+    #form{
+        display:flex;
+        flex-direction:column;
+    }
+
+    .grupo input,
+    .grupo textarea,
+    .grupo select{
+        width:100%;
+    }
+
+    .grupo textarea{
+        height:120px;
+    }
+
+    /* TABELA */
+
+    .tabela{
+        display:block;
+        overflow-x:auto;
+        white-space:nowrap;
+    }
+
+    .thumb{
+        width:70px;
+        height:55px;
+    }
+
+    .btn-editar,
+    .btn-excluir,
+    .btn-visualizar{
+        width:38px;
+        height:38px;
+    }
+
+    /* FILTROS */
+
+    .filtros-contato{
+        flex-wrap:nowrap;
+        overflow-x:auto;
+        padding-bottom:10px;
+        gap:10px;
+
+        scrollbar-width:thin;
+    }
+
+    .filtro-btn{
+        white-space:nowrap;
+        flex-shrink:0;
+    }
+
+}
+@media (max-width:576px){
+
+    .conteudo{
+        padding:20px 15px;
+    }
+
+    .sidebar{
+        padding:20px 15px;
+    }
+
+    .sidebar h2{
+        font-size:28px;
+    }
+
+    .sidebar span{
+        font-size:12px;
+        letter-spacing:3px;
+    }
+
+    .sidebar a{
+        padding:12px;
+        font-size:14px;
+    }
+
+    header h1{
+        font-size:24px;
+    }
+
+    .card,
+    .cards-contato{
+        padding:22px 18px;
+    }
+
+    .card h2,
+    .cards-contato h2{
+        font-size:30px;
+    }
+
+    .card i,
+    .cards-contato i{
+        font-size:34px;
+    }
+
+    .card span,
+    .cards-contato span{
+        font-size:15px;
+    }
+
+    .btn-primary,
+    #btnSair{
+        width:100%;
+        font-size:14px;
+    }
+
+    .modal-content{
+        padding:20px;
+        border-radius:15px;
+    }
+
+    .modal-header h2{
+        font-size:20px;
+    }
+
+    .grupo label{
+        font-size:14px;
+    }
+
+    .grupo input,
+    .grupo textarea,
+    .grupo select{
+        font-size:14px;
+        padding:12px;
+    }
+
+    .thumb{
+        width:60px;
+        height:45px;
+    }
+
+    .btn-editar,
+    .btn-excluir,
+    .btn-visualizar{
+        width:34px;
+        height:34px;
+        font-size:13px;
+    }
+
+}
+
+/* =====================================================
+   480px
+===================================================== */
+
+@media (max-width:480px){
+
+    .login-card{
+        padding:25px 18px;
+    }
+
+    .logo h1{
+        font-size:26px;
+    }
+
+    .logo span{
+        font-size:11px;
+        letter-spacing:2px;
+    }
+
+    .login-card h2{
+        font-size:24px;
+    }
+
+    .login-card p{
+        font-size:14px;
+        margin-bottom:25px;
+    }
+
+    .campo{
+        margin-bottom:18px;
+    }
+
+    .sidebar h2{
+        font-size:24px;
+    }
+
+    header h1{
+        font-size:22px;
+    }
+
+    .card,
+    .cards-contato{
+        padding:20px 15px;
+    }
+
+    .card h2,
+    .cards-contato h2{
+        font-size:26px;
+    }
+
+    .card i,
+    .cards-contato i{
+        font-size:30px;
+    }
+
+    .card span,
+    .cards-contato span{
+        font-size:14px;
+    }
+
+    .modal-content{
+        padding:18px;
+    }
+
+    .modal-header{
+        margin-bottom:20px;
+    }
+
+    .modal-header h2{
+        font-size:18px;
+    }
+
+}
+
+/* =====================================================
+   360px
+===================================================== */
+
+@media (max-width:360px){
+
+    .login-container{
+        padding:12px;
+    }
+
+    .login-card{
+        padding:20px 15px;
+    }
+
+    .logo h1{
+        font-size:22px;
+    }
+
+    .logo span{
+        font-size:10px;
+    }
+
+    .conteudo{
+        padding:15px 10px;
+    }
+
+    .sidebar{
+        padding:15px 10px;
+    }
+
+    .sidebar a{
+        padding:10px;
+        font-size:13px;
+    }
+
+    header h1{
+        font-size:20px;
+    }
+
+    .card,
+    .cards-contato{
+        padding:18px 12px;
+    }
+
+    .card h2,
+    .cards-contato h2{
+        font-size:22px;
+    }
+
+    .card i,
+    .cards-contato i{
+        font-size:26px;
+    }
+
+    .btn-primary,
+    #btnSair{
+        padding:12px;
+        font-size:13px;
+    }
+
+    .grupo input,
+    .grupo textarea,
+    .grupo select{
+        padding:10px;
+        font-size:13px;
+    }
+
+    .modal-content{
+        width:98%;
+        padding:15px;
+    }
+
+    .thumb{
+        width:50px;
+        height:40px;
+    }
+
+}

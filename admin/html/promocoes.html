@@ -6,7 +6,9 @@
 
     <title>Painel Administrativo</title>
 
-    <link rel="stylesheet" href="css/admin.css" />
+    <link rel="stylesheet" href="../css/admin.css" />
+    <link rel="stylesheet" href="../css/media.css" />
+    <link rel="stylesheet" href="../css/keyframes.css" />
 
     <link
       rel="stylesheet"
@@ -21,7 +23,7 @@
         <span>PLANNER</span>
 
         <nav>
-          <a href="dashboard.html" class="ativo">
+          <a href="dashboard.html">
             <i class="fa-solid fa-chart-line"></i>
             Dashboard
           </a>
@@ -49,54 +51,55 @@
       </aside>
       <main class="conteudo">
         <header>
-          <h1>Gerenciar Pacotes</h1>
+          <h1>Gerenciar Promoções</h1>
           <button id="btnSair">Sair</button>
         </header>
         <section class="topo-pagina">
-          <h2>Pacotes</h2>
+          <h2>Promoções</h2>
 
           <button id="btnNovo" class="btn-primary">
             <i class="fa-solid fa-plus"></i>
 
-            Novo Pacote
+            Novo Promoções
           </button>
         </section>
 
         <section class="lista-destinos">
           <table class="tabela">
             <thead>
+                <tr>
+                  <th>Imagem</th>
+                  <th>Destino</th>
+                  <th>País</th>
+                  <th>Região</th>
+                  <th>Categoria</th>
+                  <th>Preço</th>
+                  <th>Desconto</th>
+                  <th>Preço Final</th>
+                  <th>Início</th>
+                  <th>Fim</th>
+                  <th>Status</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+            </thead>
+            <tbody id="tbodypromocoes">
               <tr>
-                <th>Imagem</th>
-                <th>Destino</th>
-                <th>País</th>
-                <th>Região</th>
-                <th>Categoria</th>
-                <th>Duração</th>
-                <th>Preço</th>
-                <th>Parcelamento</th>
-                <th>Hotel</th>
-                <th>Status</th>
-                <th>Ações</th>
-              </tr>
-          </thead>
-          <tbody id="tbodyPacotes">
-            <tr>
-              <td>
-                <img src="../img/card1.jpg" class="thumb">
-              </td>
-              <td>Fernando de Noronha</td>
-              <td>Brasil</td>
-              <td>Nordeste</td>
-              <td>7 dias</td>
-              <td>R$ 4.990</td>
-              <td>12x de R$ 415</td>
-              <td>Pousada Mar Azul</td>
-              <td>Ativo</td>
-              <td>
+                <td><img src="/user/img/card1.jpg" class="thumb" /></td>
+                <td>Fernando de Noronha</td>
+                <td>Brasil</td>
+                <td>Nordeste</td>
+                <td>Praia</td>
+                <td>R$ 4.200</td>
+                <td>30%</td>
+                <td>R$ 2.940</td>
+                <td>01/08/2026</td>
+                <td>31/08/2026</td>
+                <td>Ativa</td>
+                <td>
                   <button class="btn-editar">
                     <i class="fa-solid fa-pen"></i>
                   </button>
-
                   <button class="btn-excluir">
                     <i class="fa-solid fa-trash"></i>
                   </button>
@@ -107,12 +110,14 @@
         </section>
       </main>
     </div>
-    <script type="module" src="js/pacotes.js"></script>
+    <script type="module" src="../JS/promocoes.js"></script>
+    <script type="module" src="../JS/admin.js"></script>
 
-    <div class="modal" id="modalPacotes">
+    <div class="modal" id="modalPromocoes">
       <div class="modal-content">
         <div class="modal-header">
-          <h2>Novo Pacotes</h2>
+          <h2>Nova Promoção</h2>
+
           <button id="fecharModal">
             <i class="fa-solid fa-xmark"></i>
           </button>
@@ -120,27 +125,16 @@
         <form id="form">
           <div class="grupo">
             <label>Nome do destino</label>
-            <input
-              type="text"
-              id="nome"
-              required>
+            <input type="text" id="nome" required>
           </div>
-
           <div class="grupo">
-            <label>País</label>
-            <input
-              type="text"
-              id="pais"
-              required>
+              <label>País</label>
+              <input type="text" id="pais" required>
           </div>
-
           <div class="grupo">
-            <label>Região</label>
-            <input
-              type="text"
-              id="regiao">
+              <label>Região</label>
+              <input type="text" id="regiao">
           </div>
-
           <div class="grupo">
               <label>Categoria</label>
               <select id="categoria">
@@ -152,99 +146,81 @@
                 <option>Luxo</option>
               </select>
           </div>
-
           <div class="grupo">
-              <label>Duração</label>
-              <input
-                type="text"
-                id="duracao"
-                placeholder="Ex.: 7 dias">
+            <label>Preço Original</label>
+            <input
+              type="number"
+              id="preco"
+              min="0"
+              step="0.01"
+              required>
           </div>
 
           <div class="grupo">
-              <label>Preço</label>
-
-              <input
+            <label>Desconto (%)</label>
+            <input
                 type="number"
-                id="preco"
-                step="0.01"
-                min="0">
+                id="desconto"
+                min="0"
+                max="100"
+                value="0">
           </div>
 
           <div class="grupo">
-            <label>Parcelamento</label>
+            <label>Preço Promocional</label>
             <input
-              type="text"
-              id="parcelamento"
-              placeholder="Ex.: 12x de R$ 399">
+              type="number"
+              id="precoPromocional"
+              min="0"
+              step="0.01">
           </div>
 
           <div class="grupo">
-            <label>Hotel</label>
-
-            <input
-              type="text"
-              id="hotel">
+            <label>Data de início</label>
+            <input type="date" id="inicio">
           </div>
 
           <div class="grupo">
-            <label>Passagem Aérea Inclusa</label>
-            <select id="passagem">
-              <option value="true">Sim</option>
-              <option value="false">Não</option>
-          </select>
+            <label>Data de término</label>
+            <input type="date" id="fim">
           </div>
 
           <div class="grupo">
-            <label>Seguro Viagem</label>
+            <label>Destaque</label>
 
-            <select id="seguro">
+            <select id="destaque">
               <option value="true">Sim</option>
               <option value="false">Não</option>
             </select>
-          </div>
-
-          <div class="grupo">
-            <label>Café da manhã</label>
-
-            <select id="cafe">
-              <option value="true">Sim</option>
-              <option value="false">Não</option>
-            </select>
-
           </div>
 
           <div class="grupo">
             <label>Status</label>
-
-            <select id="status">
-              <option value="ativo">Ativo</option>
-              <option value="inativo">Inativo</option>
-            </select>
+              <select id="status">
+                <option value="ativa">Ativa</option>
+                <option value="inativa">Inativa</option>
+              </select>
           </div>
 
           <div class="grupo">
             <label>Descrição</label>
-            <textarea
-              id="descricao"
-              rows="5"
-            ></textarea>
+              <textarea
+                id="descricao"
+                rows="5"
+              ></textarea>
           </div>
 
           <div class="grupo">
             <label>Imagem</label>
-
             <input
               type="file"
               id="imagem"
               accept="image/*">
           </div>
 
-          <button
-            class="btn-primary"
-            type="submit">
-            Salvar Pacote
-      </button>
+          <button class="btn-primary" type="submit">
+            Salvar Promoção
+          </button>
       </form>
       </div>
     </div>
