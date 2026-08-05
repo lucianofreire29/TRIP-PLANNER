@@ -56,3 +56,36 @@ async function salvarDestino(e) {
     alert("Erro ao cadastrar.");
   }
 }
+
+async function buscarDados() {
+  try {
+    const requisition = await fetch("http://localhost:3000/destinos");
+
+    const data = await requisition.json();
+
+    data.forEach((element) => {
+      console.log(element);
+    });
+  } catch (error) {
+    console.error("erro ao buscar dados", erro);
+  }
+}
+
+buscarDados();
+
+function renderizarDados() {
+  const corpotabelaHTML = document.querySelector(".tabela tbody");
+
+  data.forEach((dados) => {
+    const linha = document.createElement("tr");
+    linha.innerHTML = `
+  <td><img src= "/user/img/${data.imagem}" class="thumb"/></td>
+  <td>${data.nome}</td>
+  <td>${data.pais}</td>
+  <td>${data.preco}</td>
+  <td>${data.categoria}</td>
+
+
+  `;
+  });
+}
