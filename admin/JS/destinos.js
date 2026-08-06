@@ -9,6 +9,15 @@ const tbody = document.querySelector("#tbodyDestinos");
 const btnNovo = document.querySelector("#btnNovo");
 const btnFechar = document.querySelector("#fecharModal");
 
+// Modal de exclusão
+const modalExcluir = document.querySelector("#modalExcluir");
+
+const btnCancelarExcluir = document.querySelector("#cancelarExcluir");
+
+const btnConfirmarExcluir = document.querySelector("#confirmarExcluir");
+
+let destinoExcluir = null;
+
 // =========================================
 // VARIÁVEIS
 // =========================================
@@ -180,22 +189,10 @@ async function carregarDestinos() {
 // EXCLUIR DESTINO
 // =========================================
 
-async function excluirDestino(id) {
-  const confirmar = confirm("Deseja realmente excluir este destino?");
+function excluirDestino(id) {
+  destinoExcluir = id;
 
-  if (!confirmar) return;
-
-  try {
-    await fetch(`http://localhost:3000/destinos/${id}`, {
-      method: "DELETE",
-    });
-
-    carregarDestinos();
-  } catch (erro) {
-    console.error(erro);
-
-    alert("Erro ao excluir.");
-  }
+  modalExcluir.classList.add("ativo");
 }
 
 // =========================================
@@ -227,8 +224,30 @@ function editarDestino(destino) {
   abrirModal();
 }
 
-// =========================================
-// INICIALIZAÇÃO
-// =========================================
+btnCancelarExcluir.addEventListener("click", () => {
+  modalExcluir.classList.remove("ativo");
+
+  destinoExcluir = null;
+});
+
+btnConfirmarExcluir.addEventListener("click", confirmarExclusao);
+
+async function confirmarExclusao() {
+  try {
+    await fetch(`http://localhost:3000/destinos/${destinoExcluir}`, {
+      method: "DELETE",
+    });
+
+    modalExcluir.classList.remove("ativo");
+
+    destinoExcluir = null;
+
+    carregarDestinos();
+  } catch (erro) {
+    console.error(erro);
+
+    alert("Erro ao excluir.");
+  }
+}
 
 carregarDestinos();
