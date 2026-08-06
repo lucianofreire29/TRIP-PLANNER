@@ -77,31 +77,12 @@
               </tr>
             </thead>
             <tbody id="tbodyDestinos">
-              <tr>
-                <td>
-                  <img src="/user/img/card1.jpg" class="thumb" />
-                </td>
-                <td>Fernando de Noronha</td>
-                <td>Brasil</td>
-                <td>R$ 2.990</td>
-                <td>Praia</td>
-                <td>
-                  <button class="btn-editar">
-                    <i class="fa-solid fa-pen"></i>
-                  </button>
-
-                  <button class="btn-excluir">
-                    <i class="fa-solid fa-trash"></i>
-                  </button>
-                </td>
-              </tr>
             </tbody>
           </table>
         </section>
       </main>
     </div>
-    <script type="module" src="../JS/destinos.js"></script>
-    <script type="module" src="../JS/admin.js"></script>
+
 
     <div class="modal" id="modalDestino">
       <div class="modal-content">
@@ -153,6 +134,36 @@
           <button class="btn-primary" type="submit">Salvar Destino</button>
         </form>
       </div>
+          <div class="modal" id="modalExcluir">
+        <div class="modal-content modal-confirmacao">
+
+            <h2>Excluir destino</h2>
+
+            <p>
+                Tem certeza que deseja excluir este destino?
+            </p>
+
+            <div class="botoes-confirmacao">
+
+                <button
+                    id="cancelarExcluir"
+                    class="btn-secundario">
+                    Cancelar
+                </button>
+
+                <button
+                    id="confirmarExcluir"
+                    class="btn-danger">
+                    Excluir
+                </button>
+
+            </div>
+
+        </div>
     </div>
+    </div>
+
+    <script type="module" src="../JS/destinos.js"></script>
+    <script type="module" src="../JS/admin.js"></script>
   </body>
 </html>

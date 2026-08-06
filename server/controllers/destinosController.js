@@ -49,3 +49,58 @@ export async function listarDestinos(req, res) {
     });
   }
 }
+
+export async function excluirDestino(req, res) {
+  try {
+    const { id } = req.params;
+    await pool.query("DELETE FROM destinos WHERE id = $1", [id]);
+
+    res.json({
+      mensagem: "Destino excluído com sucesso.",
+    });
+  } catch (erro) {
+    console.error(erro);
+    res.status(500).json({
+      erro: "Erro ao excluir destino.",
+    });
+  }
+}
+
+export async function atualizarDestino(req, res) {
+  try {
+    const { id } = req.params;
+
+    const {
+      nome,
+      pais,
+      regiao,
+      categoria,
+      preco,
+      estrelas,
+      descricao,
+      imagem,
+    } = req.body;
+
+    const resultado = await pool.query(
+      `UPDATE destinos
+             SET
+                nome=$1,
+                pais=$2,
+                regiao=$3,
+                categoria=$4,
+                preco=$5,
+                estrelas=$6,
+                descricao=$7,
+                imagem=$8
+             WHERE id=$9
+             RETURNING *`,
+      [nome, pais, regiao, categoria, preco, estrelas, descricao, imagem, id],
+    );
+    res.json(resultado.rows[0]);
+  } catch (erro) {
+    console.error(erro);
+    res.status(500).json({
+      erro: "Erro ao atualizar destino.",
+    });
+  }
+}
