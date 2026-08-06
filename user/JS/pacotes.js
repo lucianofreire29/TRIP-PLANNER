@@ -2,7 +2,7 @@ const pacotes = [
   {
     destino: "Fernando de Noronha",
     pais: "Brasil",
-    imagem: "img/banner 1.jpg",
+    imagem: "/user/img/banner 1.jpg",
     dias: "5 dias / 4 noites",
     preco: "R$ 2.990",
     estrelas: 5,
@@ -17,7 +17,7 @@ const pacotes = [
   {
     destino: "Paris",
     pais: "França",
-    imagem: "img/banner 2.jpg",
+    imagem: "/user/img/banner 2.jpg",
     dias: "7 dias / 6 noites",
     preco: "R$ 5.490",
     estrelas: 5,
@@ -32,7 +32,7 @@ const pacotes = [
   {
     destino: "Suíça",
     pais: "Suíça",
-    imagem: "img/banner 3.jpg",
+    imagem: "/user/img/banner 3.jpg",
     dias: "8 dias / 7 noites",
     preco: "R$ 7.990",
     estrelas: 5,
@@ -46,7 +46,7 @@ const pacotes = [
   {
     destino: "Fortaleza",
     pais: "Brasil",
-    imagem: "img/fortaleza.jpg",
+    imagem: "/user/img/fortaleza.jpg",
     dias: "8 dias / 7 noites",
     preco: "R$ 10.990",
     estrelas: 5,
@@ -61,7 +61,7 @@ const pacotes = [
   {
     destino: "Seul",
     pais: "Coreia do Sul",
-    imagem: "img/seul.jpg",
+    imagem: "/user/img/seul.jpg",
     dias: "8 dias / 7 noites",
     preco: "R$ 25.990",
     estrelas: 5,
@@ -76,7 +76,7 @@ const pacotes = [
   {
     destino: "Las vegas",
     pais: "Estados unidos",
-    imagem: "img/lasvegas.jpg",
+    imagem: "/user/img/lasvegas.jpg",
     dias: "5 dias / 4 noites",
     preco: "R$ 7.990",
     estrelas: 5,

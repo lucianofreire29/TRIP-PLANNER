@@ -2,7 +2,7 @@ let autoPlay;
 
 const heroData = [
   {
-    imagem: "img/banner 1.jpg",
+    imagem: "/user/img/banner 1.jpg",
     titulo: "Fernando de Noronha",
     descricao:
       "Descubra praias paradisíacas com águas cristalinas e paisagens inesquecíveis.",
@@ -14,7 +14,7 @@ const heroData = [
   },
 
   {
-    imagem: "img/banner 2.jpg",
+    imagem: "/user/img/banner 2.jpg",
     titulo: "Paris",
     descricao:
       "Conheça a cidade mais romântica do mundo e viva experiências inesquecíveis.",
@@ -26,7 +26,7 @@ const heroData = [
   },
 
   {
-    imagem: "img/banner 3.jpg",
+    imagem: "/user/img/banner 3.jpg",
     titulo: "Suíça",
     descricao:
       "Explore montanhas nevadas, vilarejos encantadores e paisagens incríveis.",
