@@ -203,3 +203,37 @@
   color: #e63946;
   transform: scale(1.1);
 }
+
+
+.estado-destinos {
+  grid-column: 1 / -1;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 35px;
+  border-radius: 20px;
+  background: #fff;
+  color: #52627a;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.estado-destinos i {
+  color: #1a5d94;
+  font-size: 34px;
+}
+
+.estado-destinos.erro i {
+  color: #dc3545;
+}
+
+.details-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-decoration: none;
+}
