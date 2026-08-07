@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import { pool } from "./config/db.js";
 
+import promocoesRoutes from "./routes/promocoes.js";
 import destinosRoutes from "./routes/destinos.js";
 
 dotenv.config();
@@ -17,6 +18,8 @@ app.use(express.json());
 
 // Rotas
 app.use("/destinos", destinosRoutes);
+
+app.use("/promocoes", promocoesRoutes);
 
 // Teste
 app.get("/", (req, res) => {

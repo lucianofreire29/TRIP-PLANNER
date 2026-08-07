@@ -57,7 +57,7 @@
         <section class="topo-pagina">
           <h2>Promoções</h2>
 
-          <button id="btnNovo" class="btn-primary">
+          <button id="btnNovaPromocao" class="btn-primary">
             <i class="fa-solid fa-plus"></i>
 
             Novo Promoções
@@ -83,7 +83,7 @@
                 </tr>
               </thead>
             </thead>
-            <tbody id="tbodypromocoes">
+            <tbody id="tbodyPromocoes">
               <tr>
                 <td><img src="/user/img/card1.jpg" class="thumb" /></td>
                 <td>Fernando de Noronha</td>
@@ -113,7 +113,7 @@
     <script type="module" src="../JS/promocoes.js"></script>
     <script type="module" src="../JS/admin.js"></script>
 
-    <div class="modal" id="modalPromocoes">
+    <div class="modal" id="modalPromocao">
       <div class="modal-content">
         <div class="modal-header">
           <h2>Nova Promoção</h2>
@@ -122,7 +122,7 @@
             <i class="fa-solid fa-xmark"></i>
           </button>
         </div>
-        <form id="form">
+        <form id="formPromocao">
           <div class="grupo">
             <label>Nome do destino</label>
             <input type="text" id="nome" required>
@@ -210,13 +210,14 @@
               ></textarea>
           </div>
 
-          <div class="grupo">
-            <label>Imagem</label>
-            <input
-              type="file"
-              id="imagem"
-              accept="image/*">
-          </div>
+            <div class="grupo">
+                <label>Imagem</label>
+
+                <input
+                    type="text"
+                    id="imagem"
+                    placeholder="img/promocao1.jpg">
+            </div>
 
           <button class="btn-primary" type="submit">
             Salvar Promoção
