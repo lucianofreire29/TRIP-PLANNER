@@ -1,0 +1,18 @@
+CREATE TABLE IF NOT EXISTS pacotes (
+  id SERIAL PRIMARY KEY,
+  nome VARCHAR(150) NOT NULL,
+  pais VARCHAR(100) NOT NULL,
+  regiao VARCHAR(100),
+  categoria VARCHAR(80),
+  duracao VARCHAR(80),
+  preco NUMERIC(10, 2) NOT NULL,
+  parcelamento VARCHAR(100),
+  hotel VARCHAR(150),
+  passagem BOOLEAN DEFAULT FALSE,
+  seguro BOOLEAN DEFAULT FALSE,
+  cafe BOOLEAN DEFAULT FALSE,
+  status VARCHAR(20) DEFAULT 'ativo',
+  descricao TEXT,
+  imagem TEXT,
+  criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
