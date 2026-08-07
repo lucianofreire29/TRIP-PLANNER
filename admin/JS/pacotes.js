@@ -22,9 +22,6 @@ form.addEventListener("submit", salvarPacote);
 function abrirModal() {
   if (!pacoteEditando) {
     form.reset();
-    document.querySelector("#passagem").value = "false";
-    document.querySelector("#seguro").value = "false";
-    document.querySelector("#cafe").value = "false";
     document.querySelector(".modal-header h2").textContent = "Novo Pacote";
   }
 
@@ -44,19 +41,10 @@ function fecharModalExcluir() {
 
 function obterDadosFormulario() {
   return {
-    nome: document.querySelector("#nome").value,
-    pais: document.querySelector("#pais").value,
-    regiao: document.querySelector("#regiao").value,
-    categoria: document.querySelector("#categoria").value,
-    duracao: document.querySelector("#duracao").value,
-    preco: Number(document.querySelector("#preco").value),
-    parcelamento: document.querySelector("#parcelamento").value,
-    hotel: document.querySelector("#hotel").value,
-    passagem: document.querySelector("#passagem").value === "true",
-    seguro: document.querySelector("#seguro").value === "true",
-    cafe: document.querySelector("#cafe").value === "true",
-    status: document.querySelector("#status").value,
+    titulo: document.querySelector("#titulo").value,
     descricao: document.querySelector("#descricao").value,
+    preco: Number(document.querySelector("#preco").value),
+    dias: Number(document.querySelector("#dias").value),
     imagem: document.querySelector("#imagem").value,
   };
 }
@@ -101,7 +89,7 @@ async function carregarPacotes() {
   } catch (erro) {
     console.error(erro);
     tbody.innerHTML =
-      '<tr><td colspan="11">Não foi possível carregar os pacotes.</td></tr>';
+      '<tr><td colspan="7">Não foi possível carregar os pacotes.</td></tr>';
   }
 }
 
@@ -110,6 +98,11 @@ function formatarMoeda(valor) {
     style: "currency",
     currency: "BRL",
   });
+}
+
+function formatarData(data) {
+  if (!data) return "-";
+  return new Date(data).toLocaleDateString("pt-BR");
 }
 
 function escaparHTML(valor) {
@@ -123,7 +116,7 @@ function renderizarPacotes() {
 
   if (!pacotes.length) {
     tbody.innerHTML =
-      '<tr><td colspan="11">Nenhum pacote cadastrado.</td></tr>';
+      '<tr><td colspan="7">Nenhum pacote cadastrado.</td></tr>';
     return;
   }
 
@@ -136,15 +129,11 @@ function renderizarPacotes() {
           ? `<img src="${escaparHTML(pacote.imagem)}" class="thumb" alt="">`
           : "-"}
       </td>
-      <td>${escaparHTML(pacote.nome)}</td>
-      <td>${escaparHTML(pacote.pais)}</td>
-      <td>${escaparHTML(pacote.regiao) || "-"}</td>
-      <td>${escaparHTML(pacote.categoria) || "-"}</td>
-      <td>${escaparHTML(pacote.duracao) || "-"}</td>
+      <td>${escaparHTML(pacote.titulo)}</td>
+      <td>${escaparHTML(pacote.descricao) || "-"}</td>
       <td>${formatarMoeda(pacote.preco)}</td>
-      <td>${escaparHTML(pacote.parcelamento) || "-"}</td>
-      <td>${escaparHTML(pacote.hotel) || "-"}</td>
-      <td>${pacote.status === "ativo" ? "Ativo" : "Inativo"}</td>
+      <td>${Number(pacote.dias)} dias</td>
+      <td>${formatarData(pacote.created_at)}</td>
       <td>
         <button class="btn-editar" data-acao="editar" data-id="${pacote.id}">
           <i class="fa-solid fa-pen"></i>
@@ -178,19 +167,10 @@ tbody.addEventListener("click", (evento) => {
 function editarPacote(pacote) {
   pacoteEditando = pacote.id;
   document.querySelector(".modal-header h2").textContent = "Editar Pacote";
-  document.querySelector("#nome").value = pacote.nome;
-  document.querySelector("#pais").value = pacote.pais;
-  document.querySelector("#regiao").value = pacote.regiao || "";
-  document.querySelector("#categoria").value = pacote.categoria || "Praia";
-  document.querySelector("#duracao").value = pacote.duracao || "";
-  document.querySelector("#preco").value = pacote.preco;
-  document.querySelector("#parcelamento").value = pacote.parcelamento || "";
-  document.querySelector("#hotel").value = pacote.hotel || "";
-  document.querySelector("#passagem").value = String(pacote.passagem);
-  document.querySelector("#seguro").value = String(pacote.seguro);
-  document.querySelector("#cafe").value = String(pacote.cafe);
-  document.querySelector("#status").value = pacote.status;
+  document.querySelector("#titulo").value = pacote.titulo || "";
   document.querySelector("#descricao").value = pacote.descricao || "";
+  document.querySelector("#preco").value = pacote.preco;
+  document.querySelector("#dias").value = pacote.dias;
   document.querySelector("#imagem").value = pacote.imagem || "";
   abrirModal();
 }
