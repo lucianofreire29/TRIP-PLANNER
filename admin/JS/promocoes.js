@@ -1,3 +1,9 @@
+import {
+  ativarPreviewImagem,
+  configurarImagem,
+  normalizarUrlImagem,
+} from "./imagens.js";
+
 const API_URL = "http://localhost:3000/promocoes";
 
 const modal = document.querySelector("#modalPromocoes");
@@ -11,6 +17,9 @@ const btnConfirmarExcluir = document.querySelector("#confirmarExcluir");
 const inputPreco = document.querySelector("#preco");
 const inputDesconto = document.querySelector("#desconto");
 const inputPrecoPromocional = document.querySelector("#precoPromocional");
+const inputImagem = document.querySelector("#imagem");
+
+ativarPreviewImagem(inputImagem);
 
 let promocaoEditando = null;
 let promocaoExcluir = null;
@@ -72,7 +81,7 @@ function obterDadosFormulario() {
     destaque: document.querySelector("#destaque").value === "true",
     status: document.querySelector("#status").value,
     descricao: document.querySelector("#descricao").value,
-    imagem: document.querySelector("#imagem").value,
+    imagem: normalizarUrlImagem(inputImagem.value),
   };
 }
 
@@ -157,7 +166,7 @@ function renderizarPromocoes() {
     linha.innerHTML = `
       <td>
         ${promocao.imagem
-          ? `<img src="${escaparHTML(promocao.imagem)}" class="thumb" alt="">`
+          ? `<img class="thumb" alt="">`
           : "-"}
       </td>
       <td>${escaparHTML(promocao.nome)}</td>
@@ -179,6 +188,9 @@ function renderizarPromocoes() {
         </button>
       </td>
     `;
+
+    const imagem = linha.querySelector(".thumb");
+    if (imagem) configurarImagem(imagem, promocao.imagem, promocao.nome);
 
     tbody.appendChild(linha);
   });
@@ -215,7 +227,8 @@ function editarPromocao(promocao) {
   document.querySelector("#destaque").value = String(promocao.destaque);
   document.querySelector("#status").value = promocao.status;
   document.querySelector("#descricao").value = promocao.descricao || "";
-  document.querySelector("#imagem").value = promocao.imagem || "";
+  inputImagem.value = promocao.imagem || "";
+  inputImagem.dispatchEvent(new Event("input"));
   abrirModal();
 }
 
