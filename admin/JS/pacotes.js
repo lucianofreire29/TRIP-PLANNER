@@ -1,3 +1,9 @@
+import {
+  ativarPreviewImagem,
+  configurarImagem,
+  normalizarUrlImagem,
+} from "./imagens.js";
+
 const API_URL = "http://localhost:3000/pacotes";
 
 const modal = document.querySelector("#modalPacotes");
@@ -8,6 +14,9 @@ const btnNovo = document.querySelector("#btnNovo");
 const btnFechar = document.querySelector("#fecharModal");
 const btnCancelarExcluir = document.querySelector("#cancelarExcluir");
 const btnConfirmarExcluir = document.querySelector("#confirmarExcluir");
+const inputImagem = document.querySelector("#imagem");
+
+ativarPreviewImagem(inputImagem);
 
 let pacoteEditando = null;
 let pacoteExcluir = null;
@@ -45,7 +54,7 @@ function obterDadosFormulario() {
     descricao: document.querySelector("#descricao").value,
     preco: Number(document.querySelector("#preco").value),
     dias: Number(document.querySelector("#dias").value),
-    imagem: document.querySelector("#imagem").value,
+    imagem: normalizarUrlImagem(inputImagem.value),
   };
 }
 
@@ -126,7 +135,7 @@ function renderizarPacotes() {
     linha.innerHTML = `
       <td>
         ${pacote.imagem
-          ? `<img src="${escaparHTML(pacote.imagem)}" class="thumb" alt="">`
+          ? `<img class="thumb" alt="">`
           : "-"}
       </td>
       <td>${escaparHTML(pacote.titulo)}</td>
@@ -143,6 +152,9 @@ function renderizarPacotes() {
         </button>
       </td>
     `;
+
+    const imagem = linha.querySelector(".thumb");
+    if (imagem) configurarImagem(imagem, pacote.imagem, pacote.titulo);
 
     tbody.appendChild(linha);
   });
@@ -171,7 +183,8 @@ function editarPacote(pacote) {
   document.querySelector("#descricao").value = pacote.descricao || "";
   document.querySelector("#preco").value = pacote.preco;
   document.querySelector("#dias").value = pacote.dias;
-  document.querySelector("#imagem").value = pacote.imagem || "";
+  inputImagem.value = pacote.imagem || "";
+  inputImagem.dispatchEvent(new Event("input"));
   abrirModal();
 }
 

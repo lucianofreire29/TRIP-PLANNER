@@ -522,3 +522,16 @@
     }
 
 }
+
+/* Mantém a semântica da tabela; a rolagem pertence ao contêiner externo. */
+@media (max-width: 1400px) {
+  .lista-destinos {
+    overflow-x: auto;
+  }
+
+  .lista-destinos .tabela {
+    display: table;
+    overflow: visible;
+    white-space: nowrap;
+  }
+}
