@@ -35,6 +35,22 @@ export function normalizarUrlImagem(valor) {
   return `${CAMINHO_IMAGENS}${caminho}`;
 }
 
+function resolverUrlImagem(valor) {
+  const caminho = normalizarUrlImagem(valor);
+
+  if (
+    !caminho ||
+    caminho.startsWith("data:") ||
+    caminho.startsWith("blob:") ||
+    /^https?:\/\//i.test(caminho)
+  ) {
+    return caminho;
+  }
+
+  const caminhoDoProjeto = caminho.replace(/^\//, "");
+  return new URL(`../../${caminhoDoProjeto}`, import.meta.url).href;
+}
+
 export function configurarImagem(imagem, valor, textoAlternativo = "") {
   imagem.alt = textoAlternativo;
   imagem.addEventListener(
@@ -46,7 +62,7 @@ export function configurarImagem(imagem, valor, textoAlternativo = "") {
     { once: true },
   );
 
-  imagem.src = normalizarUrlImagem(valor) || IMAGEM_INDISPONIVEL;
+  imagem.src = resolverUrlImagem(valor) || IMAGEM_INDISPONIVEL;
 }
 
 export function ativarPreviewImagem(input) {
