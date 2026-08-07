@@ -1,3 +1,9 @@
+import {
+  ativarPreviewImagem,
+  configurarImagem,
+  normalizarUrlImagem,
+} from "./imagens.js";
+
 // =========================================
 // ELEMENTOS DA PÁGINA
 // =========================================
@@ -5,6 +11,9 @@
 const modal = document.querySelector("#modalDestino");
 const form = document.querySelector("#form");
 const tbody = document.querySelector("#tbodyDestinos");
+const inputImagem = document.querySelector("#imagem");
+
+ativarPreviewImagem(inputImagem);
 
 const btnNovo = document.querySelector("#btnNovo");
 const btnFechar = document.querySelector("#fecharModal");
@@ -67,7 +76,7 @@ function obterDadosFormulario() {
     preco: Number(document.querySelector("#preco").value),
     estrelas: Number(document.querySelector("#estrelas").value),
     descricao: document.querySelector("#descricao").value,
-    imagem: document.querySelector("#imagem").value,
+    imagem: normalizarUrlImagem(inputImagem.value),
   };
 }
 
@@ -134,7 +143,7 @@ async function carregarDestinos() {
 
       tr.innerHTML = `
         <td>
-            <img src="../${destino.imagem}" class="thumb">
+            <img class="thumb">
         </td>
 
         <td>${destino.nome}</td>
@@ -168,6 +177,8 @@ async function carregarDestinos() {
         </td>
 
       `;
+
+      configurarImagem(tr.querySelector(".thumb"), destino.imagem, destino.nome);
 
       tbody.appendChild(tr);
 
@@ -217,7 +228,8 @@ function editarDestino(destino) {
 
   document.querySelector("#descricao").value = destino.descricao;
 
-  document.querySelector("#imagem").value = destino.imagem;
+  inputImagem.value = destino.imagem || "";
+  inputImagem.dispatchEvent(new Event("input"));
 
   document.querySelector(".modal-header h2").textContent = "Editar Destino";
 
