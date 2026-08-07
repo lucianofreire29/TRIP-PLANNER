@@ -1,183 +1,233 @@
-const promocoes = [
-  {
-    id: 1,
-    destino: "Fernando de Noronha",
-    pais: "Brasil",
-    imagem: "../img/card1.jpg",
-    precoOriginal: 4990,
-    precoPromocional: 2990,
-    destaque: true,
-    desconto: 40,
-    estrelas: 5,
-  },
-
-  {
-    id: 2,
-    destino: "Paris",
-    pais: "França",
-    imagem: "../img/card2.jpg",
-    precoOriginal: 6990,
-    precoPromocional: 5490,
-    desconto: 22,
-    estrelas: 5,
-  },
-
-  {
-    id: 3,
-    destino: "Suíça",
-    pais: "Suíça",
-    imagem: "../img/card3.jpg",
-    precoOriginal: 9990,
-    precoPromocional: 7990,
-    desconto: 20,
-    destaque: true,
-    estrelas: 5,
-  },
-
-  {
-    id: 4,
-    destino: "Maldivas",
-    pais: "Maldivas",
-    imagem: "../img/card4.jpg",
-    precoOriginal: 12990,
-    precoPromocional: 9990,
-    desconto: 25,
-    estrelas: 5,
-  },
-];
+import {
+  buscarJSON,
+  configurarImagem,
+  escaparHTML,
+  formatarMoeda,
+} from "./api.js";
 
 const cards = document.querySelector(".cards-promocoes");
+const pesquisa = document.querySelector("#searchPromocao");
+const filtroPais = document.querySelector("#filtroPais");
+const filtroDesconto = document.querySelector("#filtroDesconto");
+const secaoContador = document.querySelector(".contador");
 
-function criarEstrelas(qtd) {
-  let estrelas = "";
+let promocoes = [];
+let intervaloContador = null;
 
-  for (let i = 0; i < qtd; i++) {
-    estrelas += '<i class="fa-solid fa-star"></i>';
-  }
-
-  return estrelas;
+function mostrarEstado(mensagem, tipo = "") {
+  cards.innerHTML = `
+    <div class="estado-promocoes ${tipo}">
+      <i class="fa-solid ${tipo === "erro" ? "fa-triangle-exclamation" : "fa-spinner fa-spin"}"></i>
+      <p>${escaparHTML(mensagem)}</p>
+    </div>
+  `;
 }
 
-function carregarPromocoes(lista) {
-  cards.innerHTML = "";
+function normalizarPromocao(promocao) {
+  return {
+    ...promocao,
+    id: Number(promocao.id),
+    nome: promocao.nome || "Promoção sem nome",
+    pais: promocao.pais || "Local não informado",
+    regiao: promocao.regiao || "",
+    categoria: promocao.categoria || "",
+    preco: Number(promocao.preco) || 0,
+    desconto: Number(promocao.desconto) || 0,
+    precoPromocional:
+      Number(promocao.preco_promocional) ||
+      Number(promocao.preco) ||
+      0,
+    inicio: promocao.inicio || null,
+    fim: promocao.fim || null,
+    destaque: Boolean(promocao.destaque),
+    descricao: promocao.descricao || "",
+    imagem: promocao.imagem || "",
+  };
+}
 
-  lista.forEach((promocao) => {
-    cards.innerHTML += `
+function carregarPaises() {
+  const paises = [...new Set(promocoes.map((promocao) => promocao.pais))]
+    .filter(Boolean)
+    .sort((a, b) => a.localeCompare(b, "pt-BR"));
 
-        <div class="card-promocao">
-                <div class="imagem-promocao">
+  filtroPais.innerHTML =
+    '<option value="">🌎 Todos os países</option>';
 
-                    <img src="${promocao.imagem}" alt="${promocao.destino}">
-
-                    <span class="badge">
-                        ${promocao.desconto}% OFF
-                    </span>
-
-                    ${
-                      promocao.destaque
-                        ? `
-                        <span class="badge-destaque">
-                            ⭐ Mais Vendido
-                        </span>
-                    `
-                        : ""
-                    }
-
-                </div>
-
-            <div class="conteudo-promocao">
-
-                <h3>${promocao.destino}</h3>
-
-                <span class="pais">
-
-                    <i class="fa-solid fa-location-dot"></i>
-
-                    ${promocao.pais}
-
-                </span>
-
-                <div class="estrelas">
-
-                    ${criarEstrelas(promocao.estrelas)}
-
-                </div>
-
-                    <div class="precos">
-
-                        <small class="preco-antigo">
-                            R$ ${promocao.precoOriginal.toLocaleString("pt-BR")}
-                        </small>
-
-                        <h2>
-                            R$ ${promocao.precoPromocional.toLocaleString("pt-BR")}
-                        </h2>
-
-                        <span class="economia">
-                            Economize R$ ${(promocao.precoOriginal - promocao.precoPromocional).toLocaleString("pt-BR")}
-                        </span>
-
-                    </div>
-
-                <a
-                    href="destino.html?id=${promocao.id}"
-                    class="btn-promocao">
-
-                    Aproveitar Oferta
-
-                </a>
-
-            </div>
-
-        </div>
-
-        `;
+  paises.forEach((pais) => {
+    const option = document.createElement("option");
+    option.value = pais;
+    option.textContent = pais;
+    filtroPais.appendChild(option);
   });
 }
 
-carregarPromocoes(promocoes);
+function renderizarPromocoes(lista) {
+  cards.innerHTML = "";
 
-const dataFinal = new Date("2026-12-31T23:59:59");
-
-function atualizarContador() {
-  const agora = new Date();
-
-  const diferenca = dataFinal - agora;
-
-  if (diferenca <= 0) {
-    document.getElementById("dias").textContent = "00";
-    document.getElementById("horas").textContent = "00";
-    document.getElementById("minutos").textContent = "00";
-    document.getElementById("segundos").textContent = "00";
-
+  if (!lista.length) {
+    cards.innerHTML = `
+      <div class="estado-promocoes vazio">
+        <i class="fa-solid fa-tags"></i>
+        <p>Nenhuma promoção encontrada.</p>
+      </div>
+    `;
     return;
   }
 
-  const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+  lista.forEach((promocao) => {
+    const economia = Math.max(
+      0,
+      promocao.preco - promocao.precoPromocional,
+    );
+    const card = document.createElement("article");
+    card.className = "card-promocao";
 
-  const horas = Math.floor(
-    (diferenca % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
-  );
+    card.innerHTML = `
+      <div class="imagem-promocao">
+        <img alt="">
+        <span class="badge">${promocao.desconto}% OFF</span>
+        ${promocao.destaque
+          ? '<span class="badge-destaque">⭐ Destaque</span>'
+          : ""}
+      </div>
 
-  const minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
+      <div class="conteudo-promocao">
+        <h3>${escaparHTML(promocao.nome)}</h3>
+        <span class="pais">
+          <i class="fa-solid fa-location-dot"></i>
+          ${escaparHTML(promocao.pais)}
+        </span>
+        ${promocao.categoria
+          ? `<span class="categoria-promocao">${escaparHTML(promocao.categoria)}</span>`
+          : ""}
+        ${promocao.descricao
+          ? `<p class="descricao-promocao">${escaparHTML(promocao.descricao)}</p>`
+          : ""}
 
-  const segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
+        <div class="precos">
+          <small class="preco-antigo">${formatarMoeda(promocao.preco)}</small>
+          <h2>${formatarMoeda(promocao.precoPromocional)}</h2>
+          <span class="economia">
+            Economize ${formatarMoeda(economia)}
+          </span>
+        </div>
 
-  document.getElementById("dias").textContent = String(dias).padStart(2, "0");
+        <a
+          href="form.html?promocao=${encodeURIComponent(promocao.nome)}&id=${promocao.id}"
+          class="btn-promocao"
+        >
+          Aproveitar oferta
+        </a>
+      </div>
+    `;
 
-  document.getElementById("horas").textContent = String(horas).padStart(2, "0");
+    configurarImagem(
+      card.querySelector(".imagem-promocao img"),
+      promocao.imagem,
+      promocao.nome,
+    );
+    cards.appendChild(card);
+  });
+}
 
-  document.getElementById("minutos").textContent = String(minutos).padStart(
-    2,
-    "0",
-  );
+function aplicarFiltros() {
+  const texto = pesquisa.value.trim().toLocaleLowerCase("pt-BR");
+  const pais = filtroPais.value;
+  const descontoMinimo = Number(filtroDesconto.value) || 0;
 
-  document.getElementById("segundos").textContent = String(segundos).padStart(
-    2,
-    "0",
+  const resultado = promocoes.filter((promocao) => {
+    const conteudo = [
+      promocao.nome,
+      promocao.pais,
+      promocao.regiao,
+      promocao.categoria,
+      promocao.descricao,
+    ]
+      .join(" ")
+      .toLocaleLowerCase("pt-BR");
+
+    return (
+      conteudo.includes(texto) &&
+      (!pais || promocao.pais === pais) &&
+      promocao.desconto >= descontoMinimo
+    );
+  });
+
+  renderizarPromocoes(resultado);
+}
+
+function obterFimMaisProximo() {
+  const datas = promocoes
+    .filter((promocao) => promocao.fim)
+    .map((promocao) => {
+      const data = String(promocao.fim).slice(0, 10);
+      return new Date(`${data}T23:59:59`);
+    })
+    .filter((data) => !Number.isNaN(data.getTime()) && data > new Date())
+    .sort((a, b) => a - b);
+
+  return datas[0] || null;
+}
+
+function atualizarContador(dataFinal) {
+  const diferenca = Math.max(0, dataFinal - new Date());
+  const valores = {
+    dias: Math.floor(diferenca / 86400000),
+    horas: Math.floor((diferenca % 86400000) / 3600000),
+    minutos: Math.floor((diferenca % 3600000) / 60000),
+    segundos: Math.floor((diferenca % 60000) / 1000),
+  };
+
+  Object.entries(valores).forEach(([id, valor]) => {
+    document.querySelector(`#${id}`).textContent =
+      String(valor).padStart(2, "0");
+  });
+}
+
+function iniciarContador() {
+  if (intervaloContador) clearInterval(intervaloContador);
+
+  const dataFinal = obterFimMaisProximo();
+
+  if (!dataFinal) {
+    secaoContador.hidden = true;
+    return;
+  }
+
+  secaoContador.hidden = false;
+  atualizarContador(dataFinal);
+  intervaloContador = setInterval(
+    () => atualizarContador(dataFinal),
+    1000,
   );
 }
 
-atualizarContador();
+pesquisa.addEventListener("input", aplicarFiltros);
+filtroPais.addEventListener("change", aplicarFiltros);
+filtroDesconto.addEventListener("change", aplicarFiltros);
 
-setInterval(atualizarContador, 1000);
+async function iniciar() {
+  mostrarEstado("Carregando promoções...");
+
+  try {
+    const dados = await buscarJSON("/promocoes/publicas");
+
+    if (!Array.isArray(dados)) {
+      throw new Error("A API retornou um formato inválido.");
+    }
+
+    promocoes = dados.map(normalizarPromocao);
+    carregarPaises();
+    renderizarPromocoes(promocoes);
+    iniciarContador();
+  } catch (erro) {
+    console.error("Erro ao carregar promoções:", erro);
+    secaoContador.hidden = true;
+    mostrarEstado(
+      "Não foi possível carregar as promoções. Verifique se a API está rodando.",
+      "erro",
+    );
+  }
+}
+
+iniciar();
