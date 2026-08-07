@@ -654,3 +654,31 @@ img {
   border-radius: 0;
   box-shadow: none;
 }
+
+
+/* Imagens locais dos cadastros */
+.imagem-ajuda {
+  display: block;
+  color: #64748b;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.preview-imagem {
+  width: 100%;
+  max-width: 320px;
+  height: 180px;
+  margin-top: 6px;
+  border: 1px solid #d9dee8;
+  border-radius: 12px;
+  object-fit: cover;
+  background: #e9eef6;
+}
+
+.preview-imagem[hidden] {
+  display: none;
+}
+
+.thumb.imagem-indisponivel {
+  object-fit: cover;
+}
