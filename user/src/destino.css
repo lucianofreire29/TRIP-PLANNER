@@ -453,3 +453,41 @@
         grid-template-columns:1fr;
     }
 }
+
+.destino-detalhe.carregando > :not(.estado-detalhe) {
+  visibility: hidden;
+}
+
+.estado-detalhe {
+  min-height: 70vh;
+  padding: 80px 8%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  color: #142143;
+  text-align: center;
+}
+
+.estado-detalhe i {
+  color: #1a5d94;
+  font-size: 42px;
+}
+
+.estado-detalhe.erro i {
+  color: #dc3545;
+}
+
+.estado-detalhe a {
+  padding: 14px 24px;
+  border-radius: 30px;
+  background: #142143;
+  color: #fff;
+  text-decoration: none;
+}
+
+.miniatura.ativa {
+  outline: 3px solid #1a5d94;
+  outline-offset: 3px;
+}

@@ -104,3 +104,27 @@ export async function atualizarDestino(req, res) {
     });
   }
 }
+
+
+export async function buscarDestinoPorId(req, res) {
+  try {
+    const { id } = req.params;
+    const resultado = await pool.query(
+      "SELECT * FROM destinos WHERE id = $1",
+      [id],
+    );
+
+    if (!resultado.rows.length) {
+      return res.status(404).json({
+        erro: "Destino não encontrado.",
+      });
+    }
+
+    res.json(resultado.rows[0]);
+  } catch (erro) {
+    console.error(erro);
+    res.status(500).json({
+      erro: "Erro ao buscar destino.",
+    });
+  }
+}

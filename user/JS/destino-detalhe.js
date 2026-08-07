@@ -1,181 +1,149 @@
-
-
-import destinos from "./dados.js";
-
+import {
+  buscarJSON,
+  configurarImagem,
+  escaparHTML,
+  formatarMoeda,
+} from "./api.js";
 
 const parametros = new URLSearchParams(window.location.search);
-
 const idDestino = Number(parametros.get("id"));
+const pagina = document.querySelector(".destino-detalhe");
 
-const imagemPrincipal =
-document.querySelector(".imagem-principal");
+const pessoasInput = document.querySelector("#qtdPessoas");
+const diasInput = document.querySelector("#qtdDias");
+const hospedagemInput = document.querySelector("#tipoHospedagem");
+const passagemInput = document.querySelector("#passagem");
+const seguroInput = document.querySelector("#seguro");
+const valorFinal = document.querySelector("#valorFinal");
 
-const miniaturas =
-document.querySelector(".galeria-miniaturas");
+let destino = null;
 
-
-const destino = destinos.find(
-    destino => destino.id === idDestino
-);
-
-
-if(destino){
-    const imagemHero = document.querySelector(".destino-imagem");
-
-    if(imagemHero){
-        imagemHero.src = destino.imagem;
-        imagemHero.alt = destino.nome;
-    }
-    document.querySelector(".destino-imagem").alt =
-    destino.nome;
-    document.querySelector(".destino-titulo").textContent =
-    destino.nome;
-    document.querySelector(".destino-pais").innerHTML =
+function mostrarCarregamento() {
+  pagina.classList.add("carregando");
+  pagina.insertAdjacentHTML(
+    "afterbegin",
     `
-    <i class="fa-solid fa-location-dot"></i>
-    ${destino.pais}
-    `;
-    document.querySelector(".destino-estrelas").textContent =
-    "⭐".repeat(destino.estrelas);
-
-    document.querySelector(".destino-descricao").textContent =
-    destino.descricao;
-
-    const precoDestino = document.querySelector(".destino-preco");
-
-    if(precoDestino){
-
-    precoDestino.textContent =
-    destino.preco.toLocaleString("pt-BR",{
-        style:"currency",
-        currency:"BRL"
-    });
-
+      <div class="estado-detalhe" id="estadoDetalhe">
+        <i class="fa-solid fa-spinner fa-spin"></i>
+        <p>Carregando destino...</p>
+      </div>
+    `,
+  );
 }
 
-    document.querySelector(".info-pais").textContent =
-    destino.pais;
+function mostrarErro(mensagem) {
+  pagina.classList.remove("carregando");
+  pagina.innerHTML = `
+    <div class="estado-detalhe erro">
+      <i class="fa-solid fa-triangle-exclamation"></i>
+      <h1>Não foi possível abrir este destino</h1>
+      <p>${escaparHTML(mensagem)}</p>
+      <a href="index.html#destinos">Voltar para os destinos</a>
+    </div>
+  `;
+}
 
-    document.querySelector(".info-avaliacao").textContent =
+function preencherDestino(dados) {
+  destino = {
+    ...dados,
+    id: Number(dados.id),
+    nome: dados.nome || "Destino sem nome",
+    pais: dados.pais || "Local não informado",
+    categoria: dados.categoria || "Não informada",
+    descricao: dados.descricao || "Descrição ainda não disponível.",
+    estrelas: Math.min(5, Math.max(0, Number(dados.estrelas) || 0)),
+    preco: Number(dados.preco) || 0,
+    imagem: dados.imagem || "",
+  };
+
+  configurarImagem(
+    document.querySelector(".destino-imagem"),
+    destino.imagem,
+    destino.nome,
+  );
+  configurarImagem(
+    document.querySelector(".imagem-principal"),
+    destino.imagem,
+    destino.nome,
+  );
+
+  document.querySelector(".destino-titulo").textContent = destino.nome;
+  document.querySelector(".destino-pais").innerHTML = `
+    <i class="fa-solid fa-location-dot"></i>
+    ${escaparHTML(destino.pais)}
+  `;
+  document.querySelector(".destino-estrelas").textContent =
+    "⭐".repeat(destino.estrelas);
+  document.querySelector(".destino-descricao").textContent =
+    destino.descricao;
+  document.querySelector(".info-pais").textContent = destino.pais;
+  document.querySelector(".info-avaliacao").textContent =
     `${destino.estrelas} estrelas`;
-
-    document.querySelector(".info-categoria").textContent =
+  document.querySelector(".info-categoria").textContent =
     destino.categoria;
 
-    imagemPrincipal.src = destino.galeria[0];
-    
-let imagensHTML = "";
-destino.galeria.forEach((imagem)=>{
-    imagensHTML += `
-        <img 
-        src="${imagem}"
-        class="miniatura"
-        >
-    `;
-});
+  const miniaturas = document.querySelector(".galeria-miniaturas");
+  miniaturas.innerHTML = "";
+  const miniatura = document.createElement("img");
+  miniatura.className = "miniatura ativa";
+  configurarImagem(miniatura, destino.imagem, destino.nome);
+  miniaturas.appendChild(miniatura);
 
-miniaturas.innerHTML = imagensHTML;
-
-
-
-const imagens =
-document.querySelectorAll(".miniatura");
-
-imagens.forEach((imagem)=>{
-
-    imagem.addEventListener("click",()=>{
-
-        imagemPrincipal.src =
-        imagem.src;
-
-    });
-
-});
-
+  document.querySelector("#estadoDetalhe")?.remove();
+  pagina.classList.remove("carregando");
+  calcularOrcamento();
 }
 
+function calcularOrcamento() {
+  if (!destino) return;
 
+  const pessoas = Math.max(1, Number(pessoasInput.value) || 1);
+  const dias = Math.max(1, Number(diasInput.value) || 1);
+  const hospedagem = Number(hospedagemInput.value) || 1;
 
+  let valor = destino.preco * pessoas * hospedagem * (dias / 7);
 
-// SIMULADOR DE ORÇAMENTO
+  if (passagemInput.checked) valor += 800 * pessoas;
+  if (seguroInput.checked) valor += 150 * pessoas;
 
-const pessoasInput =
-document.querySelector("#qtdPessoas");
-
-const diasInput =
-document.querySelector("#qtdDias");
-
-const hospedagemInput =
-document.querySelector("#tipoHospedagem");
-
-const passagemInput =
-document.querySelector("#passagem");
-
-const seguroInput =
-document.querySelector("#seguro");
-
-const valorFinal =
-document.querySelector("#valorFinal");
-
-function calcularOrcamento(){
-    if(!destino) return;
-
-    const pessoas =
-    Number(pessoasInput.value);
-
-    const dias =
-    Number(diasInput.value);
-
-    const hospedagem =
-    Number(hospedagemInput.value);
-
-    let valor = 
-    destino.preco *
-    pessoas *
-    hospedagem;
-
-    valor =
-    valor * (dias / 7);
-
-    if(passagemInput.checked){
-        valor += 800 * pessoas;
-    }
-
-
-    if(seguroInput.checked){
-        valor += 150 * pessoas;
-    }
-
-    valorFinal.textContent =
-    valor.toLocaleString("pt-BR",{
-        style:"currency",
-        currency:"BRL"
-    });
+  valorFinal.textContent = formatarMoeda(valor);
 }
 
-pessoasInput.addEventListener(
-"input",
-calcularOrcamento
-);
+[
+  pessoasInput,
+  diasInput,
+  hospedagemInput,
+  passagemInput,
+  seguroInput,
+].forEach((campo) => {
+  campo.addEventListener("input", calcularOrcamento);
+  campo.addEventListener("change", calcularOrcamento);
+});
 
-diasInput.addEventListener(
-"input",
-calcularOrcamento
-);
+document.querySelector(".btn-orcamento")?.addEventListener("click", () => {
+  if (!destino) return;
+  window.location.href =
+    `form.html?destino=${encodeURIComponent(destino.nome)}&id=${destino.id}`;
+});
 
-hospedagemInput.addEventListener(
-"change",
-calcularOrcamento
-);
+async function iniciar() {
+  mostrarCarregamento();
 
-passagemInput.addEventListener(
-"change",
-calcularOrcamento
-);
+  if (!Number.isInteger(idDestino) || idDestino <= 0) {
+    mostrarErro("O endereço não contém um destino válido.");
+    return;
+  }
 
-seguroInput.addEventListener(
-"change",
-calcularOrcamento
-);
+  try {
+    const dados = await buscarJSON(`/destinos/${idDestino}`);
+    preencherDestino(dados);
+  } catch (erro) {
+    console.error("Erro ao carregar destino:", erro);
+    mostrarErro(
+      erro.message ||
+        "Verifique se a API está rodando e tente novamente.",
+    );
+  }
+}
 
-calcularOrcamento();
+iniciar();
