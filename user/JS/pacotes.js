@@ -1,238 +1,157 @@
-const pacotes = [
-  {
-    destino: "Fernando de Noronha",
-    pais: "Brasil",
-    imagem: "../img/banner 1.jpg",
-    dias: "5 dias / 4 noites",
-    preco: "R$ 2.990",
-    estrelas: 5,
-    inclui: [
-      "Passagem aérea",
-      "Hotel 5 estrelas",
-      "Café da manhã",
-      "Transfer"
-    ]
-  },
-
-  {
-    destino: "Paris",
-    pais: "França",
-    imagem: "../img/banner 2.jpg",
-    dias: "7 dias / 6 noites",
-    preco: "R$ 5.490",
-    estrelas: 5,
-    inclui: [
-      "Passagem aérea",
-      "Hotel 4 estrelas",
-      "City Tour",
-      "Seguro viagem"
-    ]
-  },
-
-  {
-    destino: "Suíça",
-    pais: "Suíça",
-    imagem: "../img/banner 3.jpg",
-    dias: "8 dias / 7 noites",
-    preco: "R$ 7.990",
-    estrelas: 5,
-    inclui: [
-      "Passagem aérea",
-      "Hotel Premium",
-      "Passeios",
-      "Transfer"
-    ]
-  },
-  {
-    destino: "Fortaleza",
-    pais: "Brasil",
-    imagem: "../img/fortaleza.jpg",
-    dias: "8 dias / 7 noites",
-    preco: "R$ 10.990",
-    estrelas: 5,
-    inclui: [
-      "Passagem aérea",
-      "Hotel Premium",
-      "Passeios",
-      "Transfer"
-    ]
-  },
-
-  {
-    destino: "Seul",
-    pais: "Coreia do Sul",
-    imagem: "../img/seul.jpg",
-    dias: "8 dias / 7 noites",
-    preco: "R$ 25.990",
-    estrelas: 5,
-    inclui: [
-      "Passagem aérea",
-      "Hotel Premium",
-      "Passeios",
-      "Transfer"
-    ]
-  },
-
-  {
-    destino: "Las vegas",
-    pais: "Estados unidos",
-    imagem: "../img/lasvegas.jpg",
-    dias: "5 dias / 4 noites",
-    preco: "R$ 7.990",
-    estrelas: 5,
-    inclui: [
-      "Passagem aérea",
-      "Hotel Premium",
-      "Passeios",
-      "Transfer"
-    ]
-  }
-];
+import {
+  buscarJSON,
+  configurarImagem,
+  escaparHTML,
+  formatarMoeda,
+} from "./api.js";
 
 const container = document.querySelector(".cards-pacotes");
 const pesquisa = document.querySelector("#searchPacote");
-const filtroPais = document.querySelector("#filtroPais");
+const filtroDuracao = document.querySelector("#filtroDuracao");
 const filtroPreco = document.querySelector("#filtroPreco");
 
-const paises = [...new Set(pacotes.map(p => p.pais))];
+let pacotes = [];
 
-paises.forEach(pais => {
-    filtroPais.innerHTML += `
-        <option value="${pais}">
-            ${pais}
-        </option>
-    `;
-});
-
-function criarEstrelas(qtd) {
-
-    let estrelas = "";
-
-    for (let i = 0; i < qtd; i++) {
-        estrelas += `<i class="fa-solid fa-star"></i>`;
-    }
-
-    return estrelas;
+function mostrarEstado(mensagem, tipo = "") {
+  container.innerHTML = `
+    <div class="estado-pacotes ${tipo}">
+      <i class="fa-solid ${tipo === "erro" ? "fa-triangle-exclamation" : "fa-spinner fa-spin"}"></i>
+      <p>${escaparHTML(mensagem)}</p>
+    </div>
+  `;
 }
 
-function mostrarPacotes(lista) {
+function normalizarPacote(pacote) {
+  return {
+    ...pacote,
+    id: Number(pacote.id),
+    titulo: pacote.titulo || "Pacote sem título",
+    descricao: pacote.descricao || "Detalhes disponíveis sob consulta.",
+    preco: Number(pacote.preco) || 0,
+    dias: Math.max(1, Number(pacote.dias) || 1),
+    imagem: pacote.imagem || "",
+  };
+}
 
-    container.innerHTML = "";
+function renderizarPacotes(lista) {
+  container.innerHTML = "";
 
-    if (lista.length === 0) {
+  if (!lista.length) {
+    container.innerHTML = `
+      <div class="estado-pacotes vazio">
+        <i class="fa-solid fa-suitcase-rolling"></i>
+        <p>Nenhum pacote encontrado.</p>
+      </div>
+    `;
+    return;
+  }
 
-        container.innerHTML = `
-            <h2>Nenhum pacote encontrado.</h2>
-        `;
+  lista.forEach((pacote) => {
+    const card = document.createElement("article");
+    card.className = "card-pacote";
 
-        return;
-    }
+    card.innerHTML = `
+      <div class="imagem-pacote">
+        <img alt="">
+      </div>
 
-    lista.forEach(pacote => {
+      <div class="card-content">
+        <h3>${escaparHTML(pacote.titulo)}</h3>
 
-        container.innerHTML += `
+        <span class="dias">
+          <i class="fa-solid fa-calendar-days"></i>
+          ${pacote.dias} ${pacote.dias === 1 ? "dia" : "dias"}
+        </span>
 
-        <div class="card-pacote">
+        <p class="descricao-pacote">
+          ${escaparHTML(pacote.descricao)}
+        </p>
 
-            <img src="${pacote.imagem}" alt="${pacote.destino}">
-
-            <div class="card-content">
-
-                <h3>${pacote.destino}</h3>
-
-                <span class="pais">
-                    <i class="fa-solid fa-location-dot"></i>
-                    ${pacote.pais}
-                </span>
-
-                <div class="estrelas">
-                    ${criarEstrelas(pacote.estrelas)}
-                </div>
-
-                <span class="dias">
-                    <i class="fa-solid fa-calendar-days"></i>
-                    ${pacote.dias}
-                </span>
-
-                <ul>
-
-                    ${pacote.inclui.map(item => `
-                        <li>
-                            <i class="fa-solid fa-check"></i>
-                            ${item}
-                        </li>
-                    `).join("")}
-
-                </ul>
-
-                <div class="preco">
-
-                    <small>A partir de</small>
-
-                    <h2>${pacote.preco}</h2>
-
-                </div>
-
-                <button class="btn-reservar">
-                    Reservar Agora
-                </button>
-
-            </div>
-
+        <div class="preco">
+          <small>A partir de</small>
+          <h2>${formatarMoeda(pacote.preco)}</h2>
         </div>
 
-        `;
-    });
+        <a
+          class="btn-reservar"
+          href="form.html?pacote=${encodeURIComponent(pacote.titulo)}&id=${pacote.id}"
+        >
+          Reservar agora
+        </a>
+      </div>
+    `;
 
+    configurarImagem(
+      card.querySelector(".imagem-pacote img"),
+      pacote.imagem,
+      pacote.titulo,
+    );
+
+    container.appendChild(card);
+  });
 }
 
-mostrarPacotes(pacotes);
-
 function filtrarPacotes() {
+  const texto = pesquisa.value.trim().toLocaleLowerCase("pt-BR");
+  const duracao = filtroDuracao.value;
+  const faixaPreco = filtroPreco.value;
 
-    const texto = pesquisa.value.toLowerCase();
+  const resultado = pacotes.filter((pacote) => {
+    const conteudo = [pacote.titulo, pacote.descricao]
+      .join(" ")
+      .toLocaleLowerCase("pt-BR");
 
-    const pais = filtroPais.value;
+    let correspondeDuracao = true;
+    if (duracao === "5") {
+      correspondeDuracao = pacote.dias <= 5;
+    } else if (duracao === "10") {
+      correspondeDuracao = pacote.dias > 5 && pacote.dias <= 10;
+    } else if (duracao === "11") {
+      correspondeDuracao = pacote.dias > 10;
+    }
 
-    const preco = filtroPreco.value;
+    let correspondePreco = true;
+    if (faixaPreco === "3000") {
+      correspondePreco = pacote.preco <= 3000;
+    } else if (faixaPreco === "6000") {
+      correspondePreco = pacote.preco > 3000 && pacote.preco <= 6000;
+    } else if (faixaPreco === "10000") {
+      correspondePreco = pacote.preco > 6000;
+    }
 
-    const resultado = pacotes.filter(pacote => {
+    return (
+      conteudo.includes(texto) &&
+      correspondeDuracao &&
+      correspondePreco
+    );
+  });
 
-        const buscaDestino =
-            pacote.destino.toLowerCase().includes(texto);
-
-        const buscaPais =
-            pais === "" || pacote.pais === pais;
-
-        let buscaPreco = true;
-
-        const valor = Number(
-            pacote.preco.replace(/[^\d]/g, "")
-        );
-
-        if (preco === "3000") {
-
-            buscaPreco = valor <= 3000;
-
-        } else if (preco === "6000") {
-
-            buscaPreco = valor <= 6000;
-
-        } else if (preco === "10000") {
-
-            buscaPreco = valor > 6000;
-        }
-
-        return buscaDestino && buscaPais && buscaPreco;
-
-    });
-
-    mostrarPacotes(resultado);
-
+  renderizarPacotes(resultado);
 }
 
 pesquisa.addEventListener("input", filtrarPacotes);
-
-filtroPais.addEventListener("change", filtrarPacotes);
-
+filtroDuracao.addEventListener("change", filtrarPacotes);
 filtroPreco.addEventListener("change", filtrarPacotes);
+
+async function iniciar() {
+  mostrarEstado("Carregando pacotes...");
+
+  try {
+    const dados = await buscarJSON("/pacotes");
+
+    if (!Array.isArray(dados)) {
+      throw new Error("A API retornou um formato inválido.");
+    }
+
+    pacotes = dados.map(normalizarPacote);
+    renderizarPacotes(pacotes);
+  } catch (erro) {
+    console.error("Erro ao carregar pacotes:", erro);
+    mostrarEstado(
+      "Não foi possível carregar os pacotes. Verifique se a API está rodando.",
+      "erro",
+    );
+  }
+}
+
+iniciar();

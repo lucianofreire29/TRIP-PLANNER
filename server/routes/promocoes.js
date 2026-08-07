@@ -3,6 +3,7 @@ import express from "express";
 import {
   criarPromocao,
   listarPromocoes,
+  listarPromocoesPublicas,
   atualizarPromocao,
   excluirPromocao,
 } from "../controllers/promocoesController.js";
@@ -10,6 +11,8 @@ import {
 const router = express.Router();
 
 router.get("/", listarPromocoes);
+
+router.get("/publicas", listarPromocoesPublicas);
 
 router.post("/", criarPromocao);
 

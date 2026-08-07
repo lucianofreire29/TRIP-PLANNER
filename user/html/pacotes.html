@@ -96,17 +96,20 @@
         <input
             type="text"
             id="searchPacote"
-            placeholder="🔍 Pesquisar destino..."
+            placeholder="🔍 Pesquisar pacote..."
         >
 
-        <select id="filtroPais">
-            <option value="">🌎 Todos os países</option>
+        <select id="filtroDuracao">
+            <option value="">📅 Todas as durações</option>
+            <option value="5">Até 5 dias</option>
+            <option value="10">De 6 a 10 dias</option>
+            <option value="11">Mais de 10 dias</option>
         </select>
 
         <select id="filtroPreco">
             <option value="">💰 Faixa de preço</option>
             <option value="3000">Até R$ 3.000</option>
-            <option value="6000">Até R$ 6.000</option>
+            <option value="6000">De R$ 3.000 a R$ 6.000</option>
             <option value="10000">Acima de R$ 6.000</option>
         </select>
 
@@ -213,7 +216,7 @@
     }
     </script>
 
-<script src="../JS/pacotes.js"></script>
+<script type="module" src="../JS/pacotes.js"></script>
 
 </body>
 </html>
