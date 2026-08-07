@@ -2,34 +2,25 @@ import { pool } from "../config/db.js";
 
 function obterDadosPacote(body) {
   return {
-    nome: body.nome?.trim(),
-    pais: body.pais?.trim(),
-    regiao: body.regiao?.trim() || null,
-    categoria: body.categoria?.trim() || null,
-    duracao: body.duracao?.trim() || null,
-    preco: Number(body.preco),
-    parcelamento: body.parcelamento?.trim() || null,
-    hotel: body.hotel?.trim() || null,
-    passagem: body.passagem === true || body.passagem === "true",
-    seguro: body.seguro === true || body.seguro === "true",
-    cafe: body.cafe === true || body.cafe === "true",
-    status: body.status || "ativo",
+    titulo: body.titulo?.trim(),
     descricao: body.descricao?.trim() || null,
+    preco: Number(body.preco),
+    dias: Number(body.dias),
     imagem: body.imagem?.trim() || null,
   };
 }
 
 function validarPacote(pacote) {
-  if (!pacote.nome || !pacote.pais) {
-    return "Nome do destino e país são obrigatórios.";
+  if (!pacote.titulo) {
+    return "O título é obrigatório.";
   }
 
   if (!Number.isFinite(pacote.preco) || pacote.preco < 0) {
     return "O preço deve ser um número maior ou igual a zero.";
   }
 
-  if (!["ativo", "inativo"].includes(pacote.status)) {
-    return "Status inválido.";
+  if (!Number.isInteger(pacote.dias) || pacote.dias < 1) {
+    return "A quantidade de dias deve ser um número inteiro maior que zero.";
   }
 
   return null;
@@ -37,19 +28,10 @@ function validarPacote(pacote) {
 
 function valores(pacote) {
   return [
-    pacote.nome,
-    pacote.pais,
-    pacote.regiao,
-    pacote.categoria,
-    pacote.duracao,
-    pacote.preco,
-    pacote.parcelamento,
-    pacote.hotel,
-    pacote.passagem,
-    pacote.seguro,
-    pacote.cafe,
-    pacote.status,
+    pacote.titulo,
     pacote.descricao,
+    pacote.preco,
+    pacote.dias,
     pacote.imagem,
   ];
 }
@@ -64,12 +46,9 @@ export async function criarPacote(req, res) {
     }
 
     const resultado = await pool.query(
-      `INSERT INTO pacotes (
-        nome, pais, regiao, categoria, duracao, preco, parcelamento,
-        hotel, passagem, seguro, cafe, status, descricao, imagem
-      )
-      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)
-      RETURNING *`,
+      `INSERT INTO pacotes (titulo, descricao, preco, dias, imagem)
+       VALUES ($1, $2, $3, $4, $5)
+       RETURNING *`,
       valores(pacote),
     );
 
@@ -105,21 +84,12 @@ export async function atualizarPacote(req, res) {
 
     const resultado = await pool.query(
       `UPDATE pacotes
-       SET nome = $1,
-           pais = $2,
-           regiao = $3,
-           categoria = $4,
-           duracao = $5,
-           preco = $6,
-           parcelamento = $7,
-           hotel = $8,
-           passagem = $9,
-           seguro = $10,
-           cafe = $11,
-           status = $12,
-           descricao = $13,
-           imagem = $14
-       WHERE id = $15
+       SET titulo = $1,
+           descricao = $2,
+           preco = $3,
+           dias = $4,
+           imagem = $5
+       WHERE id = $6
        RETURNING *`,
       [...valores(pacote), id],
     );
