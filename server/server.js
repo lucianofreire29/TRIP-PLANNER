@@ -5,6 +5,7 @@ import { pool } from "./config/db.js";
 
 import destinosRoutes from "./routes/destinos.js";
 import promocoesRoutes from "./routes/promocoes.js";
+import pacotesRoutes from "./routes/pacotes.js";
 
 dotenv.config();
 
@@ -19,6 +20,7 @@ app.use(express.json());
 // Rotas
 app.use("/destinos", destinosRoutes);
 app.use("/promocoes", promocoesRoutes);
+app.use("/pacotes", pacotesRoutes);
 
 // Teste
 app.get("/", (req, res) => {
