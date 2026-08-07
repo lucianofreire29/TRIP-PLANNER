@@ -3,13 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title>Painel Administrativo</title>
-
-    <link rel="stylesheet" href="../css/admin.css"/>
-    <link rel="stylesheet" href="../css/media.css"/>
-    <link rel="stylesheet" href="../css/keyframes.css"/>
-
+    <link rel="stylesheet" href="../css/admin.css" />
+    <link rel="stylesheet" href="../css/media.css" />
+    <link rel="stylesheet" href="../css/keyframes.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -21,66 +18,85 @@
       <aside class="sidebar">
         <h2>TRIP</h2>
         <span>PLANNER</span>
-
         <nav>
-          <a href="dashboard.html">
-            <i class="fa-solid fa-chart-line"></i>
-            Dashboard
-          </a>
-
-          <a href="destino.html">
-            <i class="fa-solid fa-earth-americas"></i>
-            Destinos
-          </a>
-
-          <a href="promocoes.html">
-            <i class="fa-solid fa-percent"></i>
-            Promoções
-          </a>
-
-          <a href="pacotes.html">
-            <i class="fa-solid fa-plane"></i>
-            Pacotes
-          </a>
-
-          <a href="contato.html">
-            <i class="fa-solid fa-envelope"></i>
-            Contatos
-          </a>
+          <a href="dashboard.html" class="ativo"><i class="fa-solid fa-chart-line"></i> Dashboard</a>
+          <a href="destino.html"><i class="fa-solid fa-earth-americas"></i> Destinos</a>
+          <a href="promocoes.html"><i class="fa-solid fa-percent"></i> Promoções</a>
+          <a href="pacotes.html"><i class="fa-solid fa-plane"></i> Pacotes</a>
+          <a href="contato.html"><i class="fa-solid fa-envelope"></i> Contatos</a>
         </nav>
       </aside>
+
       <main class="conteudo">
         <header>
           <h1>Painel Administrativo</h1>
           <button id="btnSair">Sair</button>
         </header>
+
+        <section class="topo-pagina">
+          <div>
+            <h2>Visão geral</h2>
+            <p id="statusDashboard" class="dashboard-status">
+              Carregando indicadores...
+            </p>
+          </div>
+          <button id="btnAtualizar" class="btn-primary" type="button">
+            <i class="fa-solid fa-rotate"></i> Atualizar dados
+          </button>
+        </section>
+
         <section class="cards">
-          <div class="card">
+          <a class="card card-link" href="destino.html">
             <i class="fa-solid fa-earth-americas"></i>
             <h2 id="totalDestinos">0</h2>
             <span>Destinos</span>
-          </div>
-
-          <div class="card">
+          </a>
+          <a class="card card-link" href="promocoes.html">
             <i class="fa-solid fa-percent"></i>
             <h2 id="totalPromocoes">0</h2>
             <span>Promoções</span>
-          </div>
-
-          <div class="card">
+          </a>
+          <a class="card card-link" href="pacotes.html">
             <i class="fa-solid fa-plane"></i>
             <h2 id="totalPacotes">0</h2>
             <span>Pacotes</span>
-          </div>
-          <div class="card">
+          </a>
+          <a class="card card-link" href="contato.html">
             <i class="fa-solid fa-envelope"></i>
             <h2 id="totalContatos">0</h2>
             <span>Mensagens</span>
-          </div>
+          </a>
+        </section>
+
+        <section class="topo-pagina">
+          <h2>Mensagens recentes</h2>
+          <a href="contato.html" class="btn-primary dashboard-link">
+            Ver todos os contatos
+          </a>
+        </section>
+
+        <section class="lista-destinos">
+          <table class="tabela">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>E-mail</th>
+                <th>Assunto</th>
+                <th>Data</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="tbodyUltimosContatos">
+              <tr>
+                <td colspan="5">Carregando mensagens...</td>
+              </tr>
+            </tbody>
+          </table>
         </section>
       </main>
     </div>
-    <script type="module" src="../JS/dashborad.js"></script>
+
+    <script type="module" src="../JS/dashboard.js"></script>
     <script type="module" src="../JS/admin.js"></script>
   </body>
 </html>
