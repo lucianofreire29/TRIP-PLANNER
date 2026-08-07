@@ -602,3 +602,55 @@ img {
   opacity: 0.65;
   cursor: wait;
 }
+
+
+/* Login */
+#btnEntrar {
+  width: 100%;
+  min-height: 50px;
+  border: none;
+  border-radius: 12px;
+  background: #1a5d94;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(26, 93, 148, 0.22);
+  transition:
+    background 0.3s,
+    transform 0.3s,
+    box-shadow 0.3s;
+}
+
+#btnEntrar:hover:not(:disabled) {
+  background: #142143;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(20, 33, 67, 0.25);
+}
+
+#btnEntrar:focus-visible {
+  outline: 3px solid rgba(26, 93, 148, 0.3);
+  outline-offset: 3px;
+}
+
+#btnEntrar:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+/* Tabelas administrativas */
+.lista-destinos {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.lista-destinos .tabela {
+  width: max-content;
+  min-width: 100%;
+  max-width: none;
+  border-radius: 0;
+  box-shadow: none;
+}
