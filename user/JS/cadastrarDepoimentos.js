@@ -8,7 +8,7 @@ import {
 
 const depoimentos = [
 {
-    foto:"/user/img/user-1.jpg",
+    foto:"../img/user-1.jpg",
     nome:"Ana Oliveira",
     destino:"Paris",
     estrelas:5,
@@ -17,7 +17,7 @@ const depoimentos = [
 },
 
 {
-    foto:"/user/img/user-5.jpg",
+    foto:"../img/user-5.jpg",
     nome:"Carlos Mendes",
     destino:"Suíça",
     estrelas:5,
@@ -26,7 +26,7 @@ const depoimentos = [
 },
 
 {
-    foto:"/user/img/user-3.jpg",
+    foto:"../img/user-3.jpg",
     nome:"Fernanda Lima",
     destino:"Fernando de Noronha",
     estrelas:5,

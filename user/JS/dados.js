@@ -6,11 +6,11 @@ const destinos = [
         pais:"Brasil",
         regiao:"Nordeste",
         preco:2990,
-        imagem:"/user/img/card1.jpg",
+        imagem:"../img/card1.jpg",
         galeria:[
-            "/user/img/card1.jpg",
-            "/user/img/card1-2.jpg",
-            "/user/img/card1-3.jpg"
+            "../img/card1.jpg",
+            "../img/card1-2.jpg",
+            "../img/card1-3.jpg"
         ],
         estrelas:5,
         categoria:"Praia",
@@ -24,11 +24,11 @@ const destinos = [
         pais: "França",
         regiao: "Europa",
         preco: 5490,
-        imagem:"/user/img/card2.jpg",
+        imagem:"../img/card2.jpg",
         galeria:[
-            "/user/img/card2.jpg",
-            "/user/img/card2-2.jpg",
-            "/user/img/card2-3.jpg"
+            "../img/card2.jpg",
+            "../img/card2-2.jpg",
+            "../img/card2-3.jpg"
         ],
         estrelas: 5,
         categoria: "Cidade",
@@ -43,11 +43,11 @@ const destinos = [
         pais: "Suíça",
         regiao: "Europa",
         preco: 7990,
-        imagem:"/user/img/card3.jpg",
+        imagem:"../img/card3.jpg",
         galeria:[
-            "/user/img/card3.jpg",
-            "/user/img/card3-2.jpg",
-            "/user/img/card3-3.jpg"
+            "../img/card3.jpg",
+            "../img/card3-2.jpg",
+            "../img/card3-3.jpg"
         ],
         estrelas: 5,
         categoria: "Montanha",
@@ -62,11 +62,11 @@ const destinos = [
         pais: "Maldivas",
         regiao: "Ásia",
         preco: 9990,
-        imagem:"/user/img/card4.jpg",
+        imagem:"../img/card4.jpg",
         galeria:[
-            "/user/img/card4.jpg",
-            "/user/img/card4-2.jpg",
-            "/user/img/card4-3.jpg"
+            "../img/card4.jpg",
+            "../img/card4-2.jpg",
+            "../img/card4-3.jpg"
         ],
         estrelas: 5,
         categoria: "Praia",
@@ -81,11 +81,11 @@ const destinos = [
         pais: "México",
         regiao: "América",
         preco: 4890,
-        imagem:"/user/img/card5.jpg",
+        imagem:"../img/card5.jpg",
         galeria:[
-            "/user/img/card5.jpg",
-            "/user/img/card5-2.jpg",
-            "/user/img/card5-3.jpg"
+            "../img/card5.jpg",
+            "../img/card5-2.jpg",
+            "../img/card5-3.jpg"
         ],
         estrelas: 5,
         categoria: "Praia",
@@ -100,11 +100,11 @@ const destinos = [
         pais: "Japão",
         regiao: "Ásia",
         preco: 8900,
-        imagem:"/user/img/card6.jpg",
+        imagem:"../img/card6.jpg",
         galeria:[
-            "/user/img/card6.jpg",
-            "/user/img/card6-2.jpg",
-            "/user/img/card6-3.jpg"
+            "../img/card6.jpg",
+            "../img/card6-2.jpg",
+            "../img/card6-3.jpg"
         ],
         estrelas: 5,
         categoria: "Cidade",
@@ -119,11 +119,11 @@ const destinos = [
         pais: "Emirados Árabes Unidos",
         regiao: "Oriente Médio",
         preco: 9800,
-        imagem:"/user/img/card7.jpg",
+        imagem:"../img/card7.jpg",
         galeria:[
-            "/user/img/card7.jpg",
-            "/user/img/card7-2.jpg",
-            "/user/img/card7-3.jpg"
+            "../img/card7.jpg",
+            "../img/card7-2.jpg",
+            "../img/card7-3.jpg"
         ],
         estrelas: 5,
         categoria: "Cidade",
@@ -138,11 +138,11 @@ const destinos = [
         pais: "Grécia",
         regiao: "Europa",
         preco: 8200,
-        imagem:"/user/img/card8.jpg",
+        imagem:"../img/card8.jpg",
         galeria:[
-            "/user/img/card8.jpg",
-            "/user/img/card8-2.jpg",
-            "/user/img/card8-3.jpg"
+            "../img/card8.jpg",
+            "../img/card8-2.jpg",
+            "../img/card8-3.jpg"
         ],
         estrelas: 5,
         categoria: "Praia",
