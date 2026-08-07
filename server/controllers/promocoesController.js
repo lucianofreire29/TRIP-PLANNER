@@ -35,11 +35,11 @@ function validarPromocao(promocao) {
   }
 
   if (
-    !Number.isFinite(promocao.desconto) ||
+    !Number.isInteger(promocao.desconto) ||
     promocao.desconto < 0 ||
     promocao.desconto > 100
   ) {
-    return "O desconto deve estar entre 0 e 100.";
+    return "O desconto deve ser um número inteiro entre 0 e 100.";
   }
 
   if (
@@ -144,8 +144,7 @@ export async function atualizarPromocao(req, res) {
            destaque = $10,
            status = $11,
            descricao = $12,
-           imagem = $13,
-           atualizado_em = NOW()
+           imagem = $13
        WHERE id = $14
        RETURNING *`,
       [...valores(promocao), id],
