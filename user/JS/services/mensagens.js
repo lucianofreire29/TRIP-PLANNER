@@ -16,6 +16,7 @@ export async function salvarMensagem(dados) {
         reserva: dados.reserva || null,
         assunto: dados.assunto || null,
         mensagem: dados.mensagem,
+        status: "nao-lida",
         criadoEm: serverTimestamp()
     });
 }
