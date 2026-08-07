@@ -179,3 +179,24 @@ export async function excluirPromocao(req, res) {
     res.status(500).json({ erro: "Erro ao excluir promoção." });
   }
 }
+
+
+export async function listarPromocoesPublicas(req, res) {
+  try {
+    const resultado = await pool.query(
+      `SELECT *
+       FROM promocoes
+       WHERE status = 'ativa'
+         AND (inicio IS NULL OR inicio <= CURRENT_DATE)
+         AND (fim IS NULL OR fim >= CURRENT_DATE)
+       ORDER BY destaque DESC, fim ASC NULLS LAST, id DESC`,
+    );
+
+    res.json(resultado.rows);
+  } catch (erro) {
+    console.error("Erro ao buscar promoções públicas:", erro);
+    res.status(500).json({
+      erro: "Erro ao buscar promoções públicas.",
+    });
+  }
+}
