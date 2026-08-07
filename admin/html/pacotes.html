@@ -45,15 +45,11 @@
             <thead>
               <tr>
                 <th>Imagem</th>
-                <th>Destino</th>
-                <th>País</th>
-                <th>Região</th>
-                <th>Categoria</th>
-                <th>Duração</th>
+                <th>Título</th>
+                <th>Descrição</th>
                 <th>Preço</th>
-                <th>Parcelamento</th>
-                <th>Hotel</th>
-                <th>Status</th>
+                <th>Dias</th>
+                <th>Criado em</th>
                 <th>Ações</th>
               </tr>
             </thead>
@@ -74,75 +70,20 @@
 
         <form id="form">
           <div class="grupo">
-            <label for="nome">Nome do destino</label>
-            <input type="text" id="nome" required />
+            <label for="titulo">Título</label>
+            <input type="text" id="titulo" required />
           </div>
           <div class="grupo">
-            <label for="pais">País</label>
-            <input type="text" id="pais" required />
-          </div>
-          <div class="grupo">
-            <label for="regiao">Região</label>
-            <input type="text" id="regiao" />
-          </div>
-          <div class="grupo">
-            <label for="categoria">Categoria</label>
-            <select id="categoria">
-              <option>Praia</option>
-              <option>Montanha</option>
-              <option>Cidade</option>
-              <option>Natureza</option>
-              <option>Aventura</option>
-              <option>Luxo</option>
-            </select>
-          </div>
-          <div class="grupo">
-            <label for="duracao">Duração</label>
-            <input type="text" id="duracao" placeholder="Ex.: 7 dias / 6 noites" />
+            <label for="descricao">Descrição</label>
+            <textarea id="descricao" rows="5"></textarea>
           </div>
           <div class="grupo">
             <label for="preco">Preço</label>
             <input type="number" id="preco" step="0.01" min="0" required />
           </div>
           <div class="grupo">
-            <label for="parcelamento">Parcelamento</label>
-            <input type="text" id="parcelamento" placeholder="Ex.: 12x de R$ 399" />
-          </div>
-          <div class="grupo">
-            <label for="hotel">Hotel</label>
-            <input type="text" id="hotel" />
-          </div>
-          <div class="grupo">
-            <label for="passagem">Passagem aérea inclusa</label>
-            <select id="passagem">
-              <option value="true">Sim</option>
-              <option value="false" selected>Não</option>
-            </select>
-          </div>
-          <div class="grupo">
-            <label for="seguro">Seguro viagem</label>
-            <select id="seguro">
-              <option value="true">Sim</option>
-              <option value="false" selected>Não</option>
-            </select>
-          </div>
-          <div class="grupo">
-            <label for="cafe">Café da manhã</label>
-            <select id="cafe">
-              <option value="true">Sim</option>
-              <option value="false" selected>Não</option>
-            </select>
-          </div>
-          <div class="grupo">
-            <label for="status">Status</label>
-            <select id="status">
-              <option value="ativo">Ativo</option>
-              <option value="inativo">Inativo</option>
-            </select>
-          </div>
-          <div class="grupo">
-            <label for="descricao">Descrição</label>
-            <textarea id="descricao" rows="5"></textarea>
+            <label for="dias">Quantidade de dias</label>
+            <input type="number" id="dias" min="1" step="1" required />
           </div>
           <div class="grupo">
             <label for="imagem">Imagem</label>
