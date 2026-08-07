@@ -569,3 +569,36 @@ img {
   cursor: pointer;
   font-weight: bold;
 }
+
+.card-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.card.card-erro {
+  border: 2px solid #dc3545;
+}
+
+.card.card-erro i,
+.card.card-erro h2 {
+  color: #dc3545;
+}
+
+.dashboard-status {
+  color: #64748b;
+  margin-top: 8px;
+  min-height: 20px;
+}
+
+.dashboard-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+#btnAtualizar:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
