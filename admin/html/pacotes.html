@@ -3,13 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title>Painel Administrativo</title>
-
-    <link rel="stylesheet" href="../css/admin.css"/>
-    <link rel="stylesheet" href="../css/media.css"/>
-    <link rel="stylesheet" href="../css/keyframes.css"/>
-
+    <link rel="stylesheet" href="../css/admin.css" />
+    <link rel="stylesheet" href="../css/media.css" />
+    <link rel="stylesheet" href="../css/keyframes.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -21,46 +18,25 @@
       <aside class="sidebar">
         <h2>TRIP</h2>
         <span>PLANNER</span>
-
         <nav>
-          <a href="dashboard.html">
-            <i class="fa-solid fa-chart-line"></i>
-            Dashboard
-          </a>
-
-          <a href="destino.html">
-            <i class="fa-solid fa-earth-americas"></i>
-            Destinos
-          </a>
-
-          <a href="promocoes.html">
-            <i class="fa-solid fa-percent"></i>
-            Promoções
-          </a>
-
-          <a href="pacotes.html">
-            <i class="fa-solid fa-plane"></i>
-            Pacotes
-          </a>
-
-          <a href="contato.html">
-            <i class="fa-solid fa-envelope"></i>
-            Contatos
-          </a>
+          <a href="dashboard.html"><i class="fa-solid fa-chart-line"></i> Dashboard</a>
+          <a href="destino.html"><i class="fa-solid fa-earth-americas"></i> Destinos</a>
+          <a href="promocoes.html"><i class="fa-solid fa-percent"></i> Promoções</a>
+          <a href="pacotes.html" class="ativo"><i class="fa-solid fa-plane"></i> Pacotes</a>
+          <a href="contato.html"><i class="fa-solid fa-envelope"></i> Contatos</a>
         </nav>
       </aside>
+
       <main class="conteudo">
         <header>
           <h1>Gerenciar Pacotes</h1>
           <button id="btnSair">Sair</button>
         </header>
+
         <section class="topo-pagina">
           <h2>Pacotes</h2>
-
           <button id="btnNovo" class="btn-primary">
-            <i class="fa-solid fa-plus"></i>
-
-            Novo Pacote
+            <i class="fa-solid fa-plus"></i> Novo Pacote
           </button>
         </section>
 
@@ -80,176 +56,119 @@
                 <th>Status</th>
                 <th>Ações</th>
               </tr>
-          </thead>
-          <tbody id="tbodyPacotes">
-            <tr>
-              <td>
-                <img src="/user/img/card1.jpg" class="thumb"/>
-              </td>
-              <td>Fernando de Noronha</td>
-              <td>Brasil</td>
-              <td>Nordeste</td>
-              <td>7 dias</td>
-              <td>R$ 4.990</td>
-              <td>12x de R$ 415</td>
-              <td>Pousada Mar Azul</td>
-              <td>Ativo</td>
-              <td>
-                  <button class="btn-editar">
-                    <i class="fa-solid fa-pen"></i>
-                  </button>
-
-                  <button class="btn-excluir">
-                    <i class="fa-solid fa-trash"></i>
-                  </button>
-                </td>
-              </tr>
-            </tbody>
+            </thead>
+            <tbody id="tbodyPacotes"></tbody>
           </table>
         </section>
       </main>
     </div>
-    <script type="module" src="../JS/pacotes.js"></script>
-    <script type="module" src="../JS/admin.js"></script>
 
     <div class="modal" id="modalPacotes">
       <div class="modal-content">
         <div class="modal-header">
-          <h2>Novo Pacotes</h2>
-          <button id="fecharModal">
+          <h2>Novo Pacote</h2>
+          <button id="fecharModal" type="button">
             <i class="fa-solid fa-xmark"></i>
           </button>
         </div>
+
         <form id="form">
           <div class="grupo">
-            <label>Nome do destino</label>
-            <input
-              type="text"
-              id="nome"
-              required>
+            <label for="nome">Nome do destino</label>
+            <input type="text" id="nome" required />
           </div>
-
           <div class="grupo">
-            <label>País</label>
-            <input
-              type="text"
-              id="pais"
-              required>
+            <label for="pais">País</label>
+            <input type="text" id="pais" required />
           </div>
-
           <div class="grupo">
-            <label>Região</label>
-            <input
-              type="text"
-              id="regiao">
+            <label for="regiao">Região</label>
+            <input type="text" id="regiao" />
           </div>
-
           <div class="grupo">
-              <label>Categoria</label>
-              <select id="categoria">
-                <option>Praia</option>
-                <option>Montanha</option>
-                <option>Cidade</option>
-                <option>Natureza</option>
-                <option>Aventura</option>
-                <option>Luxo</option>
-              </select>
+            <label for="categoria">Categoria</label>
+            <select id="categoria">
+              <option>Praia</option>
+              <option>Montanha</option>
+              <option>Cidade</option>
+              <option>Natureza</option>
+              <option>Aventura</option>
+              <option>Luxo</option>
+            </select>
           </div>
-
           <div class="grupo">
-              <label>Duração</label>
-              <input
-                type="text"
-                id="duracao"
-                placeholder="Ex.: 7 dias">
+            <label for="duracao">Duração</label>
+            <input type="text" id="duracao" placeholder="Ex.: 7 dias / 6 noites" />
           </div>
-
           <div class="grupo">
-              <label>Preço</label>
-
-              <input
-                type="number"
-                id="preco"
-                step="0.01"
-                min="0">
+            <label for="preco">Preço</label>
+            <input type="number" id="preco" step="0.01" min="0" required />
           </div>
-
           <div class="grupo">
-            <label>Parcelamento</label>
-            <input
-              type="text"
-              id="parcelamento"
-              placeholder="Ex.: 12x de R$ 399">
+            <label for="parcelamento">Parcelamento</label>
+            <input type="text" id="parcelamento" placeholder="Ex.: 12x de R$ 399" />
           </div>
-
           <div class="grupo">
-            <label>Hotel</label>
-
-            <input
-              type="text"
-              id="hotel">
+            <label for="hotel">Hotel</label>
+            <input type="text" id="hotel" />
           </div>
-
           <div class="grupo">
-            <label>Passagem Aérea Inclusa</label>
+            <label for="passagem">Passagem aérea inclusa</label>
             <select id="passagem">
               <option value="true">Sim</option>
-              <option value="false">Não</option>
-          </select>
+              <option value="false" selected>Não</option>
+            </select>
           </div>
-
           <div class="grupo">
-            <label>Seguro Viagem</label>
-
+            <label for="seguro">Seguro viagem</label>
             <select id="seguro">
               <option value="true">Sim</option>
-              <option value="false">Não</option>
+              <option value="false" selected>Não</option>
             </select>
           </div>
-
           <div class="grupo">
-            <label>Café da manhã</label>
-
+            <label for="cafe">Café da manhã</label>
             <select id="cafe">
               <option value="true">Sim</option>
-              <option value="false">Não</option>
+              <option value="false" selected>Não</option>
             </select>
-
           </div>
-
           <div class="grupo">
-            <label>Status</label>
-
+            <label for="status">Status</label>
             <select id="status">
               <option value="ativo">Ativo</option>
               <option value="inativo">Inativo</option>
             </select>
           </div>
-
           <div class="grupo">
-            <label>Descrição</label>
-            <textarea
-              id="descricao"
-              rows="5"
-            ></textarea>
+            <label for="descricao">Descrição</label>
+            <textarea id="descricao" rows="5"></textarea>
           </div>
-
           <div class="grupo">
-            <label>Imagem</label>
-
+            <label for="imagem">Imagem</label>
             <input
-              type="file"
+              type="text"
               id="imagem"
-              accept="image/*">
+              placeholder="/user/img/banner 1.jpg ou https://..."
+            />
           </div>
-
-          <button
-            class="btn-primary"
-            type="submit">
-            Salvar Pacote
-      </button>
-      </form>
+          <button class="btn-primary" type="submit">Salvar Pacote</button>
+        </form>
       </div>
     </div>
+
+    <div class="modal" id="modalExcluir">
+      <div class="modal-content modal-confirmacao">
+        <h2>Excluir pacote</h2>
+        <p>Tem certeza que deseja excluir este pacote?</p>
+        <div class="botoes-confirmacao">
+          <button id="cancelarExcluir" class="btn-secundario" type="button">Cancelar</button>
+          <button id="confirmarExcluir" class="btn-danger" type="button">Excluir</button>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="../JS/pacotes.js"></script>
+    <script type="module" src="../JS/admin.js"></script>
   </body>
 </html>
