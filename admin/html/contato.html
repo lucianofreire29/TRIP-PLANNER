@@ -3,13 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title>Painel Administrativo</title>
-
-    <link rel="stylesheet" href="../css/admin.css"/>
-    <link rel="stylesheet" href="../css/media.css"/>
-    <link rel="stylesheet" href="../css/keyframes.css"/>
-
+    <link rel="stylesheet" href="../css/admin.css" />
+    <link rel="stylesheet" href="../css/media.css" />
+    <link rel="stylesheet" href="../css/keyframes.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -21,274 +18,161 @@
       <aside class="sidebar">
         <h2>TRIP</h2>
         <span>PLANNER</span>
-
         <nav>
-          <a href="dashboard.html">
-            <i class="fa-solid fa-chart-line"></i>
-            Dashboard
-          </a>
-
-          <a href="destino.html">
-            <i class="fa-solid fa-earth-americas"></i>
-            Destinos
-          </a>
-
-          <a href="promocoes.html">
-            <i class="fa-solid fa-percent"></i>
-            Promoções
-          </a>
-
-          <a href="pacotes.html">
-            <i class="fa-solid fa-plane"></i>
-            Pacotes
-          </a>
-
-          <a href="contato.html">
-            <i class="fa-solid fa-envelope"></i>
-            Contatos
-          </a>
+          <a href="dashboard.html"><i class="fa-solid fa-chart-line"></i> Dashboard</a>
+          <a href="destino.html"><i class="fa-solid fa-earth-americas"></i> Destinos</a>
+          <a href="promocoes.html"><i class="fa-solid fa-percent"></i> Promoções</a>
+          <a href="pacotes.html"><i class="fa-solid fa-plane"></i> Pacotes</a>
+          <a href="contato.html" class="ativo"><i class="fa-solid fa-envelope"></i> Contatos</a>
         </nav>
       </aside>
+
       <main class="conteudo">
         <header>
           <h1>Gerenciar Contatos</h1>
-            <button id="btnSair">
-            Sair
-            </button>
+          <button id="btnSair">Sair</button>
         </header>
 
         <section class="cards-contato">
           <div class="card-status total">
             <i class="fa-solid fa-envelope"></i>
             <h3>Total</h3>
-            <span id="totalSolicitacoes">58</span>
+            <span id="totalSolicitacoes">0</span>
           </div>
-
           <div class="card-status nova">
             <i class="fa-solid fa-envelope-open-text"></i>
-
             <h3>Não lidas</h3>
-
-            <span id="naoLidas">10</span>
+            <span id="naoLidas">0</span>
           </div>
-
           <div class="card-status andamento">
             <i class="fa-solid fa-clock"></i>
             <h3>Em andamento</h3>
-            <span id="emAndamento">22</span>
+            <span id="emAndamento">0</span>
           </div>
-
           <div class="card-status concluida">
             <i class="fa-solid fa-circle-check"></i>
             <h3>Atendidas</h3>
-            <span id="atendidas">26</span>
+            <span id="atendidas">0</span>
           </div>
-
         </section>
 
         <section class="topo-pagina-contato">
-
-            <h2>Solicitações</h2>
-
-            <input
-                type="text"
-                id="pesquisaContato"
-                placeholder="Pesquisar por nome, e-mail ou assunto..."
-            >
-
+          <h2>Solicitações</h2>
+          <input
+            type="search"
+            id="pesquisaContato"
+            placeholder="Pesquisar por nome, e-mail ou assunto..."
+          />
         </section>
 
         <section class="filtros-contato">
-
-            <button class="filtro-btn ativo" data-status="todos">
-                Todas
-                <span>58</span>
-            </button>
-
-            <button class="filtro-btn" data-status="nao-lida">
-                Não lidas
-                <span>10</span>
-            </button>
-
-            <button class="filtro-btn" data-status="andamento">
-                Em andamento
-                <span>22</span>
-            </button>
-
-            <button class="filtro-btn" data-status="atendida">
-                Atendidas
-                <span>26</span>
-            </button>
-
+          <button class="filtro-btn ativo" data-status="todos">
+            Todas <span>0</span>
+          </button>
+          <button class="filtro-btn" data-status="nao-lida">
+            Não lidas <span>0</span>
+          </button>
+          <button class="filtro-btn" data-status="andamento">
+            Em andamento <span>0</span>
+          </button>
+          <button class="filtro-btn" data-status="atendida">
+            Atendidas <span>0</span>
+          </button>
         </section>
 
         <p class="contador-resultados">
-            Solicitações encontradas:
-            <strong id="contadorResultados">58</strong>
+          Solicitações encontradas:
+          <strong id="contadorResultados">0</strong>
         </p>
 
         <section class="lista-destinos">
-
-            <table class="tabela">
-
-                <thead>
-
-                    <tr>
-                        <th>#</th>
-                        <th>Nome</th>
-                        <th>Email</th>
-                        <th>Telefone</th>
-                        <th>Assunto</th>
-                        <th>Reserva</th>
-                        <th>Data</th>
-                        <th>Status</th>
-                        <th>Ações</th>
-                    </tr>
-
-                </thead>
-
-                <tbody id="tbodyContatos">
-
-                    <tr data-status="nao-lida">
-
-                        <td>#001</td>
-
-                        <td>Maria de Souza Costa</td>
-
-                        <td>maria@email.com</td>
-
-                        <td>(85) 99999-9999</td>
-
-                        <td>Cancelamento</td>
-
-                        <td>TP4589</td>
-
-                        <td>
-                            31/07/2026
-                            <br>
-                            14:35
-                        </td>
-
-                        <td>
-                            <span class="status nao-lida">
-                                Não lida
-                            </span>
-                        </td>
-
-                        <td>
-
-                            <button class="btn-visualizar" title="Visualizar">
-                                <i class="fa-solid fa-eye"></i>
-                            </button>
-
-                            <button class="btn-excluir" title="Excluir">
-                                <i class="fa-solid fa-trash"></i>
-                            </button>
-
-                        </td>
-
-                    </tr>
-                    <tr data-status="andamento">
-
-                        <td>#002</td>
-                        <td>João Silva</td>
-                        <td>joao@email.com</td>
-                        <td>(85)99999-9999</td>
-                        <td>Alteração de Reserva</td>
-                        <td>TP8888</td>
-
-                        <td>
-                            30/07/2026
-                            <br>
-                            09:10
-                        </td>
-
-                        <td>
-                            <span class="status andamento">
-                                Em andamento
-                            </span>
-                        </td>
-
-                        <td>
-
-                            <button class="btn-visualizar">
-                                <i class="fa-solid fa-eye"></i>
-                            </button>
-
-                            <button class="btn-excluir">
-                                <i class="fa-solid fa-trash"></i>
-                            </button>
-
-                        </td>
-
-                    </tr>
-                </tbody>
-            </table>
+          <table class="tabela">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Telefone</th>
+                <th>Assunto</th>
+                <th>Reserva</th>
+                <th>Data</th>
+                <th>Status</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody id="tbodyContatos">
+              <tr>
+                <td colspan="9">Carregando contatos...</td>
+              </tr>
+            </tbody>
+          </table>
         </section>
-    </main>
+      </main>
     </div>
+
+    <div class="modal" id="modalContatos">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Detalhes da Solicitação</h2>
+          <button id="fecharModal" type="button">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <form id="formContato">
+          <div class="grupo">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" readonly />
+          </div>
+          <div class="grupo">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" readonly />
+          </div>
+          <div class="grupo">
+            <label for="telefone">Telefone</label>
+            <input type="text" id="telefone" readonly />
+          </div>
+          <div class="grupo">
+            <label for="reserva">Código da Reserva</label>
+            <input type="text" id="reserva" readonly />
+          </div>
+          <div class="grupo">
+            <label for="assunto">Assunto</label>
+            <input type="text" id="assunto" readonly />
+          </div>
+          <div class="grupo">
+            <label for="data">Data da Solicitação</label>
+            <input type="text" id="data" readonly />
+          </div>
+          <div class="grupo">
+            <label for="mensagem">Mensagem</label>
+            <textarea id="mensagem" rows="7" readonly></textarea>
+          </div>
+          <div class="grupo">
+            <label for="statusContato">Status</label>
+            <select id="statusContato">
+              <option value="nao-lida">Não lida</option>
+              <option value="andamento">Em andamento</option>
+              <option value="atendida">Atendida</option>
+            </select>
+          </div>
+          <button class="btn-primary" type="submit">Salvar Alterações</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="modal" id="modalExcluir">
+      <div class="modal-content modal-confirmacao">
+        <h2>Excluir solicitação</h2>
+        <p>Tem certeza que deseja excluir este contato?</p>
+        <div class="botoes-confirmacao">
+          <button id="cancelarExcluir" class="btn-secundario" type="button">Cancelar</button>
+          <button id="confirmarExcluir" class="btn-danger" type="button">Excluir</button>
+        </div>
+      </div>
+    </div>
+
     <script type="module" src="../JS/contato.js"></script>
     <script type="module" src="../JS/admin.js"></script>
-
-      <div class="modal" id="modalContatos">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h2>Detalhes da Solicitação</h2>
-
-            <button id="fecharModal">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-          </div>
-          <form id="form">
-            <div class="grupo">
-              <label>Nome</label>
-              <input type="text" id="nome" readonly>
-            </div>
-
-            <div class="grupo">
-              <label>E-mail</label>
-              <input type="email" id="email" readonly>
-            </div>
-
-            <div class="grupo">
-              <label>Telefone</label>
-              <input type="text" id="telefone" readonly>
-            </div>
-
-            <div class="grupo">
-              <label>Código da Reserva</label>
-              <input type="text" id="reserva" readonly>
-            </div>
-
-            <div class="grupo">
-              <label>Assunto</label>
-              <input type="text" id="assunto" readonly>
-            </div>
-
-            <div class="grupo">
-              <label>Data da Solicitação</label>
-              <input type="text" id="data" readonly>
-            </div>
-
-            <div class="grupo">
-              <label>Mensagem</label>
-              <textarea id="mensagem" rows="7" readonly></textarea>
-            </div>
-
-            <div class="grupo">
-              <label>Status</label>
-
-              <select id="status">
-                <option value="nao-lida">Não lida</option>
-                <option value="andamento">Em andamento</option>
-                <option value="atendida">Atendida</option>
-              </select>
-            </div>
-            <button class="btn-primary" type="submit">
-              Salvar Alterações
-            </button>
-          </form>
-        </div>
-    </div>
   </body>
 </html>
