@@ -127,7 +127,7 @@ Abra a página inicial da pasta `user` utilizando o navegador ou uma extensão d
 
 ## Autor
 
-Desenvolvido por **Luciano Freire**.
+Desenvolvido por **Luciano Freire e Karla Bianca**.
 
 - [GitHub](https://github.com/lucianofreire29)
 - [LinkedIn](https://www.linkedin.com/in/luciano-alves-391701233/)
