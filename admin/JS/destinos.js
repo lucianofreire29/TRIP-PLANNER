@@ -76,6 +76,7 @@ function obterDadosFormulario() {
     preco: Number(document.querySelector("#preco").value),
     estrelas: Number(document.querySelector("#estrelas").value),
     descricao: document.querySelector("#descricao").value,
+    descricao_banner: document.querySelector("#descricaoBanner").value.trim(),
     imagem: normalizarUrlImagem(inputImagem.value),
   };
 }
@@ -227,6 +228,9 @@ function editarDestino(destino) {
   document.querySelector("#estrelas").value = destino.estrelas;
 
   document.querySelector("#descricao").value = destino.descricao;
+
+  document.querySelector("#descricaoBanner").value =
+    destino.descricao_banner || "";
 
   inputImagem.value = destino.imagem || "";
   inputImagem.dispatchEvent(new Event("input"));
