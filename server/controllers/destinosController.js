@@ -10,18 +10,29 @@ export async function criarDestino(req, res) {
       preco,
       estrelas,
       descricao,
+      descricao_banner,
       imagem,
     } = req.body;
 
     const resultado = await pool.query(
       `INSERT INTO destinos
-            (nome,pais,regiao,categoria,preco,estrelas,descricao,imagem)
+            (nome,pais,regiao,categoria,preco,estrelas,descricao,descricao_banner,imagem)
 
-            VALUES ($1,$2,$3,$4,$5,$6,$7,$8)
+            VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9)
 
             RETURNING *`,
 
-      [nome, pais, regiao, categoria, preco, estrelas, descricao, imagem],
+      [
+        nome,
+        pais,
+        regiao,
+        categoria,
+        preco,
+        estrelas,
+        descricao,
+        descricao_banner,
+        imagem,
+      ],
     );
 
     res.status(201).json(resultado.rows[0]);
@@ -78,6 +89,7 @@ export async function atualizarDestino(req, res) {
       preco,
       estrelas,
       descricao,
+      descricao_banner,
       imagem,
     } = req.body;
 
@@ -91,10 +103,22 @@ export async function atualizarDestino(req, res) {
                 preco=$5,
                 estrelas=$6,
                 descricao=$7,
-                imagem=$8
-             WHERE id=$9
+                descricao_banner=$8,
+                imagem=$9
+             WHERE id=$10
              RETURNING *`,
-      [nome, pais, regiao, categoria, preco, estrelas, descricao, imagem, id],
+      [
+        nome,
+        pais,
+        regiao,
+        categoria,
+        preco,
+        estrelas,
+        descricao,
+        descricao_banner,
+        imagem,
+        id,
+      ],
     );
     res.json(resultado.rows[0]);
   } catch (erro) {
