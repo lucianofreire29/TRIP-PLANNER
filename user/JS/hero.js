@@ -70,9 +70,10 @@ function mostrarSlide(index) {
 
   const destino = heroData[index];
   heroTitle.textContent = destino.nome;
-  heroDescription.textContent =
-    destino.descricao ||
-    `Conheça ${destino.nome} e viva uma experiência inesquecível.`;
+  const descricaoBanner = destino.descricao_banner?.trim();
+  heroDescription.textContent = descricaoBanner
+    ? descricaoBanner.slice(0, 180)
+    : `Conheça ${destino.nome} e viva uma experiência inesquecível.`;
   heroLocation.innerHTML = `
     <i class="fa-solid fa-location-dot"></i>
     ${escaparHTML(destino.pais || "Local não informado")}
